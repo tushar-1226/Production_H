@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+.liquid {
+  font-size: 30px;
+  color: rgb(31, 1, 93);
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+
+}
+
+.navbar {
+  border: 1px solid rgb(159, 159, 159);
+  border-radius: 10px;
+}
+
+.xyz {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 65px;
+  line-height: 0.95;
+  /* letter-spacing: -0.02em; */
+  text-transform: uppercase;
+  color: #2d0f3f;
+}
+
+.title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #2d0f3f;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  text-align: center;
+}
