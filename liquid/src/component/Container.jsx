@@ -5,7 +5,7 @@ import Right from './Right'
 
 const Container = () => {
     return (
-        <div className='flex w-full h-[600px]'>
+        <div className='flex w-full container pb-6'>
             <div className='w-1/3'>
                 <Left />
             </div>
@@ -15,6 +15,7 @@ const Container = () => {
             <div className='w-1/3'>
                 <Right/>
             </div>
+            
         </div>
     )
 }

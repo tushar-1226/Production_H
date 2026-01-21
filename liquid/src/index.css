@@ -1,33 +1,64 @@
 @import "tailwindcss";
 
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: #f5f5dc;
+}
+
 .liquid {
   font-size: 30px;
-  color: rgb(31, 1, 93);
+  color: #2c3e50;
   font-weight: 600;
   font-family: 'Orbitron', sans-serif;
-
 }
 
 .navbar {
-  border: 1px solid rgb(159, 159, 159);
-  border-radius: 10px;
+  border: 2px solid #8b4513;
+  border-radius: 0;
+  background-color: #fff8dc;
 }
 
 .xyz {
   font-family: 'Orbitron', sans-serif;
   font-size: 65px;
   line-height: 0.95;
-  /* letter-spacing: -0.02em; */
   text-transform: uppercase;
-  color: #2d0f3f;
+  color: #2c3e50;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
   font-family: 'Orbitron', sans-serif;
   font-size: 48px;
-  font-weight: 500;
-  color: #2d0f3f;
+  font-weight: 700;
+  color: #2c3e50;
   letter-spacing: 0.05em;
   text-transform: capitalize;
   text-align: center;
+  background-color: #fff8dc;
+  padding: 10px;
+  border: 1px solid #8b4513;
+  border-radius: 5px;
+}
+
+.slogan {
+  /* font-family: 'Times New Roman', serif; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 2px solid #8b4513;
+  color: #2c3e50;
+  background-color: #fff8dc;
+}
+.shopnow{
+  background-color: #ff9a3c;
+  color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+
+}
+.background{
+  background-color: #ff9a3c;
+}
+.round-text{
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
