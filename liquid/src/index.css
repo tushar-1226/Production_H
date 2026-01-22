@@ -1,84 +1,117 @@
 @import "tailwindcss";
 
 body {
-  font-family: 'Times New Roman', serif;
-  background-color: #f5f5dc;
+  font-family: 'Georgia', serif;
+  background-color: #ffffff;
 }
 
 .liquid {
   font-size: 30px;
-  color: #2c3e50;
+  color: #333333;
   font-weight: 600;
   font-family: 'Orbitron', sans-serif;
 }
 
 .navbar {
-  border: 2px solid #8b4513;
+  border: 1px solid #e0e0e0;
   border-radius: 0;
-  background-color: #fff8dc;
+  background-color: #ffffff;
 }
 
 .xyz {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Georgia', serif;
   font-size: 65px;
   line-height: 0.95;
   text-transform: uppercase;
-  color: #2c3e50;
+  color: #333333;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 48px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #333333;
   letter-spacing: 0.05em;
   text-transform: capitalize;
   text-align: center;
-  background-color: #fff8dc;
+  background-color: #f9f9f9;
   padding: 10px;
-  border: 1px solid #8b4513;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
 }
 
 .slogan {
   /* font-family: 'Times New Roman', serif; */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 2px solid #8b4513;
-  color: #2c3e50;
-  background-color: #fff8dc;
+  font-family: 'Georgia', serif;
+  border: 1px solid #e0e0e0;
+  color: #333333;
+  background-color: #f9f9f9;
 }
-.shopnow{
-  background-color: #ff9a3c;
+
+.shopnow {
+  background-color: rgb(61, 61, 61);
   color: #ffffff;
-    font-family: 'Orbitron', sans-serif;
+  font-family: 'Georgia', serif;
+}
 
+.background {
+  background-color: #007bff;
 }
-.background{
-  background-color: #ff9a3c;
-}
-.round-text{
+
+.round-text {
   font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Georgia', serif;
 }
-.our_story{
-      font-family: 'Orbitron', sans-serif;
-      color: #2c3e50;
-      font-weight: 500;
+
+.our_story {
+  font-family: 'Playfair Display', serif;
+  color: #333333;
+  font-weight: 700;
 
 }
-.our_story_text{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #2c3e50;
+
+.our_story_text {
+  font-family: 'Georgia', serif;
+  color: #333333;
 }
-.leo{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 600;
-  color: #2c3e50;
-}
-.our_collabs{
-  font-family: 'Orbitron', sans-serif;
-  color: #2c3e50;
+
+.stats {
+  font-family: "Inter";
   font-weight: 700;
+  color: #333333;
+  border: 1px solid #f1e6e6;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.05),
+    0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease-out;
+
+}
+.stats:hover{
+  transform: translateY(-5px);
+
+}
+
+.our_collabs {
+  font-family: 'Playfair Display', serif;
+  color: #333333;
+  font-weight: 700;
+}
+
+.text_para {
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+  color: #333333;
+  margin: 10px;
+}
+
+.cards {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.cards:hover {
+  transform: none;
 }
