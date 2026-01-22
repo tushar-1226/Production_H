@@ -62,3 +62,23 @@ body {
   font-size: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.our_story{
+      font-family: 'Orbitron', sans-serif;
+      color: #2c3e50;
+      font-weight: 500;
+
+}
+.our_story_text{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #2c3e50;
+}
+.leo{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  color: #2c3e50;
+}
+.our_collabs{
+  font-family: 'Orbitron', sans-serif;
+  color: #2c3e50;
+  font-weight: 700;
+}
