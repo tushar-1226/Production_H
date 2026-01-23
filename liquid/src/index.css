@@ -24,11 +24,11 @@ body {
   line-height: 0.95;
   text-transform: uppercase;
   color: #333333;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Georgia', serif;
   font-size: 48px;
   font-weight: 700;
   color: #333333;
@@ -42,7 +42,6 @@ body {
 }
 
 .slogan {
-  /* font-family: 'Times New Roman', serif; */
   font-family: 'Georgia', serif;
   border: 1px solid #e0e0e0;
   color: #333333;
@@ -68,6 +67,7 @@ body {
   font-family: 'Playfair Display', serif;
   color: #333333;
   font-weight: 700;
+  
 
 }
 
@@ -106,6 +106,7 @@ body {
   margin: 10px;
 }
 
+
 .cards {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -114,4 +115,14 @@ body {
 
 .cards:hover {
   transform: none;
+}
+.review_card{
+  border-radius: 20px;
+  background-color: #e0e0e0;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+.review_card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }

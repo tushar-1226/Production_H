@@ -16,12 +16,39 @@ const Page2 = () => {
     { name: "Monster", src: "/monster.png" },
   ];
 
+  const drinks = [
+    {
+      id: 1,
+      image: 'can3.png',
+      title: 'Wine & Spirits',
+      description: 'We curate premium wines and spirits crafted for celebrations, nights out, and special occasions.'
+    },
+    {
+      id: 2,
+      image: 'tea.png',
+      title: 'Coffee & Tea',
+      description: 'From energizing coffee to calming tea, brewed to elevate your daily rituals.'
+    },
+    {
+      id: 3,
+      image: 'softdrink.png',
+      title: 'Soft Drinks',
+      description: 'Classic and modern refreshments that keep every moment light, fresh, and flavorful.'
+    },
+    {
+      id: 4,
+      image: 'energydrink.png',
+      title: 'Signature & Special Drinks',
+      description: 'Unique blends and exclusive drinks designed to create unforgettable experiences.'
+    }
+  ];
+
   return (
     <div className='flex flex-col pb-10 pt-40  '>
       <div className='text-5xl mb-10 our_story flex justify-center items-center '>
         <h1>The Story Behind Every Sip</h1>
       </div>
-      <div className='our_story_text px-40 text-2xl -mt-7'>
+      <div className='our_story_text px-40 text-2xl -mt-7 '>
         <p>At the heart of our brand is our relationship with people. We proudly serve beverages for all ages — from playful childhood moments to meaningful adult celebrations. With 10,000+ daily orders and the trust of 100+ partner companies, our growth is driven by the smiles, loyalty, and confidence our customers place in us every single day.</p>
       </div>
 
@@ -33,7 +60,7 @@ const Page2 = () => {
             <p className='text-4xl text-gray-700'>10,000+</p>
             <p className='text-2xl text-gray-500'>orders</p>
           </div>
-          <img src='order.png' className='w-25'/>
+          <img src='order.png' className='w-25' />
         </div>
 
         <div className='bg-gray-400 h-20 w-0.5 b'></div>
@@ -43,7 +70,7 @@ const Page2 = () => {
             <p className='text-4xl font-bold text-gray-700'>45+</p>
             <p className='text-2xl text-gray-500'>cities</p>
           </div>
-          <img src='location.png' className='w-25'/>
+          <img src='location.png' className='w-25' />
         </div>
 
         <div className='bg-gray-400 h-20 w-0.5 b'></div>
@@ -53,22 +80,10 @@ const Page2 = () => {
             <p className='text-4xl font-bold text-gray-700'>1000+</p>
             <p className='text-2xl text-gray-500'>drinks</p>
           </div>
-          <img src='drink.png' className='w-25'/>
+          <img src='drink.png' className='w-25' />
         </div>
       </div>
 
-      {/* <div className='flex justify-center m-20'>
-        <video
-          className='opacity-85 h-auto w-[800px]'
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div> */}
       <div>
         <div>
           <p className='flex justify-center items-center text-3xl py-5 our_collabs'>
@@ -84,56 +99,33 @@ const Page2 = () => {
         </div>
 
       </div>
+
       <div className='m-30'>
+
         <div className='flex flex-col justify-center items-center mb-10'>
           <p className='text-5xl our_story'>What can you sip today?</p>
           <p className='text_para'>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
         </div>
+
         <div className="grid grid-cols-4 gap-8 px-10">
-          
-          <div className='bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-            <div className='mb-4'>
-              <img src='can3.png' className='h-32 w-auto object-contain'/>
-            </div>
-            <div>
-              <h3 className="font-semibold text-xl mb-2 text-gray-800">Wine & Spirits</h3>
-              <p className="text-gray-600">We curate premium wines and spirits crafted for celebrations, nights out, and special occasions.</p>
-            </div>
-          </div>
+          {drinks.map((drink) => (
+            <div
+              key={drink.id}
+              className='category border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
 
-          <div className='bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-            <div className='mb-4'>
-              <img src='tea.png' className='h-32 w-auto object-contain'/>
+              <div className='mb-4'>
+                <img src={drink.image} alt={drink.title} className='h-32 w-auto object-contain' />
+              </div>
+              <div>
+                <h3 className="font-semibold text-xl mb-2 text-gray-800">{drink.title}</h3>
+                <p className="text-gray-600">{drink.description}</p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-semibold text-xl mb-2 text-gray-800">Coffee & Tea</h3>
-              <p className="text-gray-600">From energizing coffee to calming tea, brewed to elevate your daily rituals.</p>
-            </div>
-          </div>
-
-          <div className='bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-            <div className='mb-4'>
-              <img src='softdrink.png' className='h-32 w-auto object-contain'/>
-            </div>
-            <div>
-              <h3 className="font-semibold text-xl mb-2 text-gray-800">Soft Drinks</h3>
-              <p className="text-gray-600">Classic and modern refreshments that keep every moment light, fresh, and flavorful.</p>
-            </div>
-          </div>
-
-          <div className='bg-white border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
-            <div className='mb-4'>
-              <img src='energydrink.png' className='h-32 w-auto object-contain'/>
-            </div>
-            <div>
-              <h3 className="font-semibold text-xl mb-2 text-gray-800">Signature & Special Drinks</h3>
-              <p className="text-gray-600">Unique blends and exclusive drinks designed to create unforgettable experiences.</p>
-            </div>
-          </div>
-
+          ))}
         </div>
-
       </div>
+
+
     </div>
   )
 }
