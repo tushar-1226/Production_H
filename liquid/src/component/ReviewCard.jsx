@@ -43,7 +43,8 @@ const ReviewCard = () => {
           <p className='text-5xl our_story'>What people say after every Sip?</p>
           <p className='text_para'>Real stories from people who choose Liquid for everyday refreshment and special moments alike.</p>
         </div>
-        <div className=' flex ml-10  gap-10'>
+
+        <div className=' flex ml-10  gap-10 mb-30'>
 
           <div className='flex ml-10 gap-10'>
             {reviews.map((review) => (

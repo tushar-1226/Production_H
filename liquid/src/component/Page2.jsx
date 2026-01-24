@@ -53,9 +53,9 @@ const Page2 = () => {
       </div>
 
 
-      <div className='flex justify-center items-center p-5 my-20 mx-60 gap-15 stats'>
+      <div className='flex justify-center items-center p-5 my-20 mx-70 gap-10 stats'>
 
-        <div className='flex items-center gap-4 justify-between ml-0 pl-0 '>
+        <div className='flex items-center gap-2 justify-between ml-0 pl-0 '>
           <div>
             <p className='text-4xl text-gray-700'>10,000+</p>
             <p className='text-2xl text-gray-500'>orders</p>
@@ -63,9 +63,9 @@ const Page2 = () => {
           <img src='order.png' className='w-25' />
         </div>
 
-        <div className='bg-gray-400 h-20 w-0.5 b'></div>
+        <div className='bg-gray-400 h-20 w-0.5 '></div>
 
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center '>
           <div>
             <p className='text-4xl font-bold text-gray-700'>45+</p>
             <p className='text-2xl text-gray-500'>cities</p>
@@ -75,7 +75,7 @@ const Page2 = () => {
 
         <div className='bg-gray-400 h-20 w-0.5 b'></div>
 
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center '>
           <div>
             <p className='text-4xl font-bold text-gray-700'>1000+</p>
             <p className='text-2xl text-gray-500'>drinks</p>

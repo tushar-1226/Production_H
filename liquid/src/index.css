@@ -9,7 +9,7 @@ body {
   font-size: 30px;
   color: #333333;
   font-weight: 600;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Georgia', serif;
 }
 
 .navbar {
@@ -125,4 +125,8 @@ body {
 .review_card:hover{
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.why_liquid{
+  
+  font-family:  'Playfair Display', serif;
 }
