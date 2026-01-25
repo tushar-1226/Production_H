@@ -44,63 +44,15 @@ const Page2 = () => {
   ];
 
   return (
-    <div className='flex flex-col pb-10 pt-40  '>
-      <div className='text-5xl mb-10 our_story flex justify-center items-center '>
+    <div className='flex flex-col mb-20   '>
+      {/* <div className='text-5xl mb-10 our_story flex justify-center items-center '>
         <h1>The Story Behind Every Sip</h1>
       </div>
       <div className='our_story_text px-40 text-2xl -mt-7 '>
         <p>At the heart of our brand is our relationship with people. We proudly serve beverages for all ages — from playful childhood moments to meaningful adult celebrations. With 10,000+ daily orders and the trust of 100+ partner companies, our growth is driven by the smiles, loyalty, and confidence our customers place in us every single day.</p>
-      </div>
+      </div>   */}
 
-
-      <div className='flex justify-center items-center p-5 my-20 mx-70 gap-10 stats'>
-
-        <div className='flex items-center gap-2 justify-between ml-0 pl-0 '>
-          <div>
-            <p className='text-4xl text-gray-700'>10,000+</p>
-            <p className='text-2xl text-gray-500'>orders</p>
-          </div>
-          <img src='order.png' className='w-25' />
-        </div>
-
-        <div className='bg-gray-400 h-20 w-0.5 '></div>
-
-        <div className='flex items-center '>
-          <div>
-            <p className='text-4xl font-bold text-gray-700'>45+</p>
-            <p className='text-2xl text-gray-500'>cities</p>
-          </div>
-          <img src='location.png' className='w-25' />
-        </div>
-
-        <div className='bg-gray-400 h-20 w-0.5 b'></div>
-
-        <div className='flex items-center '>
-          <div>
-            <p className='text-4xl font-bold text-gray-700'>1000+</p>
-            <p className='text-2xl text-gray-500'>drinks</p>
-          </div>
-          <img src='drink.png' className='w-25' />
-        </div>
-      </div>
-
-      <div>
-        <div>
-          <p className='flex justify-center items-center text-3xl py-5 our_collabs'>
-            Our Top Collabs
-          </p>
-        </div >
-        <div className='flex justify-center items-center gap-3'>
-          {brandLogos.map((brands, index) => (
-
-            <img src={brands.src} className='h-20 w-auto object-contain transition-all duration-300 ease-out hover:scale-[1.05]' />
-          ))}
-
-        </div>
-
-      </div>
-
-      <div className='m-30'>
+      <div className='m-20'>
 
         <div className='flex flex-col justify-center items-center mb-10'>
           <p className='text-5xl our_story'>What can you sip today?</p>
@@ -121,6 +73,20 @@ const Page2 = () => {
                 <p className="text-gray-600">{drink.description}</p>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <p className='flex justify-center items-center text-3xl py-5 our_collabs'>
+            Our Top Collabs
+          </p>
+        </div >
+        <div className='flex justify-center items-center gap-3'>
+          {brandLogos.map((brands, index) => (
+
+            <img src={brands.src} className='h-20 w-auto object-contain transition-all duration-300 ease-out hover:scale-[1.05]' />
           ))}
         </div>
       </div>

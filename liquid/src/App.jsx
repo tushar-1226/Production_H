@@ -10,12 +10,12 @@ import Achievement from './component/Achievement'
 const App = () => {
   return (
     <div className='pt-16'>
-      <Navbar/>
-      <Title/>
-      <Container/>
-      <Page2/>
-      <ReviewCard/>
-      <Achievement/>
+      <Navbar />
+      <Title />
+      <Container />
+      <Page2 />
+      <Achievement />
+      <ReviewCard />
     </div>
   )
 }
