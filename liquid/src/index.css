@@ -1,132 +1,91 @@
 @import "tailwindcss";
 
 body {
-  font-family: 'Georgia', serif;
-  background-color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: #0A0A0B;
+  color: #E8E8E8;
 }
 
 .liquid {
   font-size: 30px;
-  color: #333333;
+  color: #E8E8E8;
   font-weight: 600;
-  font-family: 'Georgia', serif;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .navbar {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #333333;
   border-radius: 0;
-  background-color: #ffffff;
+  background-color: #0A0A0B;
 }
 
 .xyz {
-  font-family: 'Georgia', serif;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 65px;
   line-height: 0.95;
   text-transform: uppercase;
-  color: #333333;
+  color: #E8E8E8;
   font-weight: 600;
 }
 
-.title {
-  font-family: 'Georgia', serif;
-  font-size: 48px;
-  font-weight: 700;
-  color: #333333;
-  letter-spacing: 0.05em;
-  text-transform: capitalize;
-  text-align: center;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-}
-
 .slogan {
-  font-family: 'Georgia', serif;
-  border: 1px solid #e0e0e0;
-  color: #333333;
-  background-color: #f9f9f9;
-}
-
-.shopnow {
-  background-color: rgb(61, 61, 61);
-  color: #ffffff;
-  font-family: 'Georgia', serif;
-}
-
-.background {
-  background-color: #007bff;
+  font-family: 'JetBrains Mono', monospace;
+  border: 1px solid #333333;
+  color: #E8E8E8;
+  background-color: #1a1a1b;
 }
 
 .round-text {
   font-size: 20px;
-  font-family: 'Georgia', serif;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .our_story {
-  font-family: 'Playfair Display', serif;
-  color: #333333;
+  font-family: "DM Sans", sans-serif;
+  color: #E8E8E8;
   font-weight: 700;
-  
-
 }
 
 .our_story_text {
-  font-family: 'Georgia', serif;
-  color: #333333;
-}
-
-.stats {
-  font-family: "Inter";
-  font-weight: 700;
-  color: #333333;
-  border: 1px solid #f1e6e6;
-  border-radius: 20px;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.05),
-    0 12px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease-out;
-
-}
-.stats:hover{
-  transform: translateY(-5px);
-
-}
-
-.our_collabs {
-  font-family: 'Playfair Display', serif;
-  color: #333333;
-  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: #E8E8E8;
 }
 
 .text_para {
-  font-family: 'Georgia', serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 20px;
-  color: #333333;
+  color: #E8E8E8;
   margin: 10px;
 }
 
-
 .cards {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #333333;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #1a1a1b;
 }
 
 .cards:hover {
   transform: none;
 }
-.review_card{
-  border-radius: 20px;
-  background-color: #e0e0e0;
+
+.review_card {
+  background-color: #111113;
+  border: 1px solid #333333;
   transition: all 0.3s ease-out;
   cursor: pointer;
 }
-.review_card:hover{
-  transform: translateY(-8px);
+
+.review_card:hover {
+  transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid #00FFD1;
 }
-.why_liquid{
-  
-  font-family:  'Playfair Display', serif;
+
+.category {
+  background-color: #111113;
+  border: 1px solid #333333;
+}
+
+.category:hover {
+  border: 1px solid #00FFD1;
 }

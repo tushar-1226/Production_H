@@ -40,18 +40,18 @@ const ReviewCard = () => {
     <div>
       <div >
         <div className='flex flex-col justify-center items-center mb-10'>
-          <p className='text-5xl our_story'>What people say after every Sip?</p>
-          <p className='text_para'>Real stories from people who choose Liquid for everyday refreshment and special moments alike.</p>
+          <p className='text-5xl our_story '>What people say after every Sip?</p>
+          <p className='text_para '>Real stories from people who choose Liquid for everyday refreshment and special moments alike.</p>
         </div>
 
         <div className=' flex ml-10  gap-10 mb-30'>
 
           <div className='flex ml-10 gap-10'>
             {reviews.map((review) => (
-              <div key={review.id} className='review_card flex flex-col justify-center px-7 h-[370px] w-[320px] bg-amber-600'>
+              <div key={review.id} className='review_card flex flex-col justify-center px-7 h-[390px] w-[320px]'>
                 <div className='flex items-center pb-3'>
                   <div>
-                    <img src={review.image} alt={review.name} className='w-15 rounded-full mr-4' />
+                    <img src={review.image} alt={review.name} className='w-15 h-15 object-cover rounded-full mr-4' />
                   </div>
                   <div>
                     {'⭐'.repeat(review.rating)}
