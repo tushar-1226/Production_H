@@ -41,7 +41,7 @@ const Footer = () => {
             <p className="text-sm max-w-sm mb-4">
               We craft smooth, natural experiences — your feedback helps us refine everything we build.
             </p>
-            <div className="flex items-center gap-3" aria-label="Social links">
+            <div className="flex items-center gap-3">
               <a href="#" aria-label="Instagram" className="p-2 rounded-sm hover:bg-gray-800">
                 <Instagram size={20} />
               </a>
