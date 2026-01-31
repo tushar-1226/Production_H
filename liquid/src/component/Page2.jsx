@@ -46,7 +46,7 @@ const Page2 = () => {
   return (
     <div className='flex flex-col'>
 
-      <div className='m-20'>
+      <div className='m-20' id='about_us'>
 
         <div className='flex flex-col justify-center items-center mb-10'>
           <p className='text-5xl our_story '>What can you sip today?</p>

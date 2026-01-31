@@ -15,13 +15,13 @@ const Navbar = () => {
   return (
     <div className='fixed top-0 w-full navbar mt-1 z-10'>
       <div className='flex justify-between items-center p-2 px-4 md:px-10 '>
-        
+
         <div className='hidden md:flex gap-10 font-medium text-[17px]'>
-  <a href='#shop' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Shop</a>
-  <a href='#about_us' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>About us</a>
-  <a href='#flavours' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Flavours</a>
-  <a href='#learn' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Learn</a>
-</div>
+          <a href='#shop' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Shop</a>
+          <a href='#about_us' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>About us</a>
+          <a href='#flavours' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Flavours</a>
+          <a href='#learn' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Learn</a>
+        </div>
 
         <div>
           <span className='liquid text-2xl md:text-3xl'>
@@ -30,9 +30,9 @@ const Navbar = () => {
         </div>
 
         <div className='hidden md:flex gap-10 font-medium text-[17px] items-center'>
-          <a href='#our_story'className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Our story</a>
+          <a href='#our_story' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Our story</a>
           <a href='#contact' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Contact</a>
-          <Search size={20}  />
+          <Search size={20} />
           <Heart size={20} />
           <ShoppingBag size={20} />
         </div>
