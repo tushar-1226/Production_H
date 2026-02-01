@@ -9,7 +9,7 @@ const Container = () => {
   ]
 
   return (
-    <div className='flex w-full container pb-6 mb-20' >
+    <div className='flex w-full container pb-6 mb-20 pt-20' >
       <div className='w-1/3'>
         <div className=''>
           <div className='h-60 w-10'>

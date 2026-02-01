@@ -37,8 +37,8 @@ const ReviewCard = () => {
   ]
 
   return (
-    <div>
-      <div >
+  
+      <div id='our_story'>
         <div className='flex flex-col justify-center items-center mb-10'>
           <p className='text-5xl our_story '>What people say after every Sip?</p>
           <p className='text_para '>Real stories from people who choose Liquid for everyday refreshment and special moments alike.</p>
@@ -66,7 +66,7 @@ const ReviewCard = () => {
 
         </div>
       </div>
-    </div>
+  
   )
 }
 
