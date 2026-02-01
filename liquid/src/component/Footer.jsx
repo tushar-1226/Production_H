@@ -144,7 +144,7 @@ const Footer = () => {
 
         <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between text-sm text-gray-400">
           <div>© {new Date().getFullYear()} LIQUID — All rights reserved.</div>
-          <div className="mt-2 md:mt-0">Made with care • <span className="inline-flex items-center gap-2"> <Linkedin size={14}/> <a href="#" className="hover:underline">LinkedIn</a></span></div>
+          <div className="mt-2 md:mt-0">Made with care by harshit </div>
         </div>
       </div>
     </footer>
