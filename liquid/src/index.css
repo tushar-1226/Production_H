@@ -35,22 +35,10 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-.our_story {
-  font-family: "DM Sans", sans-serif;
-  color: #E8E8E8;
-  font-weight: 700;
-}
 
 .our_story_text {
   font-family: 'JetBrains Mono', monospace;
   color: #E8E8E8;
-}
-
-.text_para {
-  font-family: "DM Sans", sans-serif;
-  font-size: 20px;
-  color: #E8E8E8;
-  margin: 10px;
 }
 
 .cards {
