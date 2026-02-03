@@ -48,7 +48,7 @@ const ReviewCard = () => {
 
           <div className='flex ml-10 gap-10'>
             {reviews.map((review) => (
-              <div key={review.id} className='review_card flex flex-col justify-center px-7 h-[390px] w-[320px]'>
+              <div key={review.id} className='flex flex-col justify-center px-7 h-[390px] w-[320px] bg-[#111113] border border-[#333333] text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-[#00FFD1]'>
                 <div className='flex items-center pb-3'>
                   <div>
                     <img src={review.image} alt={review.name} className='w-15 h-15 object-cover rounded-full mr-4' />

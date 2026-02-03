@@ -1,9 +1,19 @@
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'JetBrains Mono', monospace;
   background-color: #0A0A0B;
   color: #E8E8E8;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .liquid {
@@ -11,21 +21,6 @@ body {
   color: #E8E8E8;
   font-weight: 600;
   font-family: 'JetBrains Mono', monospace;
-}
-
-.navbar {
-  border: 1px solid #333333;
-  border-radius: 0;
-  background-color: #0A0A0B;
-}
-
-.xyz {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 65px;
-  line-height: 0.95;
-  text-transform: uppercase;
-  color: #E8E8E8;
-  font-weight: 600;
 }
 
 .slogan {
@@ -68,24 +63,7 @@ body {
   transform: none;
 }
 
-.review_card {
-  background-color: #111113;
-  border: 1px solid #333333;
-  transition: all 0.3s ease-out;
-  cursor: pointer;
-}
-
-.review_card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  border: 1px solid #00FFD1;
-}
-
-.category {
-  background-color: #111113;
-  border: 1px solid #333333;
-}
-
-.category:hover {
-  border: 1px solid #00FFD1;
+.why_liquid {
+  background-color: #0A0A0B;
+  border-color: #333333;
 }

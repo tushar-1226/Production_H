@@ -44,7 +44,7 @@ const Page2 = () => {
   ];
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col justify-center items-center md:flex-row mx-auto  '>
 
       <div className='m-20' id='about_us'>
 
@@ -53,11 +53,11 @@ const Page2 = () => {
           <p className='text_para '>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
         </div>
 
-        <div className="grid grid-cols-4 gap-8 px-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-10   ">
           {drinks.map((drink) => (
             <div
               key={drink.id}
-              className='category p-7 flex flex-col items-center text-center hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer'>
+              className=' p-7 flex flex-col items-center text-center hover:shadow-lg bg-[#111113] border border-[#333333] text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px]  hover:border-[#00FFD1]'>
 
               <div className='mb-4'>
                 <img src={drink.image} alt={drink.title} className='h-32 w-auto object-contain' />
