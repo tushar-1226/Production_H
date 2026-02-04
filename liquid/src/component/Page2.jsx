@@ -46,14 +46,14 @@ const Page2 = () => {
   return (
     <div className='flex flex-col justify-center items-center md:flex-row mx-auto  '>
 
-      <div className='m-20' id='about_us'>
+      <div className='m-20 w-full' id='about_us'>
 
-        <div className='flex flex-col justify-center items-center mb-10'>
-          <p className='text-5xl our_story '>What can you sip today?</p>
-          <p className='text_para '>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
+        <div className='flex flex-col justify-center items-center mb-10 w-full px-5'>
+          <p className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-[#E8E8E8] font-bold text-center'>What can you sip today?</p>
+          <p className='sm:justify-center text-center max-w-3xl'>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-10   ">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-10 w-full  ">
           {drinks.map((drink) => (
             <div
               key={drink.id}

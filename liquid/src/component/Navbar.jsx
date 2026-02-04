@@ -16,7 +16,7 @@ const Navbar = () => {
     <div className='fixed top-0 w-full border border-[#333333] rounded-none bg-[#0A0A0B] mt-1 z-50'>
       <div className='flex justify-between items-center p-3 px-4 md:p-2 md:px-10'>
 
-        {/* Left Navigation - Hidden on mobile */}
+        
         <div className='hidden lg:flex gap-6 xl:gap-10 font-medium text-[15px] xl:text-[17px]'>
           <a href='#shop' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Shop</a>
           <a href='#about_us' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>About us</a>
@@ -24,14 +24,14 @@ const Navbar = () => {
           <a href='#learn' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Learn</a>
         </div>
 
-        {/* Logo - Centered on all screens */}
+        
         <div className='flex-1 lg:flex-none text-center lg:text-left'>
           <span className='liquid text-xl sm:text-2xl md:text-3xl'>
             LIQUID
           </span>
         </div>
 
-        {/* Right Navigation - Hidden on mobile/tablet */}
+        
         <div className='hidden lg:flex gap-6 xl:gap-10 font-medium text-[15px] xl:text-[17px] items-center'>
           <a href='#our_story' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Our story</a>
           <a href='#contact' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Contact</a>
@@ -40,7 +40,7 @@ const Navbar = () => {
           <ShoppingBag size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />
         </div>
 
-        {/* Mobile Icons & Menu Toggle */}
+        
         <div className='lg:hidden flex items-center gap-3 sm:gap-4'>
           <Search size={18} className='sm:w-5 sm:h-5 cursor-pointer' />
           <Heart size={18} className='sm:w-5 sm:h-5 cursor-pointer' />
@@ -51,7 +51,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      
       {menuOpen && (
         <div className='lg:hidden bg-[#0A0A0B] border-t border-[#333333] py-4 px-4 animate-fadeIn'>
           <nav className='flex flex-col gap-3 sm:gap-4 font-medium text-[16px] sm:text-[17px]'>
