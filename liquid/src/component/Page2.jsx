@@ -48,16 +48,16 @@ const Page2 = () => {
 
       <div className='m-20 w-full' id='about_us'>
 
-        <div className='flex flex-col justify-center items-center mb-10 w-full px-5'>
-          <p className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-[#E8E8E8] font-bold text-center'>What can you sip today?</p>
-          <p className='sm:justify-center text-center max-w-3xl'>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
+        <div className='flex flex-col justify-center items-center mb-10 w-full px-5 dark:text-[#E8E8E8]'>
+          <p className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center'>What can you sip today?</p>
+          <p className='text-sm sm:text-base md:text-lg lg:text-[20px] mt-3 md:mt-4 sm:justify-center text-center max-w-3xl'>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-10 w-full  ">
           {drinks.map((drink) => (
             <div
               key={drink.id}
-              className=' p-7 flex flex-col items-center text-center hover:shadow-lg bg-[#111113] border border-[#333333] text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px]  hover:border-[#00FFD1]'>
+              className=' p-7 flex flex-col items-center text-center hover:shadow-lg dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px]  hover:border-[#00FFD1]'>
 
               <div className='mb-4'>
                 <img src={drink.image} alt={drink.title} className='h-32 w-auto object-contain' />

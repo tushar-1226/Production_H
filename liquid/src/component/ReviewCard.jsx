@@ -39,19 +39,19 @@ const ReviewCard = () => {
   return (
 
     <div id='our_story' className='w-full mb-20'>
-      <div className='flex flex-col justify-center items-center mb-10 px-4 w-full '>
-        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-[#E8E8E8] font-bold text-center">
+      <div className='flex flex-col justify-center items-center mb-10 px-4 w-full dark:text-[#E8E8E8] '>
+        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
           What people say after every Sip?
         </p>
-        <p className=" text-sm sm:text-base md:text-lg lg:text-[20px] text-[#E8E8E8] mt-3 md:mt-4 sm:justify-center text-center max-w-3xl">
+        <p className=" text-sm sm:text-base md:text-lg lg:text-[20px] mt-3 md:mt-4 sm:justify-center text-center max-w-3xl">
           Real stories from people who choose Liquid for everyday refreshment and special moments alike.
         </p>
       </div>
 
 
-      <div className='grid grid-cols-2 lg:grid-cols-4 ml-10 gap-10'>
+      <div className='grid grid-cols-2 lg:grid-cols-4 mx-7 gap-10'>
         {reviews.map((review) => (
-          <div key={review.id} className='flex flex-col justify-center px-7  bg-[#111113] border border-[#333333] text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-[#00FFD1]'>
+          <div key={review.id} className='flex flex-col justify-center px-7  dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-[#00FFD1] py-4'>
             <div className='flex items-center pb-3'>
               <div>
                 <img src={review.image} alt={review.name} className='w-15 h-15 object-cover rounded-full mr-4' />

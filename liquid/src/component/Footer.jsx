@@ -32,7 +32,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-[#0A0A0B] text-gray-200 py-12" id='contact'>
+    <footer className=" bg-gray-300 dark:bg-[#0A0A0B] dark:text-gray-200 py-12" id='contact'>
       <div className="container mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
@@ -87,7 +87,7 @@ const Footer = () => {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Full name"
-                  className="p-2 bg-[#0F0F10] border border-gray-800 rounded text-sm"
+                  className="p-2 dark:bg-[#0F0F10] border border-gray-800 rounded text-sm"
                   aria-invalid={errors.name ? 'true' : 'false'}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                 />
@@ -101,7 +101,7 @@ const Footer = () => {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="Email address"
-                  className="p-2 bg-[#0F0F10] border border-gray-800 rounded text-sm"
+                  className="p-2 dark:bg-[#0F0F10] border border-gray-800 rounded text-sm"
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                 />
@@ -115,13 +115,13 @@ const Footer = () => {
                   value={form.message}
                   onChange={handleChange}
                   placeholder="Message"
-                  className="p-2 bg-[#0F0F10] border border-gray-800 rounded text-sm resize-none"
+                  className="p-2 dark:bg-[#0F0F10] border border-gray-800 rounded text-sm resize-none"
                   aria-invalid={errors.message ? 'true' : 'false'}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                 />
                 {errors.message && <div id="message-error" className="text-xs text-red-400">{errors.message}</div>}
 
-                <button type="submit" className="mt-2 bg-white text-black rounded-sm py-2 text-sm">
+                <button type="submit" className="mt-2 bg-black dark:bg-white text-white dark:text-black rounded-sm py-2 text-sm">
                   Send message
                 </button>
 
@@ -129,7 +129,7 @@ const Footer = () => {
               </div>
             </form>
 
-            <div className="mt-6 text-sm text-gray-400">
+            <div className="mt-6 text-sm  dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <Mail size={16} /> <a href="mailto:hello@liquid.example" className="hover:underline">hello@liquid.example</a>
               </div>
@@ -140,9 +140,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="border-t border-gray-800 mt-8" />
+        <hr className="border-t dark:border-gray-800 mt-8" />
 
-        <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between text-sm text-gray-400">
+        <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between text-sm dark:text-gray-400">
           <div>© {new Date().getFullYear()} LIQUID — All rights reserved.</div>
           <div className="mt-2 md:mt-0">Made with care by harshit </div>
         </div>
