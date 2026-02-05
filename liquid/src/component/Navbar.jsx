@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
+import ThemeToggleBtn from './ThemeToggleBtn';
 
-const Navbar = () => {
+const Navbar = ({theme, setTheme}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='fixed top-0 w-full border border-[#333333] rounded-none bg-[#0A0A0B] mt-1 z-50'>
+    <div className='fixed top-0 w-full border border-[#333333] rounded-none bg-white text-black  p-2 z-50'>
       <div className='flex justify-between items-center p-3 px-4 md:p-2 md:px-10'>
 
         
@@ -26,7 +27,7 @@ const Navbar = () => {
 
         
         <div className='flex-1 lg:flex-none text-center lg:text-left'>
-          <span className='liquid text-xl sm:text-2xl md:text-3xl'>
+          <span className='font-bold text-xl sm:text-2xl md:text-3xl'>
             LIQUID
           </span>
         </div>
@@ -35,6 +36,9 @@ const Navbar = () => {
         <div className='hidden lg:flex gap-6 xl:gap-10 font-medium text-[15px] xl:text-[17px] items-center'>
           <a href='#our_story' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Our story</a>
           <a href='#contact' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Contact</a>
+
+          <ThemeToggleBtn theme={theme} setTheme={setTheme} />
+
           <Search size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />
           <Heart size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />
           <ShoppingBag size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />

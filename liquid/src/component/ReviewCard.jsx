@@ -38,7 +38,7 @@ const ReviewCard = () => {
 
   return (
 
-    <div id='our_story' className='w-full'>
+    <div id='our_story' className='w-full mb-20'>
       <div className='flex flex-col justify-center items-center mb-10 px-4 w-full '>
         <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-[#E8E8E8] font-bold text-center">
           What people say after every Sip?

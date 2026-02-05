@@ -19,7 +19,7 @@ const Container = () => {
       </div>
 
       <div className="flex justify-center w-full lg:w-auto">
-        <div className="w-full max-w-[380px] border-2 border-gray-600 rounded-2xl why_liquid mx-auto bg-[#111113] text-white shadow-2xl">
+        <div className="w-full max-w-[380px] border-2 border-gray-600 rounded-2xl mx-auto bg-[#0A0A0B] text-white shadow-2xl">
           <div className="p-6 sm:p-8">
             <p className="flex justify-center text-2xl sm:text-3xl font-semibold mb-6">Why Liquid?</p>
             <div className="flex flex-col gap-4">

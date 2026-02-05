@@ -8,8 +8,8 @@
 
 body {
   font-family: 'JetBrains Mono', monospace;
-  background-color: #0A0A0B;
-  color: #E8E8E8;
+  background-color: #E8E8E8;
+  color: 0A0A0B;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -18,7 +18,6 @@ body {
 
 .liquid {
   font-size: 30px;
-  color: #E8E8E8;
   font-weight: 600;
   font-family: 'JetBrains Mono', monospace;
 }
