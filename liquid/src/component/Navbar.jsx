@@ -14,7 +14,7 @@ const Navbar = ({theme, setTheme}) => {
   };
 
   return (
-    <div className='fixed top-0 w-full border border-[#333333] rounded-none bg-white text-black  p-2 z-50'>
+    <div className='fixed top-0 w-full border border-[#333333] rounded-none bg-white text-black  dark:bg-[#0A0A0B] dark:text-white p-2 z-50'>
       <div className='flex justify-between items-center p-3 px-4 md:p-2 md:px-10'>
 
         
@@ -25,7 +25,6 @@ const Navbar = ({theme, setTheme}) => {
           <a href='#learn' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Learn</a>
         </div>
 
-        
         <div className='flex-1 lg:flex-none text-center lg:text-left'>
           <span className='font-bold text-xl sm:text-2xl md:text-3xl'>
             LIQUID
@@ -54,7 +53,7 @@ const Navbar = ({theme, setTheme}) => {
           </button>
         </div>
       </div>
-
+      
       
       {menuOpen && (
         <div className='lg:hidden bg-[#0A0A0B] border-t border-[#333333] py-4 px-4 animate-fadeIn'>
