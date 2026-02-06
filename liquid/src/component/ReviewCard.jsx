@@ -49,9 +49,9 @@ const ReviewCard = () => {
       </div>
 
 
-      <div className='grid grid-cols-2 lg:grid-cols-4 mx-7 gap-10'>
+      <div className="flex flex-wrap justify-center gap-8 md:px-10 max-w-6xl 2xl:max-w-full mx-auto">
         {reviews.map((review) => (
-          <div key={review.id} className='flex flex-col justify-center px-7  dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-[#00FFD1] py-4'>
+          <div key={review.id} className='flex flex-col max-w-xs md:max-w-sm lg:max-w-lg 2xl:max-w-xl justify-center px-7  dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-[#00FFD1] py-4'>
             <div className='flex items-center pb-3'>
               <div>
                 <img src={review.image} alt={review.name} className='w-15 h-15 object-cover rounded-full mr-4' />
@@ -62,7 +62,7 @@ const ReviewCard = () => {
                 <p>{review.location}</p>
               </div>
             </div>
-            <p>{review.review}</p>
+            <p  className='max-w-xl'>{review.review}</p>
           </div>
         ))}
       </div>

@@ -53,7 +53,7 @@ const Page2 = () => {
           <p className='text-sm sm:text-base md:text-lg lg:text-[20px] mt-3 md:mt-4 sm:justify-center text-center max-w-3xl'>From everyday refreshment to premium pours, we bring together drinks that fit every taste, mood, and moment.</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-8 md:px-10 max-w-6xl 2xl:max-w-full  mx-auto">
+        <div class="flex flex-wrap justify-center gap-8 md:px-10 max-w-6xl 2xl:max-w-full mx-auto">
           {drinks.map((drink) => (
             <div
               key={drink.id}
