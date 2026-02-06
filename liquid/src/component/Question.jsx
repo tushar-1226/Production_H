@@ -58,15 +58,16 @@ const Question = () => {
                 </p>
             </div>
 
-            <div className="flex justify-center items-center">
-                <div className="w-full max-w-4xl">
+            <div className="flex justify-center items-center mb-10 ">
+                <div className="w-full max-w-4xl dark:text-white ">
                     {faqs.map((items, index) => (
-                        <div key={index}>
+                        <div key={index} className={isOpen === index ? 'bg-gray-200 dark:bg-[#1a1a1d] p-2 rounded-sm' : ''}
+                             >
                             <div
-                                className="flex justify-between items-center w-full cursor-pointer"
-                                onClick={() => toggleAnswer(index)}
-                            >
-                                <p className="text-3xl font-bold">
+                                className="flex justify-between items-center w-full cursor-pointer p-2 rounded-sm hover:bg-gray-300 dark:hover:bg-gray-900 "
+                                onClick={() => toggleAnswer(index)}>
+
+                                <p className="text-3xl font-bold ">
                                     {items.question}
                                 </p>
                                 {isOpen === index ? <ChevronUp /> : <ChevronDown />}
