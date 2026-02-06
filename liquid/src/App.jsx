@@ -4,6 +4,7 @@ import Container from './component/Container'
 import Page2 from './component/Page2'
 import ReviewCard from './component/ReviewCard'
 import Footer from './component/Footer'
+import Question from './component/Question'
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
       <Container />
       <Page2 />
       <ReviewCard />
+      <Question/>
       <Footer/>
     </div>
   )
