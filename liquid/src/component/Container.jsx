@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Container = () => {
    const navigate = useNavigate()
-   
+
   const reasons = [
     { title: 'Premium Quality', desc: 'Where quality meets elegance.' },
     { title: 'Trusted Brands', desc: 'Brands have Global Recognition.' },
@@ -20,7 +20,7 @@ const Container = () => {
           Refined Sips <br />
           for Refined Tastes
         </h1>
-        <button className='bg-amber-300 p-2 ' onClick={() => navigate('/shop')}>
+        <button className='bg-gray-300 p-2 ' onClick={() => navigate('/shop')}>
         Go to Shop
       </button>
       

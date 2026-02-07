@@ -44,3 +44,12 @@ body {
 .cards:hover {
   transform: none;
 }
+.liq-text {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: clamp(8rem, 25vw, 22rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.95;
+}

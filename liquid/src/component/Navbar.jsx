@@ -43,9 +43,6 @@ const Navbar = ({theme, setTheme}) => {
 
           <ThemeToggleBtn theme={theme} setTheme={setTheme} />
 
-          <Search size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />
-          <Heart size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />
-          <ShoppingBag size={20} className='cursor-pointer hover:opacity-70 transition-opacity' />
         </div>
 
         
