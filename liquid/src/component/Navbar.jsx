@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import ThemeToggleBtn from './ThemeToggleBtn';
 
+
 const Navbar = ({theme, setTheme}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,7 +20,11 @@ const Navbar = ({theme, setTheme}) => {
 
         
         <div className='hidden lg:flex gap-6 xl:gap-10 font-medium text-[15px] xl:text-[17px]'>
+
           <a href='#shop' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Shop</a>
+
+          
+
           <a href='#about_us' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>About us</a>
           <a href='#flavours' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Flavours</a>
           <a href='#learn' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Learn</a>
