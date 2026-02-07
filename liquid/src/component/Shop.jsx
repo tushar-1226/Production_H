@@ -8,7 +8,7 @@ import Banner from './Banner';
 const Shop = () => {
   return (
     <div>
-      <div className='flex justify-between items-center py-3 px-5'>
+      <div className='flex justify-between items-center py-3 px-5 mb-5'>
         <div>
           <span className='font-bold text-xl sm:text-2xl md:text-3xl'>
             LIQUID

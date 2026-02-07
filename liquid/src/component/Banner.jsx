@@ -1,53 +1,59 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import assets from '../assets/assets'
+
+const dadu_drink = [
+  assets.dadu1, 
+  assets.dadu2, 
+  assets.dadu3
+]
+
+const monster_drink = [
+  assets.monster1, 
+  assets.monster2, 
+  assets.monster3, 
+  assets.monster4, 
+  assets.monster5, 
+  assets.monster6, 
+  assets.monster7
+]
 
 const Banner = () => {
-    return (
-        <div className="relative bg-black text-white overflow-hidden">
+  const [currentIndex1, setCurrentIndex1] = useState(0)
+  const [currentIndex2, setCurrentIndex2] = useState(0)
 
-            <div className="absolute inset-0 flex justify-center items-center z-0 pointer-events-none">
-                <h1 className="text-9xl liq-text opacity-90 text-gray-700">
-                    LIQUID
-                </h1>
-            </div>
+  useEffect(() => {
+    const interval1 = setInterval(() => {
+      setCurrentIndex1((prevIndex) => (prevIndex + 1) % dadu_drink.length)
+    }, 3000) 
 
-            <div className="relative z-20 flex flex-col items-center justify-center pt-50">
-                <div className="flex w-80 relative">
-                    <svg
-                        width="350"
-                        height="350"
-                        className="absolute left-1/2 -translate-x-1/2 -top-12 -z-10"
-                        viewBox="0 0 350 350"
-                    >
-                        <circle cx="175" cy="175" r="125" fill="#fffff" />
-                        <defs>
-                            <path
-                                id="circlePath"
-                                d="M 175,175 m -150,0 a 150,150 0 1,1 300,0 a 150,150 0 1,1 -300,0"
-                            />
-                        </defs>
-                        <text fontSize="18" fill="#E8E8E8" fontWeight="500">
-                            <textPath href="#circlePath" startOffset="25%" textAnchor="middle">
-                                <animate
-                                    attributeName="startOffset"
-                                    values="0%;100%"
-                                    dur="10s"
-                                    repeatCount="indefinite"
-                                />
-                                Spark • Chill • Lush • Zest • Sip • Nectar • Divine • Umami • Burst •
-                                Tingle • Crave • Punch • Gusto • Essence • Aroma • Trust
-                            </textPath>
-                        </text>
-                    </svg>
+    const interval2 = setInterval(() => {
+      setCurrentIndex2((prevIndex) => (prevIndex + 1) % monster_drink.length)
+    }, 3000) 
 
-                    <img src="logo1.png" className="w-full relative z-10" alt="logo" />
-                </div>
+    return () => {
+      clearInterval(interval1)
+      clearInterval(interval2)
+    }
+  }, [])
 
-            </div>
-
-        </div>
-
-    )
+  return (
+    <div className='flex gap-5'>
+      <div className="relative">
+        <img 
+          src={dadu_drink[currentIndex1]} 
+          alt="Dadu drink"
+          className="h-96 object-cover transition-opacity duration-500"
+        />
+      </div>
+      <div className="relative">
+        <img 
+          src={monster_drink[currentIndex2]} 
+          alt="Monster drink"
+          className="h-96 object-cover transition-opacity duration-500"
+        />
+      </div>
+    </div>
+  )
 }
 
 export default Banner
-
