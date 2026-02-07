@@ -59,7 +59,7 @@ const Question = () => {
             </div>
 
             <div className="flex justify-center items-center mb-10 ">
-                <div className="w-full max-w-4xl dark:text-white ">
+                <div className="w-full max-w-4xl dark:text-white mx-3 md:mx-4 lg:mx-5  ">
                     {faqs.map((items, index) => (
                         <div key={index} className={isOpen === index ? 'bg-gray-200 dark:bg-[#1a1a1d] p-2 rounded-sm' : ''}
                              >
@@ -67,14 +67,14 @@ const Question = () => {
                                 className="flex justify-between items-center w-full cursor-pointer p-2 rounded-sm hover:bg-gray-300 dark:hover:bg-gray-900 "
                                 onClick={() => toggleAnswer(index)}>
 
-                                <p className="text-3xl font-bold ">
+                                <p className="text-sm md:text-lg lg:text-xl font-bold ">
                                     {items.question}
                                 </p>
                                 {isOpen === index ? <ChevronUp /> : <ChevronDown />}
                             </div>
 
                             {isOpen === index && (
-                                <p className="text-xl mt-2">
+                                <p className="text-xs md:text-lg  mt-2">
                                     {items.answer}
                                 </p>
                             )}
