@@ -1,7 +1,7 @@
 import React from 'react'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import assets from '../assets/assets';
-import Banner from './Banner';
+import Banner from './EnergyDrink';
 
 
 

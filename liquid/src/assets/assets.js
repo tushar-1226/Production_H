@@ -22,6 +22,7 @@ import dadu3 from "./dadu3.jpg";
 import fanta from "./fanta.jpg";
 import vodka from "./vodka.jpg";
 import wine from "./wine.jpg";
+import Guru from "./Guru.jpg";
 
 // monster series
 import monster1 from "./monster1.jpg";
@@ -55,7 +56,8 @@ const assets = {
   Campa,
   Redbull,
   Twist,
-  Metrik
+  Metrik,
+  Guru
 };
 
 export default assets;
