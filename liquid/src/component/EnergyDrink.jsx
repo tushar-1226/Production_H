@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import assets from '../assets/assets'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -46,8 +46,6 @@ const energydrinks = [
     image: assets.Guru
   },
 ]
-
-
 
 const Banner = () => {
 

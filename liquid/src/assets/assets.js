@@ -5,28 +5,32 @@ import sunIcon from "./sun_icon.svg";
 // user
 import userPfp from "./pfp-user.jpg";
 
-import Campa from "./Campa.jpg"
+// banners
+import Banner1 from "./Banner1.jpg"
+import Banner2 from "./Banner2.jpg"
+import Banner3 from "./Banner3.jpg"
+import Banner4 from "./Banner4.jpg"
+import Banner5 from "./Banner5.jpg"
+import Banner6 from "./Banner6.jpg"
+import Banner7 from "./Banner7.jpg"
+import Banner8 from "./Banner8.jpg"
+import Banner9 from "./Banner9.jpg"
+import Banner10 from "./Banner10.jpg"
+import Banner11 from "./Banner11.jpg"
+import Banner12 from "./Banner12.jpg"
+import Banner13 from "./Banner13.jpg"
+import Banner14 from "./Banner14.jpg"
+import Banner15 from "./Banner15.jpg"
+import Banner16 from "./Banner16.jpg"
 
-// labels
-import blackLabel from "./black-label.jpg";
-import greenLabel from "./green-label.jpg";
+
+
+import Guru from "./Guru.jpg";
+import monster2 from "./monster2.jpg";
+import Campa from "./Campa.jpg"
 import Redbull from "./Redbull.jpg";
 import Twist from "./Twist.jpg";
 import Metrik from "./Metrik.jpg"
-
-
-// drinks / cans
-import dadu1 from "./dadu1.jpg";
-import dadu2 from "./dadu2.jpg";
-import dadu3 from "./dadu3.jpg";
-import fanta from "./fanta.jpg";
-import vodka from "./vodka.jpg";
-import wine from "./wine.jpg";
-import Guru from "./Guru.jpg";
-
-// monster series
-import monster1 from "./monster1.jpg";
-import monster2 from "./monster2.jpg";
 
 
 const assets = {
@@ -37,27 +41,33 @@ const assets = {
   // user
   userPfp,
 
-  // labels
-  blackLabel,
-  greenLabel,
-
-
-  // drinks
-  dadu1,
-  dadu2,
-  dadu3,
-  fanta,
-  vodka,
-  wine,
-
-  // monster
-  monster1,
+  //Energy Drink
   monster2,
   Campa,
   Redbull,
   Twist,
   Metrik,
-  Guru
+  Guru,
+
 };
+
+export const banners = [
+  Banner1,
+  Banner2,
+  Banner3,
+  Banner4,
+  Banner5,
+  Banner6,
+  Banner7,
+  Banner8,
+  Banner9,
+  Banner10,
+  Banner11,
+  Banner12,
+  Banner13,
+  Banner14,
+  Banner15,
+  Banner16,
+]
 
 export default assets;

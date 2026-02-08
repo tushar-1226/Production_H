@@ -2,7 +2,6 @@ import React from 'react'
 
 const ReviewCard = () => {
 
-
   const reviews = [
     {
       id: 1,
@@ -41,7 +40,6 @@ const ReviewCard = () => {
   const duplicatedReviews = [...reviews, ...reviews];
 
   return (
-
     <div id='our_story' className='w-full mb-20'>
       <div className='flex flex-col justify-center items-center mb-10 px-4 w-full dark:text-[#E8E8E8] '>
         <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
@@ -52,21 +50,18 @@ const ReviewCard = () => {
         </p>
       </div>
 
-
-
       <div className="relative w-full">
-        
-        
+        {/* Gradient overlays */}
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
 
-        
+        {/* Scrolling container */}
         <div className="overflow-hidden py-8">
-          <div className="flex gap-6 animate-scroll hover:pause-animation">
+          <div className="flex animate-scroll hover:pause-animation">
             {duplicatedReviews.map((review, index) => (
               <div
                 key={`${review.id}-${index}`}
-                className="flex flex-col min-w-[340px] sm:min-w-[380px] md:min-w-[420px] justify-center p-3 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-[#00FFD1]"
+                className="flex flex-col min-w-[340px] sm:min-w-[380px] md:min-w-[420px] justify-center p-3 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-[#00FFD1] mr-6"
               >
                 <div className='flex items-center pb-3'>
                   <div>
@@ -92,32 +87,27 @@ const ReviewCard = () => {
         </div>
       </div>
 
-      
+      {/* Animation styles */}
       <style jsx>{`
         @keyframes scroll {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-50%));
+            transform: translateX(-50%);
           }
         }
 
         .animate-scroll {
-          animation: scroll 20s linear infinite;
+          animation: scroll 40s linear infinite;
+          width: fit-content;
         }
 
         .hover\\:pause-animation:hover {
           animation-play-state: paused !important;
         }
       `}</style>
-
-
-
-
-
     </div>
-
   )
 }
 
