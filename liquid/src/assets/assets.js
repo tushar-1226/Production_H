@@ -5,6 +5,8 @@ import sunIcon from "./sun_icon.svg";
 // user
 import userPfp from "./pfp-user.jpg";
 
+import Campa from "./Campa.jpg"
+
 // labels
 import blackLabel from "./black-label.jpg";
 import greenLabel from "./green-label.jpg";
@@ -57,7 +59,9 @@ const assets = {
   monster4,
   monster5,
   monster6,
-  monster7
+  monster7,
+
+  Campa
 };
 
 export default assets;
