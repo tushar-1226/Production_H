@@ -53,3 +53,41 @@ body {
   white-space: nowrap;
   opacity: 0.95;
 }
+/* .crousel{
+  margin: 100px auto;
+  width: 90%;
+  border: 5px solid red;
+  overflow: hidden;
+}
+
+.track{
+  display: flex;
+  width: fit-content;
+  animation: scroll 10s infinite linear;
+}
+
+.group{
+  display: flex;
+  gap: 1em;
+  flex-shrink: 0;
+}
+
+.card{
+  flex: 0 0 5em;
+  height: 5em;
+  padding: 1em;
+  background-color: cornflowerblue;
+  font-size: 3rem;
+  border-radius: .2em;
+  text-align: center;
+  align-content: center;
+}
+
+@keyframes scroll{
+  0% { 
+    transform: translateX(0);
+  }
+  100% { 
+    transform: translateX(-50%);
+  }
+} */

@@ -1,6 +1,8 @@
 import React from 'react'
 
 const ReviewCard = () => {
+
+
   const reviews = [
     {
       id: 1,
@@ -36,6 +38,8 @@ const ReviewCard = () => {
     }
   ]
 
+  const duplicatedReviews = [...reviews, ...reviews];
+
   return (
 
     <div id='our_story' className='w-full mb-20'>
@@ -49,23 +53,67 @@ const ReviewCard = () => {
       </div>
 
 
-      <div className="flex flex-wrap justify-center gap-8 md:px-10 max-w-6xl 2xl:max-w-full mx-auto">
-        {reviews.map((review) => (
-          <div key={review.id} className='flex flex-col max-w-xs md:max-w-sm lg:max-w-lg 2xl:max-w-xl justify-center px-7  dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-[#00FFD1] py-4'>
-            <div className='flex items-center pb-3'>
-              <div>
-                <img src={review.image} alt={review.name} className='w-15 h-15 object-cover rounded-full mr-4' />
+
+      <div className="relative w-full">
+        
+        
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+
+        
+        <div className="overflow-hidden py-8">
+          <div className="flex gap-6 animate-scroll hover:pause-animation">
+            {duplicatedReviews.map((review, index) => (
+              <div
+                key={`${review.id}-${index}`}
+                className="flex flex-col min-w-[340px] sm:min-w-[380px] md:min-w-[420px] justify-center p-3 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-[#00FFD1]"
+              >
+                <div className='flex items-center pb-3'>
+                  <div>
+                    <img
+                      src={review.image}
+                      alt={review.name}
+                      className='w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-full mr-4'
+                      onError={(e) => {
+                        e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(review.name) + '&background=random';
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <p className='text-lg mb-1'>{'⭐'.repeat(review.rating)}</p>
+                    <p className='font-semibold text-base sm:text-lg'>{review.name}</p>
+                    <p className='text-xs sm:text-sm text-gray-400'>{review.location}</p>
+                  </div>
+                </div>
+                <p className='text-sm sm:text-base leading-relaxed'>{review.review}</p>
               </div>
-              <div>
-                {'⭐'.repeat(review.rating)}
-                <p>{review.name}</p>
-                <p>{review.location}</p>
-              </div>
-            </div>
-            <p  className='max-w-xl'>{review.review}</p>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
+
+      
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50%));
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+
+        .hover\\:pause-animation:hover {
+          animation-play-state: paused !important;
+        }
+      `}</style>
+
+
+
 
 
     </div>
