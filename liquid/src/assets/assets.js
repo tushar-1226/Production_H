@@ -10,8 +10,10 @@ import Campa from "./Campa.jpg"
 // labels
 import blackLabel from "./black-label.jpg";
 import greenLabel from "./green-label.jpg";
-import redbullLabel from "./redbull.jpg";
-import redbullLabel2 from "./redbull2.jpg";
+import Redbull from "./Redbull.jpg";
+import Twist from "./Twist.jpg";
+import Metrik from "./Metrik.jpg"
+
 
 // drinks / cans
 import dadu1 from "./dadu1.jpg";
@@ -24,11 +26,7 @@ import wine from "./wine.jpg";
 // monster series
 import monster1 from "./monster1.jpg";
 import monster2 from "./monster2.jpg";
-import monster3 from "./monster3.jpg";
-import monster4 from "./monster4.jpg";
-import monster5 from "./monster5.jpg";
-import monster6 from "./monster6.jpg";
-import monster7 from "./monster7.jpg";
+
 
 const assets = {
   // icons
@@ -41,8 +39,7 @@ const assets = {
   // labels
   blackLabel,
   greenLabel,
-  redbullLabel,
-  redbullLabel2,
+
 
   // drinks
   dadu1,
@@ -55,13 +52,10 @@ const assets = {
   // monster
   monster1,
   monster2,
-  monster3,
-  monster4,
-  monster5,
-  monster6,
-  monster7,
-
-  Campa
+  Campa,
+  Redbull,
+  Twist,
+  Metrik
 };
 
 export default assets;
