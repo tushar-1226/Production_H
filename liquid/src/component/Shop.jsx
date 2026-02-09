@@ -2,6 +2,8 @@ import React from 'react'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import assets from '../assets/assets';
 import Banner from './EnergyDrink';
+import EnergyDrink from './EnergyDrink';
+import Colddrink from './Colddrink';
 
 
 
@@ -25,7 +27,8 @@ const Shop = () => {
 
 
       </div>
-      <Banner />
+      <EnergyDrink />
+      <Colddrink/>
     </div>
 
   )

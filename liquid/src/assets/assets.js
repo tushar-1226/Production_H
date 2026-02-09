@@ -47,6 +47,9 @@ import Redbull from "./Redbull.jpg";
 import Twist from "./Twist.jpg";
 import Metrik from "./Metrik.jpg"
 
+import cocacola from './cocacola.jpg'
+import sprite from './sprite.jpg'
+
 
 const assets = {
   // icons
@@ -63,6 +66,10 @@ const assets = {
   Twist,
   Metrik,
   Guru,
+
+  //colddrink
+  cocacola,
+  sprite
 
 };
 
