@@ -58,7 +58,7 @@ const Banner = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
-        behavior: "smooth", // Fixed typo: was "behaviour"
+        behavior: "smooth",
       });
     }
   };
@@ -83,7 +83,7 @@ const Banner = () => {
       </div>
 
       <div className="relative w-full px-5">
-        {/* Left Arrow */}
+        
         {showLeftArrow && (
           <ChevronLeft 
             size={40}  
@@ -91,8 +91,8 @@ const Banner = () => {
             className='absolute top-1/2 -translate-y-1/2 left-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
           />
         )}
+        
 
-        {/* Scrollable Container */}
         <div 
           ref={scrollRef} 
           onScroll={checkScrollPosition}
@@ -122,8 +122,7 @@ const Banner = () => {
             </div>
           ))}
         </div>
-
-        {/* Right Arrow */}
+        
         {showRightArrow && (
           <ChevronRight 
             onClick={() => handleScroll("right")} 
