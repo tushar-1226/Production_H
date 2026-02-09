@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { banners } from '../assets/assets'
+import { Banners } from '../assets/assets'
 
 const Container = () => {
   const navigate = useNavigate()
@@ -27,7 +27,7 @@ const Container = () => {
         <div className="animate-scroll2 flex w-max">
           
           
-          {banners.map((banner, index) => (
+          {Banners.map((banner, index) => (
             <img 
               key={`banner-1-${index}`} 
               src={banner} 
@@ -36,7 +36,7 @@ const Container = () => {
             />
           ))}
                   
-          {banners.map((banner, index) => (
+          {Banners.map((banner, index) => (
             <img 
               key={`banner-2-${index}`} 
               src={banner} 
