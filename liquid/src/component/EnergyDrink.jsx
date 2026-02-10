@@ -77,7 +77,7 @@ const EnergyDrink = () => {
   }, []);
 
   return (
-    <div className='flex flex-col mb-10'>
+    <div className='flex flex-col w-full mb-10'>
       <div className='px-9 py-3'>
         <p className='text-2xl font-semibold dark:text-white'>Energy Drink</p>
       </div>
