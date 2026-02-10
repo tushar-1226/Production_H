@@ -5,6 +5,37 @@
 *::after {
   box-sizing: border-box;
 }
+@font-face {
+  font-family: CursorGothic;
+  src: url("/fonts/CursorGothic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CursorGothic;
+  src: url("/fonts/CursorGothic-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CursorGothic;
+  src: url("/fonts/CursorGothic-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CursorGothic;
+  src: url("/fonts/CursorGothic-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 
 body {
   font-family: 'JetBrains Mono', monospace;
@@ -16,19 +47,8 @@ body {
   overflow-x: hidden;
 }
 
+
 @custom-variant dark (&:where(.dark, .dark *));
-
-.slogan {
-  font-family: 'JetBrains Mono', monospace;
-  border: 1px solid #333333;
-  color: #E8E8E8;
-  background-color: #1a1a1b;
-}
-
-.round-text {
-  font-size: 20px;
-  font-family: 'JetBrains Mono', monospace;
-}
 
 .our_story_text {
   font-family: 'JetBrains Mono', monospace;
