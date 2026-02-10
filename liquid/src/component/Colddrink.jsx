@@ -55,7 +55,7 @@ const Colddrink = () => {
     return (
         <div className='flex flex-col'>
             <div className='px-9 py-3'>
-                <p className='text-2xl font-semibold'>Cold Drink</p>
+                <p className='text-2xl font-semibold dark:text-white'>Cold Drink</p>
             </div>
             <div className="relative w-full px-5">
 
@@ -70,10 +70,10 @@ const Colddrink = () => {
                 <div
                     ref={scrollRef}
                     onScroll={checkScrollPosition}
-                    className="flex w-full rounded-xl gap-8 border border-gray-900 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth"
+                    className="flex w-full rounded-xl gap-8 border border-gray-900  dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth"
                 >
                     {colddrinks.map((drink) => (
-                        <div key={drink.id} className='flex flex-col flex-shrink-0 justify-center items-center border-2 rounded-xl py-3 hover:shadow-2xl transition-all duration-600 ease-out hover:scale-102'>
+                        <div key={drink.id} className='flex flex-col flex-shrink-0 justify-center items-center border-2 dark:border-gray-400 dark:text-white dark:bg-[#1a1a1b] rounded-xl py-3 hover:shadow-2xl transition-all duration-600 ease-out hover:scale-102'>
                             <div>
                                 <img src={drink.image} alt={drink.title} className='h-40 rounded-sm' />
                             </div>
