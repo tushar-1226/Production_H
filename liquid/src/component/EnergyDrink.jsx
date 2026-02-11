@@ -115,7 +115,7 @@ const EnergyDrink = () => {
                     <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
                   </div>
                   <div>
-                    <button className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</button>
+                    <button className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'  >Shop now</button>
                   </div>
                 </div>
               </div>

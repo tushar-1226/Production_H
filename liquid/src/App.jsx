@@ -10,30 +10,17 @@ import Shop from './component/Shop'
 
 const App = () => {
   const [theme, setTheme] = useState("light")
-
+  
   return (
-    <BrowserRouter>
-      <div className='dark:bg-[#111113]'>
-        
-        <Routes>
-          
-          <Route path="/" element={
-            <>
-              <Navbar theme={theme} setTheme={setTheme} />
-              <Container />
-              <Page2 />
-              <ReviewCard />
-              <Question />
-              <Footer />
-            </>
-          } />
-          
-          
-          <Route path="/shop" element={<Shop/>} />
-        </Routes>
-        
-      </div>
-    </BrowserRouter>
+    <>
+    
+      
+      <Routes>
+        <Route path="/" element={<> <Navbar theme={theme} setTheme={setTheme} /><Container /><Page2 /><ReviewCard /><Question /><Footer /></>} />
+        <Route path="/shop" element={<Shop />} />
+      </Routes>
+      
+    </>
   )
 }
 

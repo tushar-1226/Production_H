@@ -1,10 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Banners } from '../assets/assets'
 
 const Container = () => {
-  const navigate = useNavigate()
-
   return (
     <div className="">
       <style>{`
@@ -20,19 +18,17 @@ const Container = () => {
         .animate-scroll2 {
           animation: scroll 60s linear infinite;
         }
-
       `}</style>
 
-      <div className="banner-wrapper overflow-hidden width-full">
+      <div className="banner-wrapper overflow-hidden w-full">
         <div className="animate-scroll2 flex w-max">
-          
           
           {Banners.map((banner, index) => (
             <img 
               key={`banner-1-${index}`} 
               src={banner} 
               alt={`Banner ${index + 1}`}
-              className="h-100 "
+              className="h-96 w-auto"
             />
           ))}
                   
@@ -41,18 +37,16 @@ const Container = () => {
               key={`banner-2-${index}`} 
               src={banner} 
               alt={`Banner ${index + 1}`}
-              className="h-100"
+              className="h-96 w-auto"
             />
           ))}
         </div>
       </div>
 
-      <button 
-        className='bg-gray-300 p-2 mt-4 rounded hover:bg-gray-400 transition' 
-        onClick={() => navigate('/shop')}
-      >
-        Go to Shop
-      </button>
+      <Link to='/shop' className='inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'>
+        Shop
+      </Link>
+      
     </div>
   )
 }

@@ -49,6 +49,8 @@ import Metrik from "./Metrik.jpg"
 
 import cocacola from './cocacola.jpg'
 import sprite from './sprite.jpg'
+import Fanta from './Fanta.jpg'
+import Pepsi from './Pepsi.png'
 
 
 const assets = {
@@ -69,7 +71,9 @@ const assets = {
 
   //colddrink
   cocacola,
-  sprite
+  sprite,
+  Pepsi,
+  Fanta
 
 };
 

@@ -1,11 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react' // Add this import
+import { ChevronLeft, ChevronRight } from 'lucide-react' 
 import assets from '../assets/assets'
+import { useNavigate } from 'react-router-dom';
 
 const Colddrink = () => {
     const scrollRef = useRef(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
+
+    const navigate = useNavigate()
 
     const colddrinks = [
         {
@@ -21,6 +24,20 @@ const Colddrink = () => {
             description: "High Power Energy For Intense Performance",
             price: 4.00,
             image: assets.cocacola
+        },
+        {
+            id: 3,
+            title: "Pepsi",
+            description: "High Power Energy For Intense Performance",
+            price: 4.00,
+            image: assets.Pepsi
+        },
+        {
+            id: 4,
+            title: "Fanta",
+            description: "High Power Energy For Intense Performance",
+            price: 4.00,
+            image: assets.Fanta
         }
     ]
 
@@ -67,15 +84,14 @@ const Colddrink = () => {
                     />
                 )}
 
-                <div
-                    ref={scrollRef}
+                <div ref={scrollRef}
                     onScroll={checkScrollPosition}
-                    className="flex w-full rounded-xl gap-8 border border-gray-900  dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth"
-                >
+                    className="flex w-full rounded-xl gap-8 border border-gray-900  dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth">
+                
                     {colddrinks.map((drink) => (
                         <div key={drink.id} className='flex flex-col flex-shrink-0 justify-center items-center border-2 dark:border-gray-400 dark:text-white dark:bg-[#1a1a1b] rounded-xl py-3 hover:shadow-2xl transition-all duration-600 ease-out hover:scale-102'>
                             <div>
-                                <img src={drink.image} alt={drink.title} className='h-40 rounded-sm' />
+                                <img src={drink.image} alt={drink.title} className='h-40 rounded-sm'/>
                             </div>
                             <div className='flex flex-col justify-center items-center'>
                                 <div className='text-center p-2'>
@@ -88,7 +104,7 @@ const Colddrink = () => {
                                         <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
                                     </div>
                                     <div>
-                                        <button className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</button>
+                                        <button className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer' onClick={() => navigate('/Aboutdrink')}>Shop now</button>
                                     </div>
                                 </div>
                             </div>
