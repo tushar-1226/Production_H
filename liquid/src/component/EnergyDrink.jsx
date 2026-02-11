@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react'
-import assets from '../assets/assets'
+import React, { useRef, useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import assets from '../assets/assets'
 
 const energydrinks = [
   {
@@ -66,7 +67,7 @@ const EnergyDrink = () => {
   const checkScrollPosition = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      
+
       setShowLeftArrow(scrollLeft > 0);
       setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1);
     }
@@ -83,18 +84,18 @@ const EnergyDrink = () => {
       </div>
 
       <div className="relative w-full px-5">
-        
+
         {showLeftArrow && (
-          <ChevronLeft 
-            size={40}  
-            onClick={() => handleScroll("left")} 
+          <ChevronLeft
+            size={40}
+            onClick={() => handleScroll("left")}
             className='absolute top-1/2 -translate-y-1/2 left-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
           />
         )}
-        
 
-        <div 
-          ref={scrollRef} 
+
+        <div
+          ref={scrollRef}
           onScroll={checkScrollPosition}
           className="flex w-full rounded-xl gap-8 border border-gray-900 dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth "
         >
@@ -110,23 +111,23 @@ const EnergyDrink = () => {
                   <p className='max-w-[250px]'>{drink.description}</p>
                 </div>
 
-                <div className='flex gap-10'>
+                <div className='flex justify-center items-center gap-10'>
                   <div>
                     <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
                   </div>
                   <div>
-                    <button className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'  >Shop now</button>
+                    <Link to='/Aboutdrink' className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer' >Shop now</Link>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
+
         {showRightArrow && (
-          <ChevronRight 
-            onClick={() => handleScroll("right")} 
-            size={40} 
+          <ChevronRight
+            onClick={() => handleScroll("right")}
+            size={40}
             className='absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
           />
         )}

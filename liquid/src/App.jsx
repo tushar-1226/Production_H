@@ -7,6 +7,7 @@ import ReviewCard from './component/ReviewCard'
 import Footer from './component/Footer'
 import Question from './component/Question'
 import Shop from './component/Shop'
+import Aboutdrink from './component/Aboutdrink'
 
 const App = () => {
   const [theme, setTheme] = useState("light")
@@ -18,6 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<> <Navbar theme={theme} setTheme={setTheme} /><Container /><Page2 /><ReviewCard /><Question /><Footer /></>} />
         <Route path="/shop" element={<Shop />} />
+        <Route path='/aboutdrink' element={<Aboutdrink/>}/>
       </Routes>
       
     </>
