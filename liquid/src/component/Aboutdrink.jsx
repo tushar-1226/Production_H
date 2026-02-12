@@ -25,10 +25,10 @@ const Aboutdrink = () => {
           </div>
         </div>
       </div>
-      <div className=' mx-10'>
+      <div className='mx-10'>
         <div>
           <p className="font-bold text-5xl">Campa Energy Gold Boost</p>
-          <p className='text-xl py-5'>4.5⭐ 42 reviews</p>
+          <p className='text-xl py-8'>4.5⭐ 42 reviews</p>
           <p className='text-4xl'>$4.0</p>
           <div className='flex flex-col gap-2 py-5'>
             <div>
@@ -40,7 +40,7 @@ const Aboutdrink = () => {
             </div>
 
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 py-8">
 
 
             <button className="flex items-center justify-center gap-2 bg-black text-white px-4 py-3 rounded-xl w-full">
@@ -55,6 +55,14 @@ const Aboutdrink = () => {
 
           </div>
 
+        </div>
+        <div className=''>
+          <p className='text-2xl font-semibold'>Coupons and Offers</p>
+          <p className='py-1'>Order from zepto and get assured Cashback</p>
+          <p>Get 10% Off via Canara Credit Cards</p>
+          <p className='py-1'>Get 55 off with OneCard</p>
+          <p>Get assured Cashback upto 25Rs with Bhim UPI Payment </p>
+          <p className='py-1'>Assured CashBack upto 300Rrs via Paytm</p>
         </div>
       </div>
     </div>
