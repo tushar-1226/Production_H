@@ -57,13 +57,17 @@ import Campa2 from './Campa-2.png'
 import Campa3 from './Campa-3.png'
 import Campa4 from './Campa-4.png'
 import Campa5 from './Campa-5.png'
+import BCampa1 from './BCampa-1.png'
+import BCampa2 from './BCampa-2.png'
 
 export const CampaImg = [
   Campa1,
   Campa2,
   Campa3,
   Campa4,
-  Campa5
+  Campa5,
+  BCampa1,
+  BCampa2
 ]
 
 const assets = {
