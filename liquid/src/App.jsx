@@ -13,7 +13,7 @@ const App = () => {
   const [theme, setTheme] = useState("light")
   
   return (
-    <>
+    <div className='dark:bg-[#0A0A0B]'>
     
       
       <Routes>
@@ -22,7 +22,7 @@ const App = () => {
         <Route path='/aboutdrink' element={<Aboutdrink/>}/>
       </Routes>
       
-    </>
+    </div>
   )
 }
 

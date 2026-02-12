@@ -51,11 +51,11 @@ const ReviewCard = () => {
       </div>
 
       <div className="relative w-full">
-        {/* Gradient overlays */}
+        
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling container */}
+        
         <div className="overflow-hidden py-8">
           <div className="flex animate-scroll hover:pause-animation">
             {duplicatedReviews.map((review, index) => (

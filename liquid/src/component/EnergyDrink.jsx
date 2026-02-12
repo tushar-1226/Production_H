@@ -10,6 +10,7 @@ const energydrinks = [
     description: "Boosts Energy, Focus, And Instant Refreshment",
     price: 3.50,
     image: assets.Campa
+    
   },
   {
     id: 2,

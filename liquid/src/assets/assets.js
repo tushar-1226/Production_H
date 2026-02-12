@@ -52,6 +52,19 @@ import sprite from './sprite.jpg'
 import Fanta from './Fanta.jpg'
 import Pepsi from './Pepsi.png'
 
+import Campa1 from './Campa-1.png'
+import Campa2 from './Campa-2.png'
+import Campa3 from './Campa-3.png'
+import Campa4 from './Campa-4.png'
+import Campa5 from './Campa-5.png'
+
+export const CampaImg = [
+  Campa1,
+  Campa2,
+  Campa3,
+  Campa4,
+  Campa5
+]
 
 const assets = {
   // icons
