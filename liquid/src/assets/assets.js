@@ -121,8 +121,20 @@ export const RBanners = [
   RBanner14,
 ];
 
-export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5,BCampa1, BCampa2]
-// export const MonsterImg = [monster1, monster2, monster3]
-// export const RedBullImg = [redbull1, redbull2]
+import Monster1 from './Monster1.png'
+import Monster2 from './Monster2.png'
+import Monster3 from './Monster3.png'
+import Monster4 from './Monster4.png'
+import Monster5 from './Monster5.png'
+
+import Redbull1 from './Redbull1.png'
+import Redbull2 from './Redbull2.png'
+import Redbull3 from './Redbull3.png'
+import Redbull4 from './Redbull4.png'
+import Redbull5 from './Redbull5.png'
+
+export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5]
+export const MonsterImg = [Monster1, Monster2, Monster3, Monster4, Monster5]
+export const RedBullImg = [Redbull1, Redbull2, Redbull3, Redbull4, Redbull5]
 
 export default assets;
