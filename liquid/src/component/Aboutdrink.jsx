@@ -1,72 +1,92 @@
+// Aboutdrink.jsx - Refactored component
 import React, { useState } from 'react'
-import { CampaImg } from '../assets/assets'
 import { ShoppingBag, Heart } from 'lucide-react'
+import { drinksData } from '../data/drinkData'
 
-const Aboutdrink = () => {
-
-  const [initialImg, setInitialImg] = useState(CampaImg[0])
+const Aboutdrink = ({ drinkId = 1 }) => {
+  // Find the drink by ID, default to first drink if not found
+  const drink = drinksData.find(d => d.id === drinkId) || drinksData[0]
+  
+  const [initialImg, setInitialImg] = useState(drink.images[0])
+  const [selectedFlavour, setSelectedFlavour] = useState(drink.flavours[0])
 
   const changeImg = (img) => {
     setInitialImg(img)
   }
+
   return (
-    <div className='flex p-10'>
-      <div className='flex flex-col'>
-        <div className=" h-130 w-130 mb-5">
-          <img src={initialImg} className='rounded-xl border-2' />
+    <div className='border-[4px] px-6 py-10 flex gap-12 border-gray-400 transition-opacity ease-in duration-500 opacity-100'>
+      {/* Image Gallery */}
+      <div className='flex flex-col-reverse gap-3 sm:flex-row'>
+        <div className='flex sm:flex-col overflow-x-auto justify-between sm:justify-normal sm:w-[18.7%] w-full gap-4'>
+          {drink.images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              onClick={() => changeImg(img)}
+              className='border-2 border-gray-500 cursor-pointer'
+              alt={`${drink.name} view ${index + 1}`}
+            />
+          ))}
         </div>
-        <div>
-          <div className='flex h-23 gap-3 '>
-            <img src={CampaImg[0]} onClick={() => changeImg(CampaImg[0])} className='border-2 border-gray-500 cursor-pointer' />
-            <img src={CampaImg[1]} onClick={() => changeImg(CampaImg[1])} className='border-2 border-gray-500 cursor-pointer' />
-            <img src={CampaImg[2]} onClick={() => changeImg(CampaImg[2])} className='border-2 border-gray-500 cursor-pointer' />
-            <img src={CampaImg[3]} onClick={() => changeImg(CampaImg[3])} className='border-2 border-gray-500 cursor-pointer' />
-            <img src={CampaImg[4]} onClick={() => changeImg(CampaImg[4])} className='border-2 border-gray-500 cursor-pointer' />
-          </div>
+        <div className='w-full sm:w-[80%]'>
+          <img src={initialImg} className='w-full h-auto' alt={drink.name} />
         </div>
       </div>
-      <div className='mx-10'>
-        <div>
-          <p className="font-bold text-5xl">Campa Energy Gold Boost</p>
-          <p className='text-xl py-8'>4.5⭐ 42 reviews</p>
-          <p className='text-4xl'>$4.0</p>
-          <div className='flex flex-col gap-2 py-5'>
-            <div>
-              <p className='font-semibold'>Different flavour</p>
-            </div>
-            <div className='flex gap-3'>
-              <img src={CampaImg[5]} className='h-30 border-2 rounded-sm' />
-              <img src={CampaImg[6]} className='h-30 border-2 rounded-sm' />
-            </div>
 
-          </div>
-          <div className="flex items-center gap-3 py-8">
-
-
-            <button className="flex items-center justify-center gap-2 bg-black text-white px-4 py-3 rounded-xl w-full">
-              <ShoppingBag size={18} />
-              Add to cart
-            </button>
-
-
-            <button className="bg-gray-300 p-3 rounded-xl">
-              <Heart size={20} />
-            </button>
-
-          </div>
-
+      {/* Product Info */}
+      <div className='flex-1'>
+        <h1 className='text-3xl font-bold'>{drink.name}</h1>
+        <div className='flex items-center gap-2 mt-3'>
+          <p>{drink.rating}⭐</p>
+          <p className='text-gray-600'>{drink.reviews} reviews</p>
         </div>
-        <div className=''>
-          <p className='text-2xl font-semibold'>Coupons and Offers</p>
-          <p className='py-1'>Order from zepto and get assured Cashback</p>
-          <p>Get 10% Off via Canara Credit Cards</p>
-          <p className='py-1'>Get 55 off with OneCard</p>
-          <p>Get assured Cashback upto 25Rs with Bhim UPI Payment </p>
-          <p className='py-1'>Assured CashBack upto 300Rrs via Paytm</p>
+        <p className='text-3xl font-semibold mt-4'>${drink.price}</p>
+        
+        <p className='mt-5 text-gray-600'>{drink.description}</p>
+        
+        {/* Flavours */}
+        <div className='mt-6'>
+          <p className='font-semibold mb-3'>Different flavour</p>
+          <div className='flex gap-3 flex-wrap'>
+            {drink.flavours.map((flavour, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedFlavour(flavour)}
+                className={`px-4 py-2 border-2 rounded ${
+                  selectedFlavour === flavour 
+                    ? 'border-orange-500 bg-orange-50' 
+                    : 'border-gray-300'
+                }`}
+              >
+                {flavour}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className='flex gap-4 mt-8'>
+          <button className='bg-black text-white px-8 py-3 flex items-center gap-2'>
+            <ShoppingBag size={20} />
+            Add to cart
+          </button>
+          <button className='border-2 border-gray-300 px-4 py-3'>
+            <Heart size={20} />
+          </button>
+        </div>
+
+        {/* Coupons */}
+        <div className='mt-8'>
+          <h2 className='font-bold text-xl mb-3'>Coupons and Offers</h2>
+          <ul className='space-y-2'>
+            {drink.coupons.map((coupon, index) => (
+              <li key={index} className='text-gray-700'>• {coupon}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
-
   )
 }
 

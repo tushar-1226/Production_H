@@ -19,7 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<> <Navbar theme={theme} setTheme={setTheme} /><Container /><Page2 /><ReviewCard /><Question /><Footer /></>} />
         <Route path="/shop" element={<Shop />} />
-        <Route path='/aboutdrink' element={<Aboutdrink/>}/>
+        <Route path="/product/:id" element={<Aboutdrink />} />
       </Routes>
       
     </div>

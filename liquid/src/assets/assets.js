@@ -60,15 +60,6 @@ import Campa5 from './Campa-5.png'
 import BCampa1 from './BCampa-1.png'
 import BCampa2 from './BCampa-2.png'
 
-export const CampaImg = [
-  Campa1,
-  Campa2,
-  Campa3,
-  Campa4,
-  Campa5,
-  BCampa1,
-  BCampa2
-]
 
 const assets = {
   // icons
@@ -130,5 +121,8 @@ export const RBanners = [
   RBanner14,
 ];
 
+export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5,BCampa1, BCampa2]
+// export const MonsterImg = [monster1, monster2, monster3]
+// export const RedBullImg = [redbull1, redbull2]
 
 export default assets;
