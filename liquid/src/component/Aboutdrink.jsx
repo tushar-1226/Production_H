@@ -18,50 +18,46 @@ const Aboutdrink = ({ drinkId = 1 }) => {
   }
 
   return (
-    <div className='max-w-7xl mx-auto px-4 py-8'>
-      <div className='bg-white dark:bg-[#1a1a1b] dark:text-white rounded-2xl shadow-xl overflow-hidden'>
+    <div className='mx-auto px-4 py-8'>
+      <div className='bg-white dark:bg-[#1a1a1b] dark:text-white shadow-xl overflow-hidden'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 md:p-10'>
           
-          {/* Image Gallery Section */}
+          
           <div className='flex flex-col-reverse sm:flex-row gap-4'>
-            {/* Thumbnail Images */}
+            
             <div className='flex sm:flex-col gap-3 overflow-x-auto sm:overflow-visible'>
               {drink.images.map((img, index) => (
                 <div
                   key={index}
                   onClick={() => changeImg(img)}
-                  className={`flex-shrink-0 cursor-pointer rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
-                    initialImg === img 
-                      ? 'border-gray-500 shadow-lg' 
-                      : 'border-gray-200 hover:border-gray-400'
-                  }`}
-                >
+                  className={`flex-shrink-0 cursor-pointer rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${initialImg === img ? 'border-gray-500 shadow-lg' : 'border-gray-200 hover:border-gray-400'}`}>
+               
                   <img
                     src={img}
-                    className='w-20 h-20 sm:w-24 sm:h-24 object-cover'
-                    alt={`${drink.name} view ${index + 1}`}
+                    className='w-20 h-20 p-3 sm:w-24 sm:h-24 object-cover'
+                    alt={`${drink.name}${index + 1}`}
                   />
                 </div>
               ))}
             </div>
 
-            {/* Main Image */}
-            <div className='flex-1 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 flex items-center justify-center'>
+            
+            <div className='flex-1 bg-gradient-to-br from-gray-50 to-gray-300 flex items-center justify-center'>
               <img 
                 src={initialImg} 
-                className='w-full h-auto max-h-[500px] object-contain transition-all duration-500 hover:scale-105' 
+                className='w-full h-auto max-h-[500px] object-contain transition-all duration-500 hover:scale-102' 
                 alt={drink.name} 
               />
             </div>
           </div>
 
-          {/* Product Details Section */}
+  
           <div className='flex flex-col'>
-            {/* Header */}
+            
             <div className='mb-6'>
               <h1 className='text-4xl font-bold mb-3'>{drink.name}</h1>
               
-              {/* Rating */}
+            
               <div className='flex items-center gap-3 mb-4'>
                 <div className='flex items-center gap-1 bg-orange-100 px-3 py-1 rounded-full'>
                   <Star size={18} className='fill-orange-500 text-orange-500' />
@@ -70,7 +66,7 @@ const Aboutdrink = ({ drinkId = 1 }) => {
                 <p className=''>({drink.reviews} reviews)</p>
               </div>
 
-              {/* Price */}
+              
               <div className='flex items-baseline gap-2'>
                 <p className='text-4xl font-bold'>${drink.price}</p>
                 <p className='text-lg line-through'>${(drink.price * 1.2).toFixed(2)}</p>
@@ -78,10 +74,10 @@ const Aboutdrink = ({ drinkId = 1 }) => {
               </div>
             </div>
 
-            {/* Description */}
+            
             <p className=' leading-relaxed mb-6 border-b pb-6'>{drink.description}</p>
             
-            {/* Flavours */}
+            
             <div className='mb-8'>
               <p className='font-semibold text-lg mb-4'>Choose Your Flavor</p>
               <div className='flex gap-3 flex-wrap'>
@@ -101,9 +97,9 @@ const Aboutdrink = ({ drinkId = 1 }) => {
               </div>
             </div>
 
-            {/* Action Buttons */}
+            
             <div className='flex gap-4 mb-8'>
-              <button className='flex-1 bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105'>
+              <button className='flex-1 bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-101'>
                 <ShoppingBag size={22} />
                 Add to Cart
               </button>
@@ -112,7 +108,7 @@ const Aboutdrink = ({ drinkId = 1 }) => {
               </button>
             </div>
 
-            {/* Coupons */}
+            
             <div className='bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border border-green-200'>
               <div className='flex items-center gap-2 mb-4'>
                 <Tag className='text-green-600' size={24} />
