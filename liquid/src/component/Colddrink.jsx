@@ -57,15 +57,14 @@ const Colddrink = () => {
         if (scrollRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
 
-            // Show left arrow if not at the start
+            
             setShowLeftArrow(scrollLeft > 0);
 
-            // Show right arrow if not at the end
+            
             setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
         }
     };
 
-    // Check scroll position on mount
     useEffect(() => {
         checkScrollPosition();
     }, []);

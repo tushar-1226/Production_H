@@ -1,4 +1,3 @@
-// Aboutdrink.jsx - Enhanced UI
 import React, { useState, useEffect } from 'react'
 import { ShoppingBag, Heart, Star, Tag } from 'lucide-react'
 import { drinksData } from '../data/drinkData'
@@ -20,7 +19,7 @@ const Aboutdrink = ({ drinkId = 1 }) => {
 
   return (
     <div className='max-w-7xl mx-auto px-4 py-8'>
-      <div className='bg-white rounded-2xl shadow-xl overflow-hidden'>
+      <div className='bg-white dark:bg-[#1a1a1b] dark:text-white rounded-2xl shadow-xl overflow-hidden'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 md:p-10'>
           
           {/* Image Gallery Section */}
@@ -33,7 +32,7 @@ const Aboutdrink = ({ drinkId = 1 }) => {
                   onClick={() => changeImg(img)}
                   className={`flex-shrink-0 cursor-pointer rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
                     initialImg === img 
-                      ? 'border-orange-500 shadow-lg' 
+                      ? 'border-gray-500 shadow-lg' 
                       : 'border-gray-200 hover:border-gray-400'
                   }`}
                 >
@@ -60,31 +59,31 @@ const Aboutdrink = ({ drinkId = 1 }) => {
           <div className='flex flex-col'>
             {/* Header */}
             <div className='mb-6'>
-              <h1 className='text-4xl font-bold text-gray-900 mb-3'>{drink.name}</h1>
+              <h1 className='text-4xl font-bold mb-3'>{drink.name}</h1>
               
               {/* Rating */}
               <div className='flex items-center gap-3 mb-4'>
                 <div className='flex items-center gap-1 bg-orange-100 px-3 py-1 rounded-full'>
                   <Star size={18} className='fill-orange-500 text-orange-500' />
-                  <span className='font-semibold text-orange-700'>{drink.rating}</span>
+                  <span className='font-semibold'>{drink.rating}</span>
                 </div>
-                <p className='text-gray-600'>({drink.reviews} reviews)</p>
+                <p className=''>({drink.reviews} reviews)</p>
               </div>
 
               {/* Price */}
               <div className='flex items-baseline gap-2'>
-                <p className='text-4xl font-bold text-gray-900'>${drink.price}</p>
-                <p className='text-lg text-gray-500 line-through'>${(drink.price * 1.2).toFixed(2)}</p>
+                <p className='text-4xl font-bold'>${drink.price}</p>
+                <p className='text-lg line-through'>${(drink.price * 1.2).toFixed(2)}</p>
                 <span className='bg-green-100 text-green-700 px-2 py-1 rounded-md text-sm font-semibold'>17% OFF</span>
               </div>
             </div>
 
             {/* Description */}
-            <p className='text-gray-600 leading-relaxed mb-6 border-b pb-6'>{drink.description}</p>
+            <p className=' leading-relaxed mb-6 border-b pb-6'>{drink.description}</p>
             
             {/* Flavours */}
             <div className='mb-8'>
-              <p className='font-semibold text-lg text-gray-900 mb-4'>Choose Your Flavor</p>
+              <p className='font-semibold text-lg mb-4'>Choose Your Flavor</p>
               <div className='flex gap-3 flex-wrap'>
                 {drink.flavours.map((flavour, index) => (
                   <button
@@ -92,8 +91,8 @@ const Aboutdrink = ({ drinkId = 1 }) => {
                     onClick={() => setSelectedFlavour(flavour)}
                     className={`px-5 py-2.5 border-2 rounded-lg font-medium transition-all duration-300 ${
                       selectedFlavour === flavour 
-                        ? 'border-orange-500 bg-orange-500 text-white shadow-lg scale-105' 
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300 hover:bg-orange-50'
+                        ? 'bg-black text-white shadow-lg scale-105' 
+                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-500 hover:bg-gray-300'
                     }`}
                   >
                     {flavour}
@@ -104,11 +103,11 @@ const Aboutdrink = ({ drinkId = 1 }) => {
 
             {/* Action Buttons */}
             <div className='flex gap-4 mb-8'>
-              <button className='flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105'>
+              <button className='flex-1 bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105'>
                 <ShoppingBag size={22} />
                 Add to Cart
               </button>
-              <button className='border-2 border-gray-300 hover:border-red-500 hover:bg-red-50 px-5 py-4 rounded-xl transition-all duration-300 group'>
+              <button className='border-2 border-gray-300 hover:border-gray-500  px-5 py-4 rounded-xl transition-all duration-300 group'>
                 <Heart size={22} className='text-gray-600 group-hover:text-red-500 group-hover:fill-red-500 transition-all' />
               </button>
             </div>
