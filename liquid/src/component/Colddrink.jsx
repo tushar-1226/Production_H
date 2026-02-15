@@ -10,7 +10,6 @@ const Colddrink = () => {
     const [showRightArrow, setShowRightArrow] = useState(true);
 
 
-
     const colddrinks = [
         {
             id: 1,
@@ -104,7 +103,7 @@ const Colddrink = () => {
                                         <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
                                     </div>
                                     <div>
-                                        <Link  className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
+                                        <Link to={`/product/${drink.id}`} className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
                                     </div>
                                 </div>
                             </div>
