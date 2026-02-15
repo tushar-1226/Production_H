@@ -1,4 +1,4 @@
-import { CampaImg, MonsterImg, RedBullImg } from '../assets/assets'
+import { CampaImg, MonsterImg, RedBullImg, TwistImg } from '../assets/assets'
 
 export const drinksData = [
   {
@@ -47,5 +47,21 @@ export const drinksData = [
       "Get 10% cashback with PayPal",
       "Free Red Bull cap with purchase"
     ]
-  }
+  },
+  {
+  id: 4,
+  name: "Twist Energy Drink",
+  images: TwistImg,
+  rating: 4.4,
+  reviews: 78,
+  price: 4.5,
+  description: "Twist Energy Drink delivers an instant boost of energy with a refreshing taste to keep you active and focused throughout the day.",
+  flavours: ["No Flavour Avaliable"],
+  coupons: [
+    "Flat 15% off on first purchase",
+    "Buy 2 Get 1 Free",
+    "Free delivery on orders above $20"
+  ]
+}
+
 ];

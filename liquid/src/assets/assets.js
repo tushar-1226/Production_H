@@ -133,8 +133,15 @@ import Redbull3 from './Redbull3.png'
 import Redbull4 from './Redbull4.png'
 import Redbull5 from './Redbull5.png'
 
+import Twist1 from './Twist1.png'
+import Twist2 from './Twist2.png'
+import Twist3 from './Twist3.png'
+import Twist4 from './Twist4.png'
+import Twist5 from './Twist5.png'
+
 export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5]
 export const MonsterImg = [Monster1, Monster2, Monster3, Monster4, Monster5]
 export const RedBullImg = [Redbull1, Redbull2, Redbull3, Redbull4, Redbull5]
+export const TwistImg = [Twist1, Twist2, Twist3, Twist4, Twist5]
 
 export default assets;
