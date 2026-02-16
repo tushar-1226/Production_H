@@ -47,9 +47,9 @@ import Redbull from "./Redbull.png";
 import Twist from "./Twist.png";
 import Metrik from "./Metrik.jpg"
 
-import cocacola from './cocacola.jpg'
-import sprite from './sprite.jpg'
-import Fanta from './Fanta.jpg'
+import CocaCola from './CocaCola.png'
+import Sprite from './Sprite.png'
+import Fanta from './Fanta.png'
 import Pepsi from './Pepsi.png'
 
 import Campa1 from './Campa-1.png'
@@ -77,8 +77,8 @@ const assets = {
   Guru,
 
   //colddrink
-  cocacola,
-  sprite,
+  CocaCola,
+  Sprite,
   Pepsi,
   Fanta
 

@@ -16,14 +16,14 @@ const Colddrink = () => {
             title: "Sprite",
             description: "Boosts Energy, Focus, And Instant Refreshment",
             price: 3.50,
-            image: assets.sprite
+            image: assets.Sprite
         },
         {
             id: 2,
             title: "Coca Cola",
             description: "High Power Energy For Intense Performance",
             price: 4.00,
-            image: assets.cocacola
+            image: assets.CocaCola
         },
         {
             id: 3,
