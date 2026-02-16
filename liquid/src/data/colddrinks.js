@@ -1,4 +1,4 @@
-import { SpriteImg, CocaColaImg } from "../assets/assets";
+import { SpriteImg, CocaColaImg, PepsiImg, FantaImg } from "../assets/assets";
 
 export const colddrinks = [
     {
@@ -34,7 +34,39 @@ export const colddrinks = [
     "₹25 Cashback via PhonePe UPI",
     "Free delivery on orders above ₹499"
   ]
+},
+{
+  id: 3,
+  name: "Pepsi Bold Cola",
+  images: PepsiImg, 
+  rating: 4.6,
+  reviews: 69,
+  price: 3.7,
+  description: "Pepsi Bold Cola delivers a strong, refreshing cola taste with smooth sweetness and crisp carbonation. Its bold flavor and energizing fizz make it a perfect companion for meals, parties, and everyday refreshment.",
+  flavours: ["Original"],
+  coupons: [
+    "Flat 15% Off on first purchase",
+    "Buy 2 Get 1 Free",
+    "10% Cashback via ICICI Credit Cards",
+    "₹30 Cashback on Paytm UPI",
+    "Free delivery on orders above ₹499"
+  ]
+},
+{
+  id: 4,
+  name: "Fanta Orange",
+  images: FantaImg, 
+  rating: 4.5,
+  reviews: 63,
+  price: 3.6,
+  description: "Fanta Orange offers a vibrant burst of fruity orange flavor with sparkling fizz. Its sweet, tangy taste and refreshing carbonation make it the perfect drink to brighten your mood and cool you down instantly.",
+  flavours: ["Orange"],
+  coupons: [
+    "Flat 15% Off on first order",
+    "Buy 3 Get 1 Free",
+    "10% Cashback via HDFC Credit Cards",
+    "₹25 Cashback on PhonePe UPI",
+    "Free delivery on orders above ₹499"
+  ]
 }
-
-
 ]

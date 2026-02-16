@@ -153,6 +153,12 @@ import Sprite2 from './Sprite2.png'
 import CocaCola1 from './CocaCola1.png'
 import CocaCola2 from './CocaCola1.png'
 
+import Pepsi1 from './Pepsi1.png'
+import Pepsi2 from './Pepsi2.png'
+
+import Fanta1 from './Fanta1.png'
+import Fanta2 from './Fanta2.png'
+
 export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5]
 export const MonsterImg = [Monster1, Monster2, Monster3, Monster4, Monster5]
 export const RedBullImg = [Redbull1, Redbull2, Redbull3, Redbull4, Redbull5]
@@ -162,5 +168,7 @@ export const GuruImg = [Guru1, Guru2, Detail1, Detail2, Detail3]
 
 export const SpriteImg = [Sprite1, Sprite2, Detail1, Detail2, Detail3]
 export const CocaColaImg = [CocaCola1, CocaCola2, Detail1, Detail2, Detail3]
+export const PepsiImg = [Pepsi1, Pepsi2, Detail1, Detail2, Detail3]
+export const FantaImg = [Fanta1, Fanta2, Detail1, Detail2, Detail3]
 
 export default assets;
