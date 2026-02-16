@@ -1,4 +1,4 @@
-import { SpriteImg, CocaColaImg, PepsiImg, FantaImg } from "../assets/assets";
+import { SpriteImg, CocaColaImg, PepsiImg, FantaImg, ThumsUpImg, MountainDewImg } from "../assets/assets";
 
 export const colddrinks = [
     {
@@ -68,5 +68,41 @@ export const colddrinks = [
     "₹25 Cashback on PhonePe UPI",
     "Free delivery on orders above ₹499"
   ]
+},
+{
+  id: 5,
+  name: "Thums Up Strong Cola",
+  images: ThumsUpImg, 
+  rating: 4.6,
+  reviews: 71,
+  price: 3.8,
+  description: "Thums Up Strong Cola delivers a bold, intense cola taste with extra fizz and powerful refreshment. Known for its strong flavor and high energy feel, it’s the perfect drink for those who like their cola strong and daring.",
+  flavours: ["Original Strong"],
+  coupons: [
+    "Flat 15% Off on first order",
+    "Buy 2 Get 1 Free",
+    "10% Cashback via SBI Credit Cards",
+    "₹30 Cashback on Paytm UPI",
+    "Free delivery on orders above ₹499"
+  ]
+},
+{
+  id: 6,
+  name: "Mountain Dew Original",
+  images: MountainDewImg, 
+  rating: 4.7,
+  reviews: 84,
+  price: 3.9,
+  description: "Mountain Dew Original brings a high-voltage citrus blast with bold sweetness and intense fizz. Designed for thrill-seekers, it delivers an energizing and refreshing experience with every sip.",
+  flavours: ["Original Citrus"],
+  coupons: [
+    "Flat 20% Off on first purchase",
+    "Buy 3 Get 1 Free",
+    "10% Cashback via ICICI Credit Cards",
+    "₹25 Cashback via PhonePe UPI",
+    "Free delivery on orders above ₹499"
+  ]
 }
+
+
 ]

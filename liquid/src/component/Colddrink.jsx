@@ -38,6 +38,20 @@ const Colddrink = () => {
             description: "High Power Energy For Intense Performance",
             price: 4.00,
             image: assets.Fanta
+        },
+        {
+            id: 5,
+            title: "Thumbs Up",
+            description: "High Power Energy For Intense Performance",
+            price: 3.00,
+            image: assets.ThumbsUp
+        },
+        {
+            id: 6,
+            title: "Mountain Dew",
+            description: "High Power Energy For Intense Performance",
+            price: 3.00,
+            image: assets.MountainDew
         }
     ]
 
