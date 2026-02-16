@@ -40,11 +40,11 @@ import RBanner13 from "./RBanner13.jpg";
 import RBanner14 from "./RBanner14.jpg";
 
 
-import Guru from "./Guru.jpg";
-import monster2 from "./monster2.jpg";
-import Campa from "./Campa.jpg"
-import Redbull from "./Redbull.jpg";
-import Twist from "./Twist.jpg";
+import Guru from "./Guru.png";
+import Monster from "./Monster.png";
+import Campa from "./Campa.png"
+import Redbull from "./Redbull.png";
+import Twist from "./Twist.png";
 import Metrik from "./Metrik.jpg"
 
 import cocacola from './cocacola.jpg'
@@ -60,7 +60,6 @@ import Campa5 from './Campa-5.png'
 import BCampa1 from './BCampa-1.png'
 import BCampa2 from './BCampa-2.png'
 
-
 const assets = {
   // icons
   moonIcon,
@@ -70,7 +69,7 @@ const assets = {
   userPfp,
 
   //Energy Drink
-  monster2,
+  Monster,
   Campa,
   Redbull,
   Twist,
@@ -139,9 +138,20 @@ import Twist3 from './Twist3.png'
 import Twist4 from './Twist4.png'
 import Twist5 from './Twist5.png'
 
+import Metrik1 from './Metrik1.jpg'
+import Metrik2 from './Metrik2.png'
+import Detail1 from './Detail1.png'
+import Detail2 from './Detail2.png'
+import Detail3 from './Detail3.png'
+
+import Guru1 from './Guru1.png'
+import Guru2 from './Guru2.png'
+
 export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5]
 export const MonsterImg = [Monster1, Monster2, Monster3, Monster4, Monster5]
 export const RedBullImg = [Redbull1, Redbull2, Redbull3, Redbull4, Redbull5]
 export const TwistImg = [Twist1, Twist2, Twist3, Twist4, Twist5]
+export const MetrikImg = [Metrik1, Metrik2, Detail1, Detail2, Detail3]
+export const GuruImg = [Guru1, Guru2, Detail1, Detail2, Detail3]
 
 export default assets;

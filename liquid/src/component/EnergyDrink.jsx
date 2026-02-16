@@ -17,7 +17,7 @@ const energydrinks = [
     title: "Monster Energy",
     description: "High Power Energy For Intense Performance",
     price: 4.00,
-    image: assets.monster2
+    image: assets.Monster
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const energydrinks = [
     description: "Strong Energy With Long-Lasting Focus",
     price: 4.60,
     image: assets.Guru
-  },
+  }
 ]
 
 const EnergyDrink = () => {

@@ -1,4 +1,4 @@
-import { CampaImg, MonsterImg, RedBullImg, TwistImg } from '../assets/assets'
+import { CampaImg, MonsterImg, RedBullImg, TwistImg, MetrikImg, GuruImg } from '../assets/assets'
 
 export const drinksData = [
   {
@@ -21,7 +21,7 @@ export const drinksData = [
   {
     id: 2,
     name: "Monster Energy Original",
-    images:MonsterImg , // Add your Monster Energy images
+    images:MonsterImg ,
     rating: 4.7,
     reviews: 128,
     price: 5.5,
@@ -61,6 +61,37 @@ export const drinksData = [
     "Flat 15% off on first purchase",
     "Buy 2 Get 1 Free",
     "Free delivery on orders above $20"
+  ]
+}
+,
+{
+  id: 5,
+  name: "Metrik Energy Drink",
+  images: MetrikImg,
+  rating: 4.3,
+  reviews: 82,
+  price: 4.5,
+  description: "Metrik Energy Drink provides a powerful energy boost with a smooth and refreshing taste, helping you stay active, alert, and focused throughout your busy day.",
+  flavours: ["Original"],
+  coupons: [
+    "Flat 15% off on first purchase",
+    "Buy 2 Get 1 Free",
+    "Free delivery on orders above $20"
+  ]
+},
+{
+  id: 6,
+  name: "Guru Energy Drink",
+  images: GuruImg,
+  rating: 4.5,
+  reviews: 96,
+  price: 5.0,
+  description: "Guru Energy Drink is made with plant-based caffeine and natural ingredients to deliver clean, long-lasting energy without the crash. Its smooth and refreshing taste keeps you focused, active, and productive throughout the day.",
+  flavours: ["Original", "Lite", "Tropical"],
+  coupons: [
+    "Flat 20% off on first purchase",
+    "Buy 3 Get 1 Free",
+    "Free delivery on orders above $25"
   ]
 }
 
