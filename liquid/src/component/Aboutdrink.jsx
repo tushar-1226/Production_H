@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ShoppingBag, Heart, Star, Tag } from 'lucide-react'
 import { energydrinks } from '../data/energydrinks'
+import { colddrinks } from '../data/colddrinks'
 
 const Aboutdrink = ({ category, drinkId }) => {
   

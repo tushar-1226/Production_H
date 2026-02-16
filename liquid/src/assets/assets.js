@@ -147,11 +147,20 @@ import Detail3 from './Detail3.png'
 import Guru1 from './Guru1.png'
 import Guru2 from './Guru2.png'
 
+import Sprite1 from './Sprite1.png'
+import Sprite2 from './Sprite2.png'
+
+import CocaCola1 from './CocaCola1.png'
+import CocaCola2 from './CocaCola1.png'
+
 export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5]
 export const MonsterImg = [Monster1, Monster2, Monster3, Monster4, Monster5]
 export const RedBullImg = [Redbull1, Redbull2, Redbull3, Redbull4, Redbull5]
 export const TwistImg = [Twist1, Twist2, Twist3, Twist4, Twist5]
 export const MetrikImg = [Metrik1, Metrik2, Detail1, Detail2, Detail3]
 export const GuruImg = [Guru1, Guru2, Detail1, Detail2, Detail3]
+
+export const SpriteImg = [Sprite1, Sprite2, Detail1, Detail2, Detail3]
+export const CocaColaImg = [CocaCola1, CocaCola2, Detail1, Detail2, Detail3]
 
 export default assets;
