@@ -1,6 +1,6 @@
 import { CampaImg, MonsterImg, RedBullImg, TwistImg, MetrikImg, GuruImg } from '../assets/assets'
 
-export const drinksData = [
+export const energydrinks = [
   {
     id: 1,
     name: "Campa Energy Gold Boost",

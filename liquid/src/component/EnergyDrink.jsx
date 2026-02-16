@@ -117,7 +117,7 @@ const EnergyDrink = () => {
                     <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
                   </div>
                   <div>
-                    <Link to={`/product/${drink.id}`} className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
+                    <Link to={`/energy/${drink.id}`} className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
                   </div>
                 </div>
               </div>

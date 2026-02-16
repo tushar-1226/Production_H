@@ -10,21 +10,26 @@ import Shop from './component/Shop'
 import Aboutdrink from './component/Aboutdrink'
 
 // Wrapper component to extract id from URL and pass to Aboutdrink
-const ProductPage = () => {
+const EnergyPage = () => {
   const { id } = useParams()
-  return <Aboutdrink drinkId={parseInt(id)} />
+  return <Aboutdrink category="energy" drinkId={parseInt(id)} />
+}
+
+const ColdPage = () => {
+  const { id } = useParams()
+  return <Aboutdrink category="cold" drinkId={parseInt(id)} />
 }
 
 const App = () => {
   const [theme, setTheme] = useState("light")
-  
+
   return (
     <div className='dark:bg-[#0A0A0B]'>
       <Routes>
-        <Route 
-          path="/" 
+        <Route
+          path="/"
           element={
-            <> 
+            <>
               <Navbar theme={theme} setTheme={setTheme} />
               <Container />
               <Page2 />
@@ -32,11 +37,12 @@ const App = () => {
               <Question />
               <Footer />
             </>
-          } 
+          }
         />
         <Route path="/shop" element={<Shop />} />
         {/* Updated: Now using ProductPage wrapper that extracts id and passes it as drinkId */}
-        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/energy/:id" element={<EnergyPage />} />
+        <Route path="/cold/:id" element={<ColdPage />} />
       </Routes>
     </div>
   )

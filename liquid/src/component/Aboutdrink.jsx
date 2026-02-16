@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { ShoppingBag, Heart, Star, Tag } from 'lucide-react'
-import { drinksData } from '../data/drinkData'
+import { energydrinks } from '../data/energydrinks'
 
-const Aboutdrink = ({ drinkId = 1 }) => {
-  const drink = drinksData.find(d => d.id === drinkId) || drinksData[0]
+const Aboutdrink = ({ category, drinkId }) => {
+  
+  let data;
+
+  if (category === "energy") {
+    data = energydrinks;
+  } 
+  else if (category === "cold") {
+    data = colddrinks;
+  } 
+  else if (category === "liquor") {
+    data = liquordrinks;
+  }
+
+  const drink = data.find(d => d.id === drinkId);
   
   const [initialImg, setInitialImg] = useState(drink.images[0])
   const [selectedFlavour, setSelectedFlavour] = useState(drink.flavours[0])
