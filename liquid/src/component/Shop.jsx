@@ -2,6 +2,7 @@ import ShopNavbar from './ShopNavbar';
 import EnergyDrink from './EnergyDrink';
 import Colddrink from './Colddrink';
 import Category from './Category';
+import Wine from './Wine';
 
 const Shop = () => {
   return (
@@ -10,6 +11,7 @@ const Shop = () => {
       <Category />
       <EnergyDrink />
       <Colddrink />
+      <Wine/>
     </div>
   )
 }
