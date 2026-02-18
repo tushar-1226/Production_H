@@ -54,6 +54,11 @@ import Pepsi from './Pepsi.png'
 import ThumbsUp from './ThumbsUp.png'
 import MountainDew from './MountainDew.png'
 
+import Crimson from './Crimson.png'
+import DarkAmber from './DarkAmber.png'
+import RubyCrest from './RubyCrest.png'
+import ScarletCrown from './ScarletCrown.png' 
+
 import Campa1 from './Campa-1.png'
 import Campa2 from './Campa-2.png'
 import Campa3 from './Campa-3.png'
@@ -84,8 +89,12 @@ const assets = {
   Pepsi,
   Fanta,
   ThumbsUp,
-  MountainDew
+  MountainDew,
 
+  Crimson,
+  DarkAmber,
+  RubyCrest,
+  ScarletCrown
 };
 
 export const Banners = [

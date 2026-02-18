@@ -83,7 +83,7 @@ const Colddrink = () => {
     }, []);
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col w-full mb-10'>
             <div className='px-9 py-3'>
                 <p className='text-2xl font-semibold dark:text-white'>Cold Drink</p>
             </div>
