@@ -20,6 +20,11 @@ const ColdPage = () => {
   return <Aboutdrink category="cold" drinkId={parseInt(id)} />
 }
 
+const WinePage = () => {
+  const {id} = useParams()
+  return <Aboutdrink category="wine" drinkId={parseInt(id)} />
+}
+
 const App = () => {
   const [theme, setTheme] = useState("light")
 
@@ -43,6 +48,7 @@ const App = () => {
         {/* Updated: Now using ProductPage wrapper that extracts id and passes it as drinkId */}
         <Route path="/energy/:id" element={<EnergyPage />} />
         <Route path="/cold/:id" element={<ColdPage />} />
+        <Route path="/wine/:id" element={<WinePage />} />
       </Routes>
     </div>
   )

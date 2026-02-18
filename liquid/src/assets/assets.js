@@ -58,6 +58,8 @@ import Crimson from './Crimson.png'
 import DarkAmber from './DarkAmber.png'
 import RubyCrest from './RubyCrest.png'
 import ScarletCrown from './ScarletCrown.png' 
+import Redlabel from './Redlabel.png'
+import Blacklabel from './Blacklabel.png'
 
 import Campa1 from './Campa-1.png'
 import Campa2 from './Campa-2.png'
@@ -94,7 +96,9 @@ const assets = {
   Crimson,
   DarkAmber,
   RubyCrest,
-  ScarletCrown
+  ScarletCrown,
+  Redlabel,
+  Blacklabel
 };
 
 export const Banners = [
@@ -194,6 +198,13 @@ import DarkAmber2 from './DarkAmber2.png'
 import RubyCrest1 from './RubyCrest1.png'
 import RubyCrest2 from './RubyCrest2.png'
 
+import Blacklabel1 from './Blacklabel1.png'
+import Blacklabel2 from './Blacklabel2.png'
+
+
+import Redlabel1 from './Redlabel1.png'
+import Redlabel2 from './Redlabel2.png'
+
 export const CampaImg = [Campa1, Campa2, Campa3, Campa4, Campa5]
 export const MonsterImg = [Monster1, Monster2, Monster3, Monster4, Monster5]
 export const RedBullImg = [Redbull1, Redbull2, Redbull3, Redbull4, Redbull5]
@@ -212,5 +223,7 @@ export const CrimsonImg = [Crimson1, Crimson2, WDetail1, WDetail2, WDetail3]
 export const ScarletCrownImg = [ScarletCrown1, ScarletCrown2, WDetail1, WDetail2, WDetail3]
 export const DarkAmberImg = [DarkAmber1, DarkAmber2, WDetail1, WDetail2, WDetail3]
 export const RubyCrestImg = [RubyCrest1, RubyCrest2, WDetail1, WDetail2, WDetail3]
+export const RedlabelImg = [Redlabel1, Redlabel2, WDetail1, WDetail2, WDetail3]
+export const BlacklabelImg = [Blacklabel1, Blacklabel2, WDetail1, WDetail2, WDetail3]
 
 export default assets;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ShoppingBag, Heart, Star, Tag } from 'lucide-react'
 import { energydrinks } from '../data/energydrinks'
 import { colddrinks } from '../data/colddrinks'
+import { winedrinks } from '../data/winedrinks'
 import ShopNavbar from './ShopNavbar'
 
 
@@ -15,8 +16,8 @@ const Aboutdrink = ({ category, drinkId }) => {
   else if (category === "cold") {
     data = colddrinks;
   }
-  else if (category === "liquor") {
-    data = liquordrinks;
+  else if (category === "wine") {
+    data = winedrinks;
   }
 
   const drink = data.find(d => d.id === drinkId);
