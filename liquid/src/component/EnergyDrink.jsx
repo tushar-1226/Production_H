@@ -56,14 +56,22 @@ const EnergyDrink = () => {
 
   const handleScroll = (direction) => {
     const scrollAmount = 300;
+    let move;
+
+    if (direction === "right") {
+        move = scrollAmount;
+    } else {
+        move = -scrollAmount;
+    }
 
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: direction === "right" ? scrollAmount : -scrollAmount,
-        behavior: "smooth",
-      });
+        scrollRef.current.scrollBy({
+            left: move,
+            behavior: "smooth",
+        });
     }
-  };
+};
+
 
   const checkScrollPosition = () => {
     if (scrollRef.current) {

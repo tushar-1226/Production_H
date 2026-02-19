@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import assets from '../assets/assets'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Wine = () => {
+  const scrollRef = useRef(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
 
   const wine = [
     {
@@ -47,8 +51,42 @@ const Wine = () => {
       price: 16.00,
       image: assets.RubyCrest
     },
-    
+
   ]
+  const handleScroll = (direction) => {
+    const scrollAmount = 300;
+    let move;
+
+    if (direction === "right") {
+      move = scrollAmount;
+    } else {
+      move = -scrollAmount;
+    }
+
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: move,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const checkScrollPosition = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+
+
+      setShowLeftArrow(scrollLeft > 0);
+
+
+      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkScrollPosition();
+  }, []);
+
   return (
     <div className='flex flex-col p'>
       <div className='px-9 py-3'>
@@ -57,10 +95,20 @@ const Wine = () => {
         </p>
       </div>
 
-      <div className='w-full px-5 '>
-        <div className="flex w-full rounded-xl gap-8 border border-gray-900  dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth" >
+      <div className='relative w-full px-5 '>
+
+        {showLeftArrow && (
+          <ChevronLeft
+            size={40}
+            onClick={() => handleScroll("left")}
+            className='absolute top-1/2 -translate-y-1/2 left-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
+          />
+        )}
+
+        <div ref={scrollRef}
+          onScroll={checkScrollPosition} className="flex w-full rounded-xl gap-8 border border-gray-900  dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth" >
           {wine.map((drinks) => (
-            <div key={drinks.id} className='flex flex-col justify-center items-center py-4  border-2 rounded-2xl '>
+            <div key={drinks.id} className='flex flex-col flex-shrink-0 justify-center items-center py-4  border-2 rounded-2xl '>
               <div>
                 <img src={drinks.image} alt={drinks.title} className='h-40 rounded-sm' />
               </div>
@@ -85,9 +133,17 @@ const Wine = () => {
           )}
 
         </div>
+        {showRightArrow && (
+          <ChevronRight
+            onClick={() => handleScroll("right")}
+            size={40}
+            className='absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
+          />
+        )}
       </div>
     </div >
   )
 }
+
 
 export default Wine

@@ -57,10 +57,17 @@ const Colddrink = () => {
 
     const handleScroll = (direction) => {
         const scrollAmount = 300;
+        let move;
+
+        if (direction === "right") {
+            move = scrollAmount;
+        } else {
+            move = -scrollAmount;
+        }
 
         if (scrollRef.current) {
             scrollRef.current.scrollBy({
-                left: direction === "right" ? scrollAmount : -scrollAmount,
+                left: move,
                 behavior: "smooth",
             });
         }
@@ -70,10 +77,10 @@ const Colddrink = () => {
         if (scrollRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
 
-            
+
             setShowLeftArrow(scrollLeft > 0);
 
-            
+
             setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
         }
     };
