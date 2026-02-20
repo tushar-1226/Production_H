@@ -69,6 +69,8 @@ import Campa5 from './Campa-5.png'
 import BCampa1 from './BCampa-1.png'
 import BCampa2 from './BCampa-2.png'
 
+import bg from './bg.png'
+
 const assets = {
   // icons
   moonIcon,
@@ -98,7 +100,9 @@ const assets = {
   RubyCrest,
   ScarletCrown,
   Redlabel,
-  Blacklabel
+  Blacklabel,
+
+  bg
 };
 
 export const Banners = [

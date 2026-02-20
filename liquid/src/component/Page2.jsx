@@ -57,7 +57,7 @@ const Page2 = () => {
           {drinks.map((drink) => (
             <div
               key={drink.id}
-              className='p-3 md:p-7 md:max-w-sm lg:max-w-md flex flex-col lg:flex-row justify-center items-center text-center hover:shadow-lg dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px]  hover:border-[#00FFD1]'>
+              className='p-3 md:p-7 md:max-w-sm lg:max-w-md flex flex-col lg:flex-row justify-center items-center text-center hover:shadow-lg dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer  hover:-translate-y-[6px] hover:border-gray-300  dark:hover:border-[#00FFD1]'>
 
               <div className='mb-4'>
                 <img src={drink.image} alt={drink.title} className='h-32 w-auto object-contain' />

@@ -61,7 +61,7 @@ const ReviewCard = () => {
             {duplicatedReviews.map((review, index) => (
               <div
                 key={`${review.id}-${index}`}
-                className="flex flex-col min-w-[340px] sm:min-w-[380px] md:min-w-[420px] justify-center p-3 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-[#00FFD1] mr-6"
+                className="flex flex-col min-w-[340px] sm:min-w-[380px] md:min-w-[420px] justify-center p-3 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-gray-300 dark:hover:border-[#00FFD1] mr-6"
               >
                 <div className='flex items-center pb-3'>
                   <div>
