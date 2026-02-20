@@ -63,7 +63,7 @@ const Question = () => {
                     {faqs.map((items, index) => (
 
                         
-                        <div key={index} className={`rounded-sm px-2 transition-all duration-300 ${isOpen === index ? "dark:bg-[#1a1a1d] border border-gray-600": "border border-transparent"}`}>
+                        <div key={index} className={`rounded-sm px-2 py-3 transition-all duration-300 ${isOpen === index ? "dark:bg-[#1a1a1d] border border-gray-600": "border border-transparent"}`}>
 
                             <div className="flex justify-between items-center w-full cursor-pointer rounded-sm " onClick={() => toggleAnswer(index)}>
 
