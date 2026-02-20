@@ -125,7 +125,7 @@ const EnergyDrink = () => {
                     <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
                   </div>
                   <div>
-                    <Link to={`/energy/${drink.id}`} className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
+                    <Link to={`/energy/${drink.id}`} className='border-2 bg-gray-400 dark:text-black dark:border-white px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ const EnergyDrink = () => {
           <ChevronRight
             onClick={() => handleScroll("right")}
             size={40}
-            className='absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
+            className='absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-gray-300  rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
           />
         )}
       </div>

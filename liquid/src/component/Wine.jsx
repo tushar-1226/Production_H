@@ -108,22 +108,22 @@ const Wine = () => {
         <div ref={scrollRef}
           onScroll={checkScrollPosition} className="flex w-full rounded-xl gap-8 border border-gray-900  dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth" >
           {wine.map((drinks) => (
-            <div key={drinks.id} className='flex flex-col flex-shrink-0 justify-center items-center py-4  border-2 rounded-2xl '>
+            <div key={drinks.id} className='flex flex-col flex-shrink-0 justify-center items-center py-4  border-2 rounded-2xl dark:bg-[#1a1a1b] dark:border-gray-500 '>
               <div>
                 <img src={drinks.image} alt={drinks.title} className='h-40 rounded-sm' />
               </div>
               <div className='flex flex-col justify-center items-center'>
-                <div className='text-center p-2'>
+                <div className='text-center p-2 dark:text-white'>
                   <p className='font-extrabold'>{drinks.title}</p>
                   <p className='max-w-[250px]'>{drinks.description}</p>
                 </div>
 
                 <div className='flex justify-center items-center gap-10'>
                   <div>
-                    <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drinks.price}</button>
+                    <button className='border-2 px-4 py-2 rounded-full cursor-pointer dark:text-white'>${drinks.price}</button>
                   </div>
                   <div>
-                    <Link to={`/wine/${drinks.id}`} className='border-2 bg-gray-400 px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
+                    <Link to={`/wine/${drinks.id}`} className='border-2 bg-gray-400 dark:border-white px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
                   </div>
                 </div>
               </div>
