@@ -4,48 +4,13 @@ import { Banners } from '../assets/assets'
 
 const Container = () => {
   return (
-    <div className="">
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
+    <div className='flex flex-col justify-center items-center pt-20'>
+            <h1 className='text-4xl sm:text-5xl md:text-6xl xl:text-[84px] text-center font-medium xl:leading-[95px] max-w-5xl'>Refreshment Crafted for Every <span className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] bg-clip-text text-transparent'> Mood</span></h1>
 
-        .animate-scroll2 {
-          animation: scroll 60s linear infinite;
-        }
-      `}</style>
 
-      <div className="banner-wrapper overflow-hidden w-full">
-        <div className="animate-scroll2 flex w-max">
-          
-          {Banners.map((banner, index) => (
-            <img 
-              key={`banner-1-${index}`} 
-              src={banner} 
-              alt={`Banner ${index + 1}`}
-              className="h-96 w-auto"
-            />
-          ))}
-                  
-          {Banners.map((banner, index) => (
-            <img 
-              key={`banner-2-${index}`} 
-              src={banner} 
-              alt={`Banner ${index + 1}`}
-              className="h-96 w-auto"
-            />
-          ))}
-        </div>
-      </div>
-
-      <Link to='/shop' className='inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'>
+      {/* <Link to='/shop' className='inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'>
         Shop
-      </Link>
+      </Link> */}
       
     </div>
   )

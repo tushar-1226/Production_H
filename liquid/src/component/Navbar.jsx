@@ -15,7 +15,7 @@ const Navbar = ({theme, setTheme}) => {
   };
 
   return (
-    <div className='fixed top-0 w-full border border-[#333333] rounded-none bg-white text-black  dark:bg-[#0A0A0B] dark:text-white p-2 z-50'>
+    <div className='fixed top-0 w-full  rounded-none bg-white/30 text-black  dark:bg-[#0A0A0B]/30 dark:text-white p-2 backdrop-blur-md z-50'>
       <div className='flex justify-between items-center p-3 px-4 md:p-2 md:px-10'>
 
         
