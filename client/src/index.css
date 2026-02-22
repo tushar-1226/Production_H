@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: 0A0A0B;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.our_story_text {
+  font-family: 'JetBrains Mono', monospace;
+  color: #E8E8E8;
+}
+
+.cards {
+  border: 1px solid #333333;
+  border-radius: 8px;
+  background-color: #1a1a1b;
+}
+
+.cards:hover {
+  transform: none;
+}
+.liq-text {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: clamp(8rem, 25vw, 22rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.95;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
