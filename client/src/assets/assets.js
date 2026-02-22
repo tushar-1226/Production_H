@@ -23,22 +23,6 @@ import Banner14 from "./Banner14.jpg"
 import Banner15 from "./Banner15.jpg"
 import Banner16 from "./Banner16.jpg"
 
-//RBanner
-import RBanner1 from "./RBanner1.jpg";
-import RBanner2 from "./RBanner2.jpg";
-import RBanner3 from "./RBanner3.jpg";
-import RBanner4 from "./RBanner4.jpg";
-import RBanner5 from "./RBanner5.jpg";
-import RBanner6 from "./RBanner6.jpg";
-import RBanner7 from "./RBanner7.jpg";
-import RBanner8 from "./RBanner8.jpg";
-import RBanner9 from "./RBanner9.jpg";
-import RBanner10 from "./RBanner10.jpg";
-import RBanner11 from "./RBanner11.jpg";
-import RBanner12 from "./RBanner12.jpg";
-import RBanner13 from "./RBanner13.jpg";
-import RBanner14 from "./RBanner14.jpg";
-
 
 import Guru from "./Guru.png";
 import Monster from "./Monster.png";
@@ -48,7 +32,7 @@ import Twist from "./Twist.png";
 import Metrik from "./Metrik.jpg"
 
 import CocaCola from './CocaCola.png'
-import Sprite from './Sprite.png'
+import Sprite from './Sprite.jpg'
 import Fanta from './Fanta.png'
 import Pepsi from './Pepsi.png'
 import ThumbsUp from './ThumbsUp.png'
@@ -123,23 +107,6 @@ export const Banners = [
   Banner15,
   Banner16,
 ]
-
-export const RBanners = [
-  RBanner1,
-  RBanner2,
-  RBanner3,
-  RBanner4,
-  RBanner5,
-  RBanner6,
-  RBanner7,
-  RBanner8,
-  RBanner9,
-  RBanner10,
-  RBanner11,
-  RBanner12,
-  RBanner13,
-  RBanner14,
-];
 
 import Monster1 from './Monster1.png'
 import Monster2 from './Monster2.png'

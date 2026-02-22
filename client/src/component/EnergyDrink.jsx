@@ -1,148 +1,81 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import assets from '../assets/assets'
-
-const energydrinks = [
-  {
-    id: 1,
-    title: "Campa Energy Drink",
-    description: "Boosts Energy, Focus, And Instant Refreshment",
-    price: 3.50,
-    image: assets.Campa
-    
-  },
-  {
-    id: 2,
-    title: "Monster Energy",
-    description: "High Power Energy For Intense Performance",
-    price: 4.00,
-    image: assets.Monster
-  },
-  {
-    id: 3,
-    title: "Red Bull",
-    description: "Gives You Wings With Instant Energy",
-    price: 4.39,
-    image: assets.Redbull
-  },
-  {
-    id: 4,
-    title: "Twist",
-    description: "Refreshing Citrus Flavor With Instant Energy",
-    price: 3.60,
-    image: assets.Twist
-  },
-  {
-    id: 5,
-    title: "Metrik",
-    description: "Strong Energy With Long-Lasting Focus",
-    price: 5.60,
-    image: assets.Metrik
-  },
-  {
-    id: 6,
-    title: "Guru",
-    description: "Strong Energy With Long-Lasting Focus",
-    price: 4.60,
-    image: assets.Guru
-  }
-]
+import React, { useState, useEffect } from "react";
 
 const EnergyDrink = () => {
-  const scrollRef = useRef(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(true);
-
-  const handleScroll = (direction) => {
-    const scrollAmount = 300;
-    let move;
-
-    if (direction === "right") {
-        move = scrollAmount;
-    } else {
-        move = -scrollAmount;
-    }
-
-    if (scrollRef.current) {
-        scrollRef.current.scrollBy({
-            left: move,
-            behavior: "smooth",
-        });
-    }
-};
-
-
-  const checkScrollPosition = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-
-      setShowLeftArrow(scrollLeft > 0);
-      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  };
+  const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
-    checkScrollPosition();
+    fetch("http://localhost:5000/api/drink")
+      .then((res) => res.json())
+      .then((data) => {
+        setDrinks(data.drinks);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className='flex flex-col w-full mb-10'>
-      <div className='px-9 py-3'>
-        <p className='text-2xl font-semibold dark:text-white'>Energy Drink</p>
-      </div>
-
-      <div className="relative w-full px-5">
-
-        {showLeftArrow && (
-          <ChevronLeft
-            size={40}
-            onClick={() => handleScroll("left")}
-            className='absolute top-1/2 -translate-y-1/2 left-2 z-10 bg-gray-300 rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
-          />
-        )}
-
-
+    <div className="flex flex-wrap gap-8 p-10 bg-gray-100">
+      
+      {drinks.map((drink) => (
         <div
-          ref={scrollRef}
-          onScroll={checkScrollPosition}
-          className="flex w-full rounded-xl gap-8 border border-gray-900 dark:border-gray-500 mx-2 p-2 overflow-x-auto scrollbar-hide scroll-smooth "
+          key={drink._id}
+          className="w-[280px] bg-white rounded-3xl shadow-lg p-4 hover:shadow-2xl transition"
         >
-          {energydrinks.map((drink) => (
-            <div key={drink.id} className='flex flex-col flex-shrink-0 justify-center items-center border-2 dark:border-gray-400 dark:text-white dark:bg-[#1a1a1b] rounded-xl py-3 hover:shadow-2xl transition-all duration-600 ease-out hover:scale-102'>
-              <div>
-                <img src={drink.image} className='h-40 rounded-sm' alt={drink.title} />
-              </div>
+          
+          {/* Image */}
+          <div className="relative">
+            <img
+              src={drink.image}
+              alt={drink.name}
+              className="w-full h-[220px] object-contain rounded-2xl"
+            />
 
-              <div className='flex flex-col justify-center items-center'>
-                <div className='text-center p-2'>
-                  <p className='font-extrabold'>{drink.title}</p>
-                  <p className='max-w-[250px]'>{drink.description}</p>
-                </div>
+            {/* Discount badge */}
+            <span className="absolute top-3 left-3 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+              20% off
+            </span>
+          </div>
 
-                <div className='flex justify-center items-center gap-10'>
-                  <div>
-                    <button className='border-2 px-4 py-2 rounded-full cursor-pointer'>${drink.price}</button>
-                  </div>
-                  <div>
-                    <Link to={`/energy/${drink.id}`} className='border-2 bg-gray-400 dark:text-black dark:border-white px-3 py-2 rounded-full cursor-pointer'>Shop now</Link>
-                  </div>
-                </div>
-              </div>
+          {/* Content */}
+          <div className="mt-4">
+
+            {/* Name + Price */}
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg font-semibold">
+                {drink.name}
+              </h2>
+
+              <span className="bg-gray-800 text-white px-3 py-1 text-sm rounded-full">
+                ₹{drink.price}
+              </span>
             </div>
-          ))}
+
+            {/* Description */}
+            <p className="text-gray-500 text-sm mt-2 line-clamp-2">
+              {drink.description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex gap-2 mt-3">
+              <span className="bg-gray-100 px-3 py-1 text-xs rounded-full">
+                ⭐ {drink.rating}
+              </span>
+
+              <span className="bg-gray-100 px-3 py-1 text-xs rounded-full">
+                {drink.isAvailable ? "Available" : "Out of stock"}
+              </span>
+            </div>
+
+            {/* Button */}
+            <button className="w-full mt-5 bg-[#5a3e36] text-white py-3 rounded-full font-medium hover:bg-[#4a322c] transition">
+              Add to cart
+            </button>
+
+          </div>
         </div>
+      ))}
 
-        {showRightArrow && (
-          <ChevronRight
-            onClick={() => handleScroll("right")}
-            size={40}
-            className='absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-gray-300  rounded-full p-1 cursor-pointer hover:bg-gray-400 transition-all'
-          />
-        )}
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default EnergyDrink
+export default EnergyDrink;

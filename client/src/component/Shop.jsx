@@ -8,10 +8,10 @@ const Shop = () => {
   return (
     <div className='w-full'>
       <ShopNavbar />
-      <Category />
+      {/* <Category /> */}
       <EnergyDrink />
-      <Colddrink />
-      <Wine/>
+      {/* <Colddrink />
+      <Wine/> */}
     </div>
   )
 }
