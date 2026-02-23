@@ -71,16 +71,10 @@ const Question = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="w-full max-w-5xl dark:text-white mx-3 md:mx-4 lg:mx-5 rounded-sm border border-gray-800/40 dark:border-gray-800 p-4">
+                    className="w-full max-w-5xl dark:text-white mx-3 md:mx-4 lg:mx-5 rounded-sm p-4">
+
                     {faqs.map((items, index) => (
-
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index*0.2 }}
-                            key={index} className="rounded-sm p-3  transition-all duration-300">
+                        <div key={index} className="rounded-sm py-3 transition-all duration-300">
 
                             <div className="flex justify-between items-center w-full cursor-pointer rounded-sm " onClick={() => toggleAnswer(index)}>
 
@@ -91,8 +85,8 @@ const Question = () => {
                             </div>
 
                             <p className={`text-xs md:text-lg overflow-hidden transition-all duration-400 ease-in-out ${isOpen === index ? "max-h-40 opacity-100 mt-2 pb-2 " : "max-h-0 opacity-0 mt-0 pb-0"}`}> {items.answer}</p>
-
-                        </motion.div>
+                            <hr className='border-dotted'/>
+                        </div>
                     ))}
                 </motion.div>
             </div>

@@ -10,7 +10,7 @@ const Shop = () => {
     <div className='w-full'>
       <ShopNavbar />
       <Banner/>
-      <Category />
+      {/* <Category /> */}
       <EnergyDrink />
       
     </div>
