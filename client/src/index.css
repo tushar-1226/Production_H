@@ -11,7 +11,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  color: 0A0A0B;
+  background-color: #eaf6f6;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -21,12 +21,12 @@ body {
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-.our_story_text {
+/* .our_story_text {
   font-family: 'JetBrains Mono', monospace;
   color: #E8E8E8;
-}
+} */
 
-.cards {
+/* .cards {
   border: 1px solid #333333;
   border-radius: 8px;
   background-color: #1a1a1b;
@@ -43,7 +43,7 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
   opacity: 0.95;
-}
+} */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

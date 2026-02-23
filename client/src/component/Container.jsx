@@ -1,17 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Banners } from '../assets/assets'
+import { Avatar } from '../assets/assets'
 
 const Container = () => {
   return (
-    <div className='flex flex-col justify-center items-center pt-20'>
-            <h1 className='text-4xl sm:text-5xl md:text-6xl xl:text-[84px] text-center font-medium xl:leading-[95px] dark:text-white max-w-5xl'>Refreshment Crafted for Every <span className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] bg-clip-text text-transparent'> Mood</span></h1>
+    <div>
+      <div className='flex flex-col justify-center items-center pt-20'>
+        <h1 className='text-4xl font-semibold sm:text-5xl md:text-6xl xl:text-[84px] text-center xl:leading-[95px] dark:text-white max-w-5xl'>Refreshment Crafted for Every Mood</h1>
+      </div>
+      <div className='flex relative justify-center gap-2'>
 
+        <div>
+          <img src={Avatar[0]} className='h-[400px]' />
+        </div>
 
-      {/* <Link to='/shop' className='inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'>
-        Shop
-      </Link> */}
-      
+        <div>
+          <img src={Avatar[1]} className='h-[400px]' />
+        </div>
+
+        <div>
+          <img src={Avatar[2]} className='h-[400px]' />
+        </div>
+
+        <div>
+          <img src={Avatar[3]} className='h-[400px]' />
+        </div>
+
+      </div>
     </div>
   )
 }

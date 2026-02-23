@@ -10,6 +10,11 @@ import Banner2 from './Banner2.png'
 import Banner3 from './Banner3.png'
 import Banner4 from './Banner4.png'
 
+import Avatar1 from './Avatar1.jpg'
+import Avatar2 from './Avatar2.jpg'
+import Avatar3 from './Avatar3.jpg'
+import Avatar4 from './Avatar4.jpg'
+
 
 import Guru from "./Guru.png";
 import Monster from "./Monster.png";
@@ -75,7 +80,12 @@ const assets = {
 
   bg
 };
-
+ export const Avatar = [
+  Avatar1,
+  Avatar2,
+  Avatar3,
+  Avatar4
+ ]
 export const Banners = [
   Banner1,
   Banner2,
