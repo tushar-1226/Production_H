@@ -12,8 +12,7 @@ const Shop = () => {
       <Banner/>
       <Category />
       <EnergyDrink />
-      {/* <Colddrink />
-      <Wine/> */}
+      
     </div>
   )
 }

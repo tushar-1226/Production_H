@@ -15,6 +15,11 @@ import Avatar2 from './Avatar2.jpg'
 import Avatar3 from './Avatar3.jpg'
 import Avatar4 from './Avatar4.jpg'
 
+import Sip1 from './Sip1.jpg'
+import Sip2 from './Sip2.jpg'
+import Sip3 from './Sip3.jpg'
+import Sip4 from './Sip4.jpg'
+
 
 import Guru from "./Guru.png";
 import Monster from "./Monster.png";
@@ -91,6 +96,12 @@ export const Banners = [
   Banner2,
   Banner3,
   Banner4
+]
+export const Sips = [
+  Sip1,
+  Sip2,
+  Sip3,
+  Sip4
 ]
 
 import Monster1 from './Monster1.png'

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import ThemeToggleBtn from './ThemeToggleBtn';
 import { Link } from 'react-router-dom';
+import { motion } from "motion/react"
+
 
 
 const Navbar = ({ theme, setTheme }) => {
@@ -16,7 +18,11 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   return (
-    <div className='fixed top-0 w-full  rounded-none bg-[#eaf6f6]/50 text-black  dark:bg-[#0A0A0B]/30 dark:text-white p-2 backdrop-blur-md z-50'>
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className='fixed top-0 w-full  rounded-none bg-[#eaf6f6]/50 text-black  dark:bg-[#0A0A0B]/30 dark:text-white p-2 backdrop-blur-md z-50'>
       <div className='flex justify-between items-center p-3 px-4 md:p-2 md:px-10'>
 
         <div className='flex-1 lg:flex-none lg:text-left'>
@@ -27,7 +33,7 @@ const Navbar = ({ theme, setTheme }) => {
 
 
         <div className='hidden lg:flex gap-6 xl:gap-10 font-medium text-[15px] xl:text-[17px]'>
-                    <a href='#home' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Home</a>
+          <a href='#home' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Home</a>
 
           <Link to='/shop' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>Shop</Link>
           <a href='#about_us' className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'>About us</a>
@@ -67,7 +73,7 @@ const Navbar = ({ theme, setTheme }) => {
           </nav>
         </div>
       )}
-    </div>
+    </motion.div>
   )
 }
 

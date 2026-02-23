@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from "motion/react"
 
 const ReviewCard = () => {
 
@@ -41,21 +42,26 @@ const ReviewCard = () => {
 
   return (
     <div id='our_story' className='w-full mb-20'>
-      <div className='flex flex-col justify-center items-center mb-10 px-4 w-full dark:text-[#E8E8E8] '>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className='flex flex-col justify-center items-center mb-10 px-4 w-full dark:text-[#E8E8E8] '>
         <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
           What people say after every Sip?
         </p>
         <p className=" text-sm sm:text-base md:text-lg lg:text-[20px] mt-3 md:mt-4 sm:justify-center text-center max-w-3xl">
           Real stories from people who choose Liquid for everyday refreshment and special moments alike.
         </p>
-      </div>
+      </motion.div>
 
       <div className="relative w-full">
-        
+
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
 
-        
+
         <div className="overflow-hidden py-8">
           <div className="flex animate-scroll hover:pause-animation">
             {duplicatedReviews.map((review, index) => (
