@@ -11,17 +11,17 @@ const ShopNavbar = () => {
         </span>
       </div>
 
-      <div className='w-auto'>
+      <div className='w-full flex justify-center'>
         <input
           type='text'
           placeholder='Search'
-          className="w-[600px] border-2 rounded-4xl pl-4 py-2"
+          className="w-[150px] min-[410px]:w-[200px] sm:w-[300px] lg:w-[500px] border-2 rounded-4xl  pl-2 sm:pl-4 py-1 sm:py-2"
         />
       </div>
 
       <div className='flex justify-center items-center gap-4 md:gap-9'>
-        <Heart size={25} className='cursor-pointer hover:opacity-70 transition-opacity' />
-        <ShoppingBag size={25} className='cursor-pointer hover:opacity-70 transition-opacity' />
+        <Heart size={35} sm:size={40} className='cursor-pointer hover:opacity-70 transition-opacity' />
+        <ShoppingBag size={35} sm:size={40}  className='cursor-pointer hover:opacity-70 transition-opacity' />
         <img src={assets.userPfp} className='w-10 h-10 rounded-full object-cover' alt='User profile' />
       </div>
     </div>
