@@ -3,7 +3,7 @@ import { Banners } from '../assets/assets'
 
 const Banner = () => {
     return (
-        <div className='flex justify-center gap-5 p-5'>
+        <div className='flex justify-center gap-5 p-5 pt-24 '>
             <div className="relative  hover:shadow-lg transition transform hover:scale-102 rounded-xl">
                 <img src={Banners[0]} className="min-[440px]:h-[600px] sm:h-[500px] rounded-xl" />
 
