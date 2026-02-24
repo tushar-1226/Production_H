@@ -13,7 +13,7 @@ const EnergyDrink = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-8 p-10 bg-gray-100">
+    <div className="flex flex-wrap gap-8 p-10 ">
       
       {drinks.map((drink) => (
         <div
@@ -30,7 +30,7 @@ const EnergyDrink = () => {
             />
 
             {/* Discount badge */}
-            <span className="absolute top-3 left-3 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+            <span className="absolute top-1 left-1 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
               20% off
             </span>
           </div>
@@ -66,7 +66,7 @@ const EnergyDrink = () => {
             </div>
 
             {/* Button */}
-            <button className="w-full mt-5 bg-[#5a3e36] text-white py-3 rounded-full font-medium hover:bg-[#4a322c] transition">
+            <button className="w-full mt-5 bg-[#385170]/70 text-white py-3 rounded-full font-medium hover:bg-[#385170] transition-all duration-300 hover:scale-105">
               Add to cart
             </button>
 
