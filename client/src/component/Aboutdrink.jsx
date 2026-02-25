@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { ShoppingBag, Heart, Star, Tag } from 'lucide-react'
-import { energydrinks } from '../data/energydrinks'
-import { colddrinks } from '../data/colddrinks'
-import { winedrinks } from '../data/winedrinks'
+// import { energydrinks } from '../data/energydrinks'
+// import { colddrinks } from '../data/colddrinks'
+// import { winedrinks } from '../data/winedrinks'
 import ShopNavbar from './ShopNavbar'
 
 

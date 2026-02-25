@@ -11,20 +11,20 @@ import Aboutdrink from './component/Aboutdrink'
 import Cart from './component/Cart'
 
 // Wrapper component to extract id from URL and pass to Aboutdrink
-const EnergyPage = () => {
-  const { id } = useParams()
-  return <Aboutdrink category="energy" drinkId={parseInt(id)} />
-}
+// const EnergyPage = () => {
+//   const { id } = useParams()
+//   return <Aboutdrink category="energy" drinkId={parseInt(id)} />
+// }
 
-const ColdPage = () => {
-  const { id } = useParams()
-  return <Aboutdrink category="cold" drinkId={parseInt(id)} />
-}
+// const ColdPage = () => {
+//   const { id } = useParams()
+//   return <Aboutdrink category="cold" drinkId={parseInt(id)} />
+// }
 
-const WinePage = () => {
-  const {id} = useParams()
-  return <Aboutdrink category="wine" drinkId={parseInt(id)} />
-}
+// const WinePage = () => {
+//   const {id} = useParams()
+//   return <Aboutdrink category="wine" drinkId={parseInt(id)} />
+// }
 
 const App = () => {
   const [theme, setTheme] = useState("light")
@@ -48,9 +48,9 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
 
-        <Route path="/energy/:id" element={<EnergyPage />} />
+        {/* <Route path="/energy/:id" element={<EnergyPage />} />
         <Route path="/cold/:id" element={<ColdPage />} />
-        <Route path="/wine/:id" element={<WinePage />} />
+        <Route path="/wine/:id" element={<WinePage />} /> */}
       </Routes>
     </div>
   )

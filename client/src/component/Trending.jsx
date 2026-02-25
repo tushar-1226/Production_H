@@ -1,7 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {ChevronLeft, ChevronRight} from 'lucide-react'
+import { CartContext } from "../context/CartContext";
+
 
 const EnergyDrink = () => {
+
+  const { addToCart } = useContext(CartContext);
+
   const [drinks, setDrinks] = useState([]);
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -115,7 +120,7 @@ const EnergyDrink = () => {
                   </div>
 
                   <div className="mt-auto">
-                    <button className="w-full mt-5 bg-[#385170]/70 text-white py-3 rounded-full font-medium hover:bg-[#385170] transition-all duration-300 hover:scale-105">
+                    <button onClick={() => addToCart(drink)} className="w-full mt-5 bg-[#385170]/70 text-white py-3 rounded-full font-medium hover:bg-[#385170] transition-all duration-300 hover:scale-105">
                       Add to cart
                     </button>
                   </div>
