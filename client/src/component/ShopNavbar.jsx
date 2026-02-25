@@ -1,6 +1,7 @@
 import React from 'react'
 import { Search, Heart, ShoppingBag } from 'lucide-react';
 import assets from '../assets/assets';
+import { Link } from 'react-router-dom';
 
 const ShopNavbar = () => {
   return (
@@ -24,43 +25,28 @@ const ShopNavbar = () => {
         <div className="relative group">
           <Heart className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition" />
 
-          <span className="
-      absolute -bottom-8 left-1/2 -translate-x-1/2
-      bg-black text-white text-xs px-2 py-1 rounded
-      opacity-0 group-hover:opacity-100
-      transition whitespace-nowrap
-    ">
+          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap ">
             Wishlist
           </span>
         </div>
 
 
         <div className="relative group">
-          <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition" />
 
-          <span className="
-      absolute -bottom-8 left-1/2 -translate-x-1/2
-      bg-black text-white text-xs px-2 py-1 rounded
-      opacity-0 group-hover:opacity-100
-      transition-all duration-500 whitespace-nowrap
-    ">
-            Cart
-          </span>
+          <Link to='/cart'>
+
+          <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition"/>
+          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap ">Cart </span>
+          </Link>
+      
         </div>
 
 
         <div className="relative w-8 group">
-          <img
-            src={assets.userPfp}
-            className=" rounded-full object-contain cursor-pointer"
-            alt="User profile"
-          />
-          <span className="
-      absolute top-10 -left-3 -translate-x-1/2
-      bg-[#eaf6f6] text-black  px-3 py-3 rounded
-      opacity-0 group-hover:opacity-100
-      transition whitespace-nowrap
-    ">
+
+          <img src={assets.userPfp} className=" rounded-full object-contain cursor-pointer" alt="User profile"/>
+
+          <span className="absolute top-10 -left-3 -translate-x-1/2 bg-[#eaf6f6] text-black  px-3 py-3 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
             <p className='p-2 hover:bg-[]'>My Profile</p>
             <p className='p-2'>My Orders</p>
             <p className='p-2'>Wishlist</p>
@@ -68,9 +54,7 @@ const ShopNavbar = () => {
             <p className='p-2'>Settings</p>
             <p className='p-2'>Support</p>
             <p className='p-2'>Logout</p>
-
           </span>
-
 
         </div>
 

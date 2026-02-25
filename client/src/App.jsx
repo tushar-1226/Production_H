@@ -8,6 +8,7 @@ import Footer from './component/Footer'
 import Question from './component/Question'
 import Shop from './component/Shop'
 import Aboutdrink from './component/Aboutdrink'
+import Cart from './component/Cart'
 
 // Wrapper component to extract id from URL and pass to Aboutdrink
 const EnergyPage = () => {
@@ -45,7 +46,8 @@ const App = () => {
           }
         />
         <Route path="/shop" element={<Shop />} />
-        {/* Updated: Now using ProductPage wrapper that extracts id and passes it as drinkId */}
+        <Route path="/cart" element={<Cart />} />
+
         <Route path="/energy/:id" element={<EnergyPage />} />
         <Route path="/cold/:id" element={<ColdPage />} />
         <Route path="/wine/:id" element={<WinePage />} />

@@ -1,5 +1,5 @@
 import ShopNavbar from './ShopNavbar';
-import EnergyDrink from './EnergyDrink';
+import Trending from './Trending'
 import Colddrink from './Colddrink';
 import Category from './Category';
 import Wine from './Wine';
@@ -11,7 +11,7 @@ const Shop = () => {
       <ShopNavbar />
       <Banner/>
       {/* <Category /> */}
-      <EnergyDrink />
+      <Trending />
       
     </div>
   )
