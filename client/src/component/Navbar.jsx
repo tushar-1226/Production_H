@@ -3,6 +3,9 @@ import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import ThemeToggleBtn from './ThemeToggleBtn';
 import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
+import Auth from './Auth';
+// import Login from './Login';
+// import SignUp from './SignUp';
 
 
 
@@ -43,14 +46,12 @@ const Navbar = ({ theme, setTheme }) => {
 
         </div>
 
-
-
-
         <div className='hidden lg:flex gap-3 xl:gap-4 font-medium text-[15px] xl:text-[17px] items-center'>
 
           <ThemeToggleBtn theme={theme} setTheme={setTheme} />
-          <button className='bg-black/80 text-white dark:bg-[#eaf6f6] dark:text-black rounded-full p-2 px-3'>SignUp</button>
-          <button className='bg-black/80 text-white dark:bg-[#eaf6f6] dark:text-black rounded-full p-2 px-3'>Login</button>
+          {/* <Link to="/signup" className='bg-black/80 text-white dark:bg-[#eaf6f6] dark:text-black rounded-full p-2 px-3'>SignUp</Link> */}
+          {/* <Link to="/login" className='bg-black/80 text-white dark:bg-[#eaf6f6] dark:text-black rounded-full p-2 px-3'>Login</Link> */}
+          <Link to="/auth" className='bg-black/80 text-white dark:bg-[#eaf6f6] dark:text-black rounded-full p-2 px-3'>Get Started</Link>
 
         </div>
 
