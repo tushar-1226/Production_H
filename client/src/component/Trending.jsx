@@ -1,16 +1,33 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import {ChevronLeft, ChevronRight} from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { CartContext } from "../context/CartContext";
+import Loader from "./Loader";
 
 
-const EnergyDrink = () => {
+const Trending = () => {
 
   const { addToCart } = useContext(CartContext);
 
   const [drinks, setDrinks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+
+  useEffect(() => {
+    const fetchDrinks = async () => {
+      try {
+        const res = await axios.get("/api/drinks");
+        setDrinks(res.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+          setLoading(false)
+      };
+    }
+      fetchDrinks();
+    }, []);
 
   const handleScroll = (direction) => {
     const scrollAmount = 300;
@@ -22,11 +39,11 @@ const EnergyDrink = () => {
       move = -scrollAmount;
     }
     scrollRef.current.scrollBy({
-    left: move,
-    behavior: "smooth",
-  });
+      left: move,
+      behavior: "smooth",
+    });
   }
-  
+
 
 
   const checkScrollPosition = () => {
@@ -53,8 +70,11 @@ const EnergyDrink = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  if (loading) {
+    return <Loader />;
+  }
   return (
+
     <div className="flex flex-col flex-wrap gap-8 p-10 ">
 
       <div className="flex">
@@ -140,6 +160,8 @@ const EnergyDrink = () => {
       </div>
 
     </div>
+
   );
+
 }
-export default EnergyDrink;
+export default Trending;
