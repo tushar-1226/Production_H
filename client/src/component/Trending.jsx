@@ -2,9 +2,24 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { CartContext } from "../context/CartContext";
 import Loader from "./Loader";
+import axios from "../api/axios";
 
 
 const Trending = () => {
+
+  const handleAddToCart = async (productId) => {
+  try {
+    await axios.post("/cart/add-to-cart", {
+      productId
+    });
+
+    alert("Added to cart");
+
+  } catch (error) {
+    console.log(error);
+    alert("Error adding to cart");
+  }
+};
 
   const { addToCart } = useContext(CartContext);
 
