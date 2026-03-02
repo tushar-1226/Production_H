@@ -7,30 +7,37 @@ const Auth = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [userName, setUserName] = useState("");
 
     const [showPassword, setShowPassword] = useState(false);
     const [mode, setMode] = useState("login")
 
-    const handleLogin = async (e) => {
+    const handleAuth = async (e) => {
         e.preventDefault();
 
         try {
-            const res = await axios.post(
-                "http://localhost:5000/api/auth/login",
-                {
-                    email,
-                    password
-                }
-            );
 
-            // ✅ SAVE TOKEN
-            localStorage.setItem("token", res.data.token);
+            const url =
+                mode === "login"
+                    ? "/auth/login"
+                    : "/auth/register";
 
-            alert("Login Successful");
+            const res = await axios.post(url, {
+                userName,
+                email,
+                password
+            });
+
+            // save token only on login
+            if (mode === "login") {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            alert(`${mode} successful`);
+            
 
         } catch (error) {
-            console.log(error);
-            alert("Login Failed");
+            console.log(error.response?.data);
         }
     };
 
@@ -51,7 +58,7 @@ const Auth = () => {
                         : "Create an account to start using our platform."}
                 </p>
 
-                <form onSubmit={handleLogin} className="mt-6 space-y-5">
+                <form onSubmit={handleAuth} className="mt-6 space-y-5">
 
                     {mode === "signup" && (
                         <div>
@@ -61,6 +68,8 @@ const Auth = () => {
                             <input
                                 type="text"
                                 placeholder="John Doe"
+                                value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                         </div>

@@ -61,46 +61,51 @@ export const CartProvider = ({ children }) => {
     };
 
     const updateCart = async (productId, action) => {
+
+        const oldCart = [...cartItems];
+
+        setCartItems((prev) => {
+
+            if (action === "increase") {
+                return prev.map((item) =>
+                    item._id === productId
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
+            }
+
+            if (action === "decrease") {
+                return prev
+                    .map((item) =>
+                        item._id === productId
+                            ? { ...item, quantity: item.quantity - 1 }
+                            : item
+                    )
+                    .filter((item) => item.quantity > 0);
+            }
+
+            if (action === "remove") {
+                return prev.filter(
+                    (item) => item._id !== productId
+                );
+            }
+
+            return prev;
+        });
+
         try {
+            // ✅ Backend runs in background
             await axios.put("/cart/update-cart", {
                 productId,
                 action
             });
 
-            setCartItems((prev) => {
-
-                if (action === "increase") {
-                    return prev.map((item) =>
-                        item._id === productId
-                            ? { ...item, quantity: item.quantity + 1 }
-                            : item
-                    );
-                }
-
-                if (action === "decrease") {
-                    return prev
-                        .map((item) =>
-                            item._id === productId
-                                ? { ...item, quantity: item.quantity - 1 }
-                                : item
-                        )
-                        .filter((item) => item.quantity > 0);
-                }
-
-                if (action === "remove") {
-                    return prev.filter(
-                        (item) => item._id !== productId
-                    );
-                }
-
-                return prev;
-            });
-
         } catch (error) {
+            // ❌ If backend fails → revert UI
+            setCartItems(oldCart);
             console.log(error);
         }
     };
-
     const totalAmount = cartItems.reduce(
         (total, item) => total + item.price * item.quantity,
         0
