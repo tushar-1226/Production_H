@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "../api/axios";
 
 export const CartContext = createContext();
@@ -7,7 +7,30 @@ export const CartProvider = ({ children }) => {
 
     const [cartItems, setCartItems] = useState([]);
 
+    useEffect(() => {
+        const fetchCart = async () => {
+            try {
+                const res = await axios.get("/cart/get-cart");
+
+                const backendCart = res.data.cart;
+
+                const formattedCart = backendCart.map((item) => ({
+                    ...item.productId,
+                    quantity: item.quantity
+                }));
+
+                setCartItems(formattedCart);
+
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchCart();
+    }, []);
+
     const addToCart = async (drink) => {
+
         try {
 
             // ✅ update database cart
@@ -37,31 +60,45 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const increaseQty = (id) => {
-        setCartItems((prev) =>
-            prev.map((item) =>
-                item._id === id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            )
-        );
-    };
+    const updateCart = async (productId, action) => {
+        try {
+            await axios.put("/cart/update-cart", {
+                productId,
+                action
+            });
 
-    const decreaseQty = (id) => {
-        setCartItems((prev) =>
-            prev.map((item) =>
-                item._id === id
-                    ? { ...item, quantity: item.quantity - 1 }
-                    : item
-            )
-                .filter((item) => item.quantity > 0)
-        );
-    };
+            setCartItems((prev) => {
 
-    const removeFromCart = (id) => {
-        setCartItems((prev) =>
-            prev.filter((item) => item._id !== id)
-        );
+                if (action === "increase") {
+                    return prev.map((item) =>
+                        item._id === productId
+                            ? { ...item, quantity: item.quantity + 1 }
+                            : item
+                    );
+                }
+
+                if (action === "decrease") {
+                    return prev
+                        .map((item) =>
+                            item._id === productId
+                                ? { ...item, quantity: item.quantity - 1 }
+                                : item
+                        )
+                        .filter((item) => item.quantity > 0);
+                }
+
+                if (action === "remove") {
+                    return prev.filter(
+                        (item) => item._id !== productId
+                    );
+                }
+
+                return prev;
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const totalAmount = cartItems.reduce(
@@ -69,7 +106,7 @@ export const CartProvider = ({ children }) => {
         0
     );
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, increaseQty, decreaseQty, totalAmount }}>
+        <CartContext.Provider value={{ cartItems, addToCart, updateCart, totalAmount }}>
             {children}
         </CartContext.Provider>
     );
