@@ -2,6 +2,7 @@ import ShopNavbar from './ShopNavbar';
 import Trending from './Trending'
 import Category from './Category';
 import Banner from './Banner';
+import Milkbased from './Milkbased'
 
 const Shop = () => {
   return (
@@ -10,6 +11,7 @@ const Shop = () => {
       <Banner/>
       {/* <Category /> */}
       <Trending />
+      <Milkbased/>
       
     </div>
   )

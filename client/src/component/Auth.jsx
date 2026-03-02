@@ -30,11 +30,14 @@ const Auth = () => {
                 email,
                 password
             });
+            console.log(res.data)
 
             // save token only on login
-            if (mode === "login") {
-                localStorage.setItem("token", res.data.token);
-            }
+            localStorage.setItem("token", res.data.token);
+            console.log( localStorage.getItem("token"))
+            setTimeout(() => {
+                console.log("After 2s:", localStorage.getItem("token"));
+            }, 2000);
 
             navigate("/shop");
 

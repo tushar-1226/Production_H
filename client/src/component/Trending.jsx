@@ -30,19 +30,26 @@ const Trending = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
-  useEffect(() => {
-    const fetchDrinks = async () => {
-      try {
-        const res = await axios.get("/api/drinks");
-        setDrinks(res.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-          setLoading(false)
-      };
+useEffect(() => {
+  const fetchDrinks = async () => {
+    try {
+      const res = await axios.get("/drink");
+
+      const drinksData = Array.isArray(res.data)
+        ? res.data
+        : res.data.drinks;
+
+      setDrinks(drinksData);
+
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
-      fetchDrinks();
-    }, []);
+  };
+
+  fetchDrinks();
+}, []);
 
   const handleScroll = (direction) => {
     const scrollAmount = 300;
@@ -58,7 +65,6 @@ const Trending = () => {
       behavior: "smooth",
     });
   }
-
 
 
   const checkScrollPosition = () => {
@@ -77,14 +83,7 @@ const Trending = () => {
     checkScrollPosition();
   }, [])
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/drink")
-      .then((res) => res.json())
-      .then((data) => {
-        setDrinks(data.drinks);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+
   if (loading) {
     return <Loader />;
   }
@@ -141,7 +140,6 @@ const Trending = () => {
                   </p>
 
                 </div>
-
 
                 <div className="">
                   <div className="flex items-center gap-2 mt-1  pt-4 whitespace-nowrap">
