@@ -2,8 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Smartphone } from "lucide-react";
 import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -33,8 +36,9 @@ const Auth = () => {
                 localStorage.setItem("token", res.data.token);
             }
 
-            alert(`${mode} successful`);
-            
+            navigate("/shop");
+
+
 
         } catch (error) {
             console.log(error.response?.data);
@@ -94,11 +98,11 @@ const Auth = () => {
                         <label className="block text-sm font-medium mb-1">
                             {mode == "signup" ? (
                                 <>
-                                    Password <span className="text-red-500">*</span>
+                                    Create Password <span className="text-red-500">*</span>
                                 </>
                             ) : (
                                 <>
-                                    Create Password <span className="text-red-500">*</span>
+                                    Password <span className="text-red-500">*</span>
                                 </>
                             )
                             }

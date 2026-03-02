@@ -1,9 +1,25 @@
-import React from 'react'
 import { Search, Heart, ShoppingBag } from 'lucide-react';
 import assets from '../assets/assets';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const ShopNavbar = () => {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get("/auth/profile");
+        setUser(res.data.user);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <div className='flex bg-[#eaf6f6]/50 backdrop-blur-md fixed w-full justify-between items-center py-3 px-2 md:px-5 mb-5 dark:text-white z-10 '>
       <div>
@@ -12,7 +28,7 @@ const ShopNavbar = () => {
         </span>
       </div>
 
-      <div className='w-full flex justify-center'>
+      <div className='flex-1 flex justify-center'>
         <input
           type='text'
           placeholder='Search'
@@ -20,7 +36,7 @@ const ShopNavbar = () => {
         />
       </div>
 
-      <div className="flex justify-center items-center gap-4 md:gap-9">
+      <div className="flex justify-center items-center gap-3 md:gap-9">
 
         <div className="relative group">
           <Heart className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition" />
@@ -35,16 +51,25 @@ const ShopNavbar = () => {
 
           <Link to='/cart'>
 
-          <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition"/>
-          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap ">Cart </span>
+            <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition" />
+            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap ">Cart </span>
           </Link>
-      
+
         </div>
 
+        <div className="relative flex items-center gap-2 group min-w-0">
 
-        <div className="relative w-8 group">
 
-          <img src={assets.userPfp} className=" rounded-full object-contain cursor-pointer" alt="User profile"/>
+
+          <p className="hidden md:block  text-lg font-semibold max-w-[120px] truncate">
+            {user?.username || "Account"}
+          </p>
+
+          <img
+            src={assets.userPfp}
+            className="w-8 h-8 rounded-full object-cover cursor-pointer"
+            alt="User profile"
+          />
 
           <span className="absolute top-10 -left-3 -translate-x-1/2 bg-[#eaf6f6] text-black  px-3 py-3 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
             <p className='p-2 hover:bg-[]'>My Profile</p>
