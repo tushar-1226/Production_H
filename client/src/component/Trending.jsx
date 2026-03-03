@@ -8,48 +8,51 @@ import axios from "../api/axios";
 const Trending = () => {
 
   const handleAddToCart = async (productId) => {
-  try {
-    await axios.post("/cart/add-to-cart", {
-      productId
-    });
+    try {
+      await axios.post("/cart/add-to-cart", {
+        productId
+      });
 
-    alert("Added to cart");
+      alert("Added to cart");
 
-  } catch (error) {
-    console.log(error);
-    alert("Error adding to cart");
-  }
-};
+    } catch (error) {
+      console.log(error);
+      alert("Error adding to cart");
+    }
+  };
 
   const { addToCart } = useContext(CartContext);
 
-  const [drinks, setDrinks] = useState([]);
+  const [trending, setTrending] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
-useEffect(() => {
-  const fetchDrinks = async () => {
-    try {
-      const res = await axios.get("/drink");
+  useEffect(() => {
+    const fetchDrinks = async () => {
+      try {
+        const res = await axios.get("/drink");
 
-      const drinksData = Array.isArray(res.data)
-        ? res.data
-        : res.data.drinks;
+        const drinksData = Array.isArray(res.data)
+          ? res.data
+          : res.data.drinks;
 
-      setDrinks(drinksData);
+        const filteredTrending = drinksData.filter(
+          (drink) => drink.isTrending === true
+        );
+        setTrending(filteredTrending);
 
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  fetchDrinks();
-}, []);
+    fetchDrinks();
+  }, []);
 
   const handleScroll = (direction) => {
     const scrollAmount = 300;
@@ -104,7 +107,7 @@ useEffect(() => {
         )}
         <div ref={scrollRef}
           onScroll={checkScrollPosition} className="flex  overflow-x-auto gap-6 scroll-smooth scrollbar-hide">
-          {drinks.map((drink) => (
+          {trending.map((drink) => (
             <div
               key={drink._id}
               className="w-[280px] bg-white flex-shrink-0 rounded-3xl shadow-lg p-4 hover:shadow-2xl transition flex flex-col ">
