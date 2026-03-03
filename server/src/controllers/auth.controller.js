@@ -44,7 +44,8 @@ const loginUser = async (req, res) => {
         "mysecretkey",
         { expiresIn: "4d"}
     );
-
+    console.log(res.data)
+    console.log(token)
     res.json({
         message: "Login successful",
         token

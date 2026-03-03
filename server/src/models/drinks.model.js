@@ -9,6 +9,10 @@ const drinksSchema = new mongoose.Schema({
     rating: Number,
     isAvailable: Boolean,
     size: String,
+    isTrending: {
+        type: Boolean,
+        default: false
+    }
 })
 const Drink = mongoose.model("Drink", drinksSchema)
 
