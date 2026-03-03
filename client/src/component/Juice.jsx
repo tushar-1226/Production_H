@@ -5,7 +5,7 @@ import Loader from "./Loader";
 import axios from "../api/axios";
 
 
-const Milkbased = () => {
+const Juice = () => {
 
     const handleAddToCart = async (productId) => {
         try {
@@ -23,7 +23,7 @@ const Milkbased = () => {
 
     const { addToCart } = useContext(CartContext);
 
-    const [milkbased, setMilkbased] = useState([]);
+    const [juice, setJuice] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const scrollRef = useRef(null);
@@ -31,19 +31,19 @@ const Milkbased = () => {
     const [showRightArrow, setShowRightArrow] = useState(true);
 
     useEffect(() => {
-        const fetchMilkDrinks = async () => {
+        const fetchJuice = async () => {
             try {
-                const res = await axios.get("/drink/milkbased");
+                const res = await axios.get("/drink/juice");
 
                 const drinksData = Array.isArray(res.data)
                     ? res.data
                     : res.data.drinks;
 
-                const onlyMilk = drinksData.filter(
-                    (drink) => drink.category === "milkbased"
+                const onlyJuice = drinksData.filter(
+                    (drink) => drink.category === "juice"
                 );
 
-                setMilkbased(onlyMilk);
+                setJuice(onlyJuice);
 
             } catch (error) {
                 console.log(error);
@@ -52,7 +52,7 @@ const Milkbased = () => {
             }
         };
 
-        fetchMilkDrinks();
+        fetchJuice();
     }, []);
 
     const handleScroll = (direction) => {
@@ -97,7 +97,7 @@ const Milkbased = () => {
         <div className="flex flex-col flex-wrap gap-8 p-10 ">
 
             <div className="flex">
-                <p className="text-3xl px-2 font-semibold underline underline-offset-4">Milk Based Drinks</p>
+                <p className="text-3xl px-2 font-semibold underline underline-offset-4">Fruit Juice</p>
             </div>
             <div className="relative w-full border border-gray-400 rounded-2xl p-5 overflow-hidden">
                 {showLeftArrow && (
@@ -109,7 +109,7 @@ const Milkbased = () => {
                 )}
                 <div ref={scrollRef}
                     onScroll={checkScrollPosition} className="flex  overflow-x-auto gap-6 scroll-smooth scrollbar-hide">
-                    {milkbased.map((drink) => (
+                    {juice.map((drink) => (
                         <div
                             key={drink._id}
                             className="w-[280px] bg-white flex-shrink-0 rounded-3xl shadow-lg p-4 hover:shadow-2xl transition flex flex-col ">
@@ -122,7 +122,7 @@ const Milkbased = () => {
                                 />
 
                                 <span className="absolute top-1 left-1 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
-                                    20% off
+                                    {drink.offer}% off
                                 </span>
                             </div>
 
@@ -183,4 +183,4 @@ const Milkbased = () => {
     );
 
 }
-export default Milkbased;
+export default Juice;

@@ -81,13 +81,13 @@ const ShopNavbar = () => {
           />
 
           <span className="absolute top-10 left-14 -translate-x-1/2 bg-gray-300 text-black   rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
-            <p className='py-2 px-10 hover:bg-gray-200'>My Profile</p>
-            <p className='py-2 px-10 hover:bg-gray-200'>My Orders</p>
-            <p className='py-2 px-10 hover:bg-gray-200'>Wishlist</p>
-            <p className='py-2 px-10 hover:bg-gray-200'>Cart</p>
-            <p className='py-2 px-10 hover:bg-gray-200'>Settings</p>
-            <p className='py-2 px-10 hover:bg-gray-200'>Support</p>
-            <p className='py-2 px-10 hover:bg-gray-200'>Logout</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>My Profile</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>My Orders</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Wishlist</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Cart</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Settings</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Support</p>
+            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Logout</p>
           </span>
 
         </div>
