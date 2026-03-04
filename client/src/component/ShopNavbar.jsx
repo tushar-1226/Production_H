@@ -3,9 +3,12 @@ import assets from '../assets/assets';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 
 const ShopNavbar = () => {
+
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState("")
@@ -36,19 +39,19 @@ const ShopNavbar = () => {
 
   const searchRef = useRef(null)
 
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setShowDropdown(false)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowDropdown(false)
+      }
     }
-  }
 
-  document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside)
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside)
-  }
-}, [])
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -83,17 +86,19 @@ useEffect(() => {
           type='text'
           placeholder='Search'
           value={searchTerm}
-  onChange={(e) => {
-    setSearchTerm(e.target.value)
-    setShowDropdown(true)
-  }}
-  onFocus={() => setShowDropdown(true)}
+          onChange={(e) => {
+            setSearchTerm(e.target.value)
+            setShowDropdown(true)
+          }}
+          onFocus={() => setShowDropdown(true)}
           className="w-[150px] min-[410px]:w-[200px] sm:w-[300px] lg:w-[500px] border-2 rounded-4xl  pl-2 sm:pl-4 py-1 sm:py-2 focus:outline-2 focus:border-amber-800 "
         />
-        {showDropdown && searchTerm && results.length > 0 &&  (
+        {showDropdown && searchTerm && results.length > 0 && (
           <div className="w-[500px] max-h-[200px] overflow-y-auto z-[1000] border-2 border-black bg-[#eaf6f6] absolute rounded-xl top-12">
             {results.map((drink) => (
-              <div key={drink._id} className="p-2 cursor-pointer hover:bg-gray-100">
+              <div key={drink._id}
+                onClick={() => navigate(`/search/${drink._id}`)}
+                className="p-2 cursor-pointer hover:bg-gray-100">
                 {drink.name}
               </div>
             ))}

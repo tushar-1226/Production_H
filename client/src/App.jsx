@@ -7,9 +7,9 @@ import ReviewCard from './component/ReviewCard'
 import Footer from './component/Footer'
 import Question from './component/Question'
 import Shop from './component/Shop'
-import Aboutdrink from './component/Aboutdrink'
 import Cart from './component/Cart'
 import Auth from './component/Auth'
+import SearchResult from "./component/SearchResult";
 // import Login from "./component/Login"
 // import SignUp from './component/SignUp'
 
@@ -52,13 +52,10 @@ const App = () => {
         />
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<SignUp/>} /> */}
-        <Route path="/auth" element={<Auth/>} /> 
 
-        {/* <Route path="/energy/:id" element={<EnergyPage />} />
-        <Route path="/cold/:id" element={<ColdPage />} />
-        <Route path="/wine/:id" element={<WinePage />} /> */}
+        <Route path="/auth" element={<Auth/>} /> 
+        <Route path="/search/:id" element={<SearchResult />} />
+
       </Routes>
     </div>
   )
