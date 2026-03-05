@@ -9,7 +9,7 @@ const Shop = () => {
   return (
     <div className='w-full'>
       <ShopNavbar />
-      <Banner/>
+      <Banner />
       {/* <Category /> */}
       <Trending />
       <Milkbased/>
