@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Drink = require('../models/drinks.model')
 
-const {createDrinks, fetchDrinks, updateDrinks, deleteDrinks} = require('../controllers/drink.controller')
+const { createDrinks, fetchDrinks, updateDrinks, deleteDrinks } = require('../controllers/drink.controller')
 
 router.post("/", createDrinks)
 router.get("/", fetchDrinks)
@@ -25,12 +25,21 @@ router.get("/juice", async (req, res) => {
   }
 });
 
+router.post("/wine", async (req, res) => {
+  try {
+    const wine = await Drink.create(req.body)
+    res.status(201).json(wine)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
 router.get("/wine", async (req, res) => {
   try {
     const data = await Drink.find({ category: "wine" })
     res.json(data)
   } catch (error) {
-    res.status(500).json({ message: "Server error"})
+    res.status(500).json({ message: "Server error" })
   }
 })
 

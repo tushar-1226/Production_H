@@ -4,6 +4,7 @@ import Category from './Category';
 import Banner from './Banner';
 import Milkbased from './Milkbased'
 import Juice from './Juice';
+import Wine from './Wine';
 
 const Shop = () => {
   return (
@@ -14,6 +15,7 @@ const Shop = () => {
       <Trending />
       <Milkbased/>
       <Juice/>
+      <Wine/>
       
     </div>
   )

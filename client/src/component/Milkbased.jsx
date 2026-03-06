@@ -34,7 +34,7 @@ const Milkbased = () => {
     useEffect(() => {
         const fetchMilkDrinks = async () => {
             try {
-                const res = await axios.get("/drink/milkbased");
+                const res = await axios.get("/drink?category=milkbased")
 
                 const drinksData = Array.isArray(res.data)
                     ? res.data
@@ -70,7 +70,6 @@ const Milkbased = () => {
             behavior: "smooth",
         });
     }
-
 
 
     const checkScrollPosition = () => {
