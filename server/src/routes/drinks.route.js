@@ -25,6 +25,15 @@ router.get("/juice", async (req, res) => {
   }
 });
 
+router.get("/wine", async (req, res) => {
+  try {
+    const data = await Drink.find({ category: "wine" })
+    res.json(data)
+  } catch (error) {
+    res.status(500).json({ message: "Server error"})
+  }
+})
+
 router.get("/search", async (req, res) => {
   try {
     const searchTerm = req.query.query;
