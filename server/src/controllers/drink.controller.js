@@ -18,20 +18,23 @@ const createDrinks = async (req, res) => {
 }
 
 const fetchDrinks = async (req, res) => {
-    try {
-        const drinks = await Drink.find()
+  try {
 
-        res.status(200).json({
-            message: "Drink Fetched",
-            drinks: drinks
-        })
+    const category = req.query.category
+
+    let drinks
+
+    if (category) {
+      drinks = await Drink.find({ category })
+    } else {
+      drinks = await Drink.find()
     }
-    catch (error) {
-        res.status(500).json({
-            message: "Unable to Load drinks",
-            error: error.message
-        })
-    }
+
+    res.json(drinks)
+
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
 }
 
 const deleteDrinks = async (req,res) => {
