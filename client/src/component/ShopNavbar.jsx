@@ -1,9 +1,10 @@
 import { Search, Heart, ShoppingBag } from 'lucide-react';
-import assets from '../assets/assets';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import assets from '../assets/assets';
+
 
 
 
@@ -137,7 +138,7 @@ const ShopNavbar = () => {
           </p>
 
           <img
-            src={assets.userPfp}
+            src={user?.profilePic || assets.profileicon}
             onClick={() => navigate("/profile")}
             className="w-8 h-8 rounded-full object-cover cursor-pointer"
             alt="User profile"

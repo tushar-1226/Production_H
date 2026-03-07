@@ -3,7 +3,7 @@ import moonIcon from "./moon_icon.svg";
 import sunIcon from "./sun_icon.svg";
 
 // user
-import userPfp from "./pfp-user.jpg";
+import profileicon from "./profileicon.avif";
 
 import Banner1 from './Banner1.jpg'
 import Banner2 from './Banner2.png'
@@ -57,8 +57,6 @@ const assets = {
   moonIcon,
   sunIcon,
 
-  // user
-  userPfp,
 
   //Energy Drink
   Monster,
@@ -83,7 +81,10 @@ const assets = {
   Redlabel,
   Blacklabel,
 
-  bg
+  bg,
+
+  profileicon
+
 };
  export const Avatar = [
   Avatar1,
