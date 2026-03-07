@@ -10,6 +10,7 @@ import Shop from './component/Shop'
 import Cart from './component/Cart'
 import Auth from './component/Auth'
 import SearchResult from "./component/SearchResult";
+import UserProfile from "./pages/UserProfile"
 // import Login from "./component/Login"
 // import SignUp from './component/SignUp'
 
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/auth" element={<Auth/>} /> 
         <Route path="/search/:id" element={<SearchResult />} />
 
+          <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </div>
   )

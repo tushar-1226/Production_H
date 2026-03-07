@@ -6,6 +6,7 @@ import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
 
+
 const ShopNavbar = () => {
 
   const navigate = useNavigate();
@@ -137,6 +138,7 @@ const ShopNavbar = () => {
 
           <img
             src={assets.userPfp}
+            onClick={() => navigate("/profile")}
             className="w-8 h-8 rounded-full object-cover cursor-pointer"
             alt="User profile"
           />
