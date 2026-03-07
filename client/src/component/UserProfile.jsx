@@ -1,6 +1,56 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import axios from "../api/axios"
+import { useNavigate } from "react-router-dom"
 
 const UserProfile = () => {
+
+  const [user, setUser] = useState(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+
+    const fetchUser = async () => {
+      try {
+
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+          navigate("/auth")
+          return
+        }
+
+        const res = await axios.get("/auth/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+
+        setUser(res.data)
+
+      } catch (error) {
+        console.log("Error fetching user:", error)
+        navigate("/auth")
+      }
+    }
+
+    fetchUser()
+
+  }, [navigate])
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    navigate("/auth")
+  }
+
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        Loading...
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center pt-20">
 
@@ -9,13 +59,14 @@ const UserProfile = () => {
         <div className="flex items-center gap-6">
 
           <img
-            src="https://i.pravatar.cc/150"
+            src=""
             className="w-20 h-20 rounded-full object-cover"
+            alt="profile"
           />
 
           <div>
-            <h2 className="text-2xl font-semibold">Harshit</h2>
-            <p className="text-gray-500">harshit@email.com</p>
+            <h2 className="text-2xl font-semibold">{user.name}</h2>
+            <p className="text-gray-500">{user.email}</p>
           </div>
 
         </div>
@@ -34,7 +85,10 @@ const UserProfile = () => {
             Edit Profile
           </p>
 
-          <p className="py-2 cursor-pointer text-red-500">
+          <p
+            onClick={handleLogout}
+            className="py-2 cursor-pointer text-red-500"
+          >
             Logout
           </p>
 
