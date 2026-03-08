@@ -65,8 +65,8 @@ const Banner = () => {
 
       <div className="absolute inset-0 flex items-center justify-center z-20 ">
         <div className="text-center text-white px-4">
-          <h1 className="text-3xl md:text-5xl font-bold drop-shadow">Discover Delicious Drinks</h1>
-          <p className="mt-2 text-sm md:text-lg drop-shadow">Explore categories — slides change every 2 seconds.</p>
+          <h1 className="text-3xl md:text-5xl font-bold drop-shadow">Refresh Your Moment</h1>
+          <p className="mt-2 text-sm md:text-lg drop-shadow">Discover premium drinks, juices, wines and more — delivered to your doorstep.</p>
         </div>
       </div>
 
