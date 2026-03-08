@@ -3,7 +3,7 @@ import { Banners, Sips } from '../assets/assets'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const Banner = () => {
-  const images = [...Banners, ...Sips].slice(0, 7)
+  const images = [...Banners, ...Sips].slice(0, 5)
   const [idx, setIdx] = useState(0)
   const intervalRef = useRef(null)
 
