@@ -10,7 +10,9 @@ const Shop = () => {
   return (
     <div className='w-full'>
       <ShopNavbar />
-      <Banner />
+      <div className="pt-20">
+  <Banner />
+</div>
       {/* <Category /> */}
       <Trending />
       <Milkbased/>

@@ -76,7 +76,7 @@ const ShopNavbar = () => {
   }, []);
 
   return (
-    <div className='flex  bg-[#eaf6f6]/50 backdrop-blur-md fixed w-full justify-between items-center py-3 px-2 md:px-5 mb-5 dark:text-white z-60 '>
+    <div className='flex  bg-[#eaf6f6]/50 dark:bg-[#0A0A0B]/30 dark:text-white backdrop-blur-md fixed w-full justify-between items-center py-3 px-2 md:px-5 mb-5 dark:text-white z-60 '>
       <div>
         <span className='font-bold text-xl sm:text-2xl md:text-3xl'>
           LIQUID

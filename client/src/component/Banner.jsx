@@ -73,7 +73,7 @@ const Banner = () => {
 <ChevronLeft
   onClick={goPrev}
   size={50}
-  className="absolute top-1/2 -translate-y-1/2 left-5 bg-gray-100/40 rounded-full p-1 cursor-pointer z-30"
+  className="absolute top-1/2 -translate-y-1/2 left-5 bg-gray-100/40 rounded-full p-1 cursor-pointer z-60"
 />
 
 <ChevronRight
