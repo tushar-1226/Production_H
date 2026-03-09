@@ -86,7 +86,9 @@ const UserProfile = () => {
 
             <main className="flex-1 p-6 overflow-auto">
                 <header className="flex items-center justify-between mb-6">
-                    <h1 className="text-2xl font-bold">Welcome back, {user.name.split(' ')[0]}</h1>
+                    <h1 className="text-2xl font-bold">
+                        Welcome back, {user?.name?.split(' ')[0] || "User"}
+                    </h1>
                     <div className="text-sm text-gray-500">Member since {new Date(user.createdAt || Date.now()).toLocaleDateString()}</div>
                 </header>
 
