@@ -11,6 +11,7 @@ const DrinkDetail = () => {
 
   const [drink, setDrink] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchDrink = async () => {
@@ -19,6 +20,12 @@ const DrinkDetail = () => {
         setDrink(res.data);
       } catch (err) {
         console.error(err);
+        if (err.response) {
+          setDrink(null);
+          setError(`Server responded ${err.response.status}: ${JSON.stringify(err.response.data)}`);
+        } else {
+          setError(err.message);
+        }
       } finally {
         setLoading(false);
       }
@@ -29,7 +36,7 @@ const DrinkDetail = () => {
 
   if (loading) return <Loader />;
 
-  if (!drink) return <div className="p-8">Drink not found</div>;
+  if (!drink) return <div className="p-8">{error ? `Error: ${error}` : 'Drink not found'}</div>;
 
   return (
     <div className="p-8 max-w-4xl mx-auto">

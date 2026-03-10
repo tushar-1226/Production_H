@@ -5,10 +5,12 @@ const DrinkCard = ({ drink, addToCart }) => {
 
   const navigate = useNavigate();
 
+  const drinkId = drink._id || drink.id;
+
   return (
     <div
-      onClick={() => navigate(`/drink/${drink._id}`)}
-      className="w-[280px] bg-white flex-shrink-0 rounded-3xl shadow-lg p-4 hover:shadow-2xl transition flex flex-col cursor-pointer"
+      onClick={() => navigate(`/drink/${drinkId}`)}
+      className="relative w-[280px] bg-white flex-shrink-0 rounded-3xl shadow-lg p-4 hover:shadow-2xl transition flex flex-col cursor-pointer"
     >
 
       <img
