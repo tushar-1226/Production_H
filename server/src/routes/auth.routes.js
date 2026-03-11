@@ -1,5 +1,7 @@
 const express = require("express");
-const {registerUser, loginUser, getProfile} = require("../controllers/auth.controller")
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { registerUser, loginUser, getProfile } = require("../controllers/auth.controller")
 const protect = require("../middleware/authMiddleware")
 const User = require("../models/user.model")
 
@@ -13,43 +15,52 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser)
 
-router.get("/profile", protect, getProfile );
+router.get("/profile", protect, getProfile);
 
 router.post("/send-otp", async (req, res) => {
-  try {
-    const { email } = req.body;
+    try {
+        const email = req.body.email.trim().toLowerCase();
 
-    const otp = generateOtp();
+        const otp = generateOtp();
 
-    otpStorage[email] = otp;
+        otpStorage[email] = otp;
 
-    await sendEmail(
-      email,
-      "Your OTP for Liquid Website",
-      `Your OTP is ${otp}. It will expire in 5 minutes.`
-    );
+        await sendEmail(
+            email,
+            "Your OTP for Liquid Website",
+            `Your OTP is ${otp}. It will expire in 5 minutes.`
+        );
 
-    res.json({
-      success: true,
-      message: "OTP sent successfully"
-    });
+        res.json({
+            success: true,
+            message: "OTP sent successfully"
+        });
 
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      success: false,
-      message: "Error sending OTP"
-    });
-  }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            success: false,
+            message: "Error sending OTP"
+        });
+    }
 });
 
 router.post("/verify-otp", async (req, res) => {
 
   try {
 
-    const { email, otp, password } = req.body;
+    let { email, otp, userName, password } = req.body;
 
-    if (otpStorage[email] != otp) {
+    email = email.trim().toLowerCase();
+
+    if (!otpStorage[email]) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP expired or not sent"
+      });
+    }
+
+    if (Number(otpStorage[email]) !== Number(otp)) {
       return res.status(400).json({
         success: false,
         message: "Invalid OTP"
@@ -58,27 +69,26 @@ router.post("/verify-otp", async (req, res) => {
 
     delete otpStorage[email];
 
-    // check if user already exists
-    const existingUser = await User.findOne({ email });
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    if (existingUser) {
-      return res.json({
-        success: true,
-        message: "User already exists, login successful"
-      });
-    }
-
-    // create new user
     const newUser = new User({
+      userName,
       email,
-      password
+      password: hashedPassword
     });
 
     await newUser.save();
 
+    // 🔑 generate JWT
+    const token = jwt.sign(
+      { userId: newUser._id },
+      process.env.JWT_SECRET,
+      { expiresIn: "4d" }
+    );
+
     res.json({
       success: true,
-      message: "User created successfully"
+      token
     });
 
   } catch (error) {
