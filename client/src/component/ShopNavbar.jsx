@@ -1,6 +1,7 @@
 import { Search, Heart, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
+import { CartContext } from "../context/CartContext";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import assets from '../assets/assets';
@@ -9,6 +10,17 @@ import assets from '../assets/assets';
 
 
 const ShopNavbar = () => {
+
+  function CartCountBadge() {
+    const { cartItems } = useContext(CartContext);
+    const totalCount = cartItems?.reduce((sum, it) => sum + (it.quantity || 0), 0) || 0;
+    if (!totalCount) return null;
+    return (
+      <span className="absolute -top-1 left-4 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">
+        {totalCount}
+      </span>
+    );
+  }
 
   const navigate = useNavigate();
 
@@ -121,10 +133,14 @@ const ShopNavbar = () => {
 
         <div className="relative group">
 
-          <Link to='/cart'>
+          <Link to='/cart' className="relative inline-block">
 
             <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition" />
             <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap ">Cart </span>
+
+            {/* cart count badge */}
+            <CartCountBadge />
+
           </Link>
 
         </div>

@@ -33,12 +33,10 @@ export const CartProvider = ({ children }) => {
 
         try {
 
-            // ✅ update database cart
             await axios.post("/cart/add-to-cart", {
                 productId: drink._id
             });
 
-            // ✅ keep your existing frontend logic
             setCartItems((prev) => {
                 const existingItem = prev.find(
                     (item) => item._id === drink._id

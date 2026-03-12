@@ -7,7 +7,7 @@ import DrinkCard from "../component/DrinkCard";
 
 const Wine = () => {
 
-    const {addToCart} = useContext(CartContext)
+    const { addToCart, cartItems } = useContext(CartContext)
     const [wine, setWine] = useState([])
     const [loading, setLoading] = useState(true);
 
@@ -39,19 +39,7 @@ const Wine = () => {
         fetchWine()
     }, [])
 
-    const handleAddToCart = async (productId) => {
-            try {
-                await axios.post("/cart/add-to-cart", {
-                    productId
-                });
     
-                alert("Added to cart");
-    
-            } catch (error) {
-                console.log(error);
-                alert("Error adding to cart");
-            }
-        };
 
      const handleScroll = (direction) => {
         const scrollAmount = 300;
@@ -108,7 +96,8 @@ const Wine = () => {
                         <DrinkCard
                             key={drink._id}
                             drink={drink}
-                            addToCart={handleAddToCart}
+                            addToCart={addToCart}
+                            cartItems={cartItems}
                         />
                     ))}
                 </div>

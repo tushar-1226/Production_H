@@ -8,21 +8,7 @@ import DrinkCard from "../component/DrinkCard";
 
 const Milkbased = () => {
 
-    const handleAddToCart = async (productId) => {
-        try {
-            await axios.post("/cart/add-to-cart", {
-                productId
-            });
-
-            alert("Added to cart");
-
-        } catch (error) {
-            console.log(error);
-            alert("Error adding to cart");
-        }
-    };
-
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, cartItems } = useContext(CartContext);
 
     const [milkbased, setMilkbased] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -113,7 +99,8 @@ const Milkbased = () => {
                         <DrinkCard
                             key={drink._id}
                             drink={drink}
-                            addToCart={handleAddToCart}
+                            addToCart={addToCart}
+                            cartItems={cartItems}
                         />
                     ))}
                 </div>

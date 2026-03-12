@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
 
-  const { cartItems,updateCart, totalAmount } = useContext(CartContext);
+  const { cartItems, updateCart, totalAmount } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (

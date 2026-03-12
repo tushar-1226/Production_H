@@ -1,11 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const DrinkCard = ({ drink, addToCart }) => {
+const DrinkCard = ({ drink, addToCart, cartItems  }) => {
 
   const navigate = useNavigate();
 
   const drinkId = drink._id || drink.id;
+
+const cartItem = cartItems?.find(item => item._id === drink._id);
+const quantity = cartItem ? cartItem.quantity : 0;
 
   return (
     <div
@@ -60,7 +63,7 @@ const DrinkCard = ({ drink, addToCart }) => {
             }}
             className="w-full mt-5 bg-[#385170]/70 text-white py-3 rounded-full font-medium hover:bg-[#385170] transition-all duration-300 hover:scale-105"
           >
-            Add to cart
+            {quantity === 0 ? "Add to Cart" : `Added to Cart (${quantity})`}
           </button>
 
         </div>

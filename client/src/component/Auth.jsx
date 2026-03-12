@@ -11,9 +11,6 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
 
-  const [otp, setOtp] = useState("");
-
-  const [step, setStep] = useState("form"); 
   const [mode, setMode] = useState("login");
 
   const [showPassword, setShowPassword] = useState(false);
@@ -22,109 +19,37 @@ const Auth = () => {
   // LOGIN OR SEND OTP
   // =========================
   const handleAuth = async (e) => {
-    e.preventDefault();
-
-    try {
-
-      if (mode === "signup") {
-
-        await axios.post("/auth/send-otp", { email });
-
-        alert("OTP sent to your email");
-
-        setStep("otp");
-
-      } else {
-
-        const res = await axios.post("/auth/login", {
-          email,
-          password
-        });
-
-        localStorage.setItem("token", res.data.token);
-
-        navigate("/shop");
-      }
-
-    } catch (error) {
-      console.log(error.response?.data);
-      alert(error.response?.data || "Something went wrong");
-    }
-  };
-
-
-  // =========================
-  // VERIFY OTP
-  // =========================
-const verifyOtp = async () => {
+  e.preventDefault();
 
   try {
 
-    const res = await axios.post("/auth/verify-otp", {
-      userName,
-      email,
-      password,
-      otp
-    });
+    if (mode === "signup") {
 
-    // store token
-    localStorage.setItem("token", res.data.token);
+      await axios.post("/auth/send-otp", { email });
 
-    // redirect to shop
-    navigate("/shop");
+      navigate("/verify-otp", {
+  state: { email, userName, password }
+});
+
+    } else {
+
+      const res = await axios.post("/auth/login", {
+        email,
+        password
+      });
+
+      localStorage.setItem("token", res.data.token);
+
+      navigate("/shop");
+    }
 
   } catch (error) {
 
     console.log(error.response?.data);
-    alert("Invalid OTP");
 
   }
-
 };
 
-  // =========================
-  // OTP SCREEN
-  // =========================
-  if (step === "otp") {
-
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#eaf6f6] px-4">
-
-        <div className="bg-white rounded-xl shadow-md p-8 w-full max-w-md">
-
-          <h2 className="text-2xl font-semibold mb-2">
-            Verify Email
-          </h2>
-
-          <p className="text-gray-500 text-sm mb-6">
-            Enter the OTP sent to {email}
-          </p>
-
-          <input
-            type="text"
-            placeholder="Enter OTP"
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 mb-4"
-          />
-
-          <button
-            onClick={verifyOtp}
-            className="w-full bg-[#06283D] text-white py-2.5 rounded-lg"
-          >
-            Verify OTP
-          </button>
-
-        </div>
-
-      </div>
-    );
-  }
-
-
-  // =========================
-  // MAIN AUTH SCREEN
-  // =========================
   return (
 
     <div className="min-h-screen flex items-center justify-center bg-[#eaf6f6] px-4">
@@ -140,14 +65,17 @@ const verifyOtp = async () => {
         </h2>
 
         <p className="text-gray-500 text-sm mt-2">
+
           {mode === "login"
             ? "Log in to continue with your product installations."
             : "Create an account to start using our platform."}
+
         </p>
 
         <form onSubmit={handleAuth} className="mt-6 space-y-5">
 
           {mode === "signup" && (
+
             <div>
 
               <label className="block text-sm font-medium mb-1">
@@ -163,6 +91,7 @@ const verifyOtp = async () => {
               />
 
             </div>
+
           )}
 
           <div>
@@ -184,7 +113,7 @@ const verifyOtp = async () => {
           <div>
 
             <label className="block text-sm font-medium mb-1">
-              Create Password *
+              Password *
             </label>
 
             <div className="relative">
@@ -212,7 +141,9 @@ const verifyOtp = async () => {
           <button
             className="w-full bg-[#06283D] text-white py-2.5 rounded-lg"
           >
+
             {mode === "login" ? "Sign In" : "Create Account"}
+
           </button>
 
         </form>
@@ -223,6 +154,7 @@ const verifyOtp = async () => {
         <p className="text-center text-sm text-gray-600 mt-4">
 
           {mode === "login" ? (
+
             <>
               Don’t have an account?{" "}
               <button
@@ -232,7 +164,9 @@ const verifyOtp = async () => {
                 Create Account
               </button>
             </>
+
           ) : (
+
             <>
               Already have an account?{" "}
               <button
@@ -242,6 +176,7 @@ const verifyOtp = async () => {
                 Sign In
               </button>
             </>
+
           )}
 
         </p>
@@ -289,6 +224,7 @@ const verifyOtp = async () => {
       </div>
 
     </div>
+
   );
 };
 

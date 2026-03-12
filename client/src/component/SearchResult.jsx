@@ -4,8 +4,12 @@ import axios from "../api/axios";
 import { useState, useEffect } from "react";
 import ShopNavbar from "./ShopNavbar";
 import DrinkCard from "./DrinkCard";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-const SearchResult = ({addToCart}) => {
+const SearchResult = () => {
+
+  const { addToCart, cartItems } = useContext(CartContext);
 
   const { id } = useParams();
 
@@ -39,6 +43,7 @@ const SearchResult = ({addToCart}) => {
           <DrinkCard
             drink={drink}
             addToCart={addToCart}
+            cartItems={cartItems}
           />
         )}
 
