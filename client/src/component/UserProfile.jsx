@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
 
-const UserProfile = () => {
+const UserProfile = ({ theme, setTheme }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [showEditModal, setShowEditModal] = useState(false)
@@ -62,8 +62,8 @@ const UserProfile = () => {
     if (loading) return <div className="flex items-center justify-center h-screen">Loading...</div>
 
     return (
-        <div className="h-screen w-screen bg-gradient-to-b from-gray-50 to-gray-100 flex">
-            <aside className="w-full md:w-1/3 lg:w-1/4 bg-white p-6 border-r flex flex-col gap-6">
+        <div className="h-screen w-screen  dark:bg-[#0A0A0B]/30 dark:text-white flex">
+            <aside className="w-full md:w-1/3 lg:w-1/4 dark:bg-[#0A0A0B]/30 dark:text-white p-6 border-r flex flex-col gap-6">
                 <div className="flex items-center gap-4">
                     <img src={user?.profilePic || assets.profileicon} alt="profile" className="w-20 h-20 rounded-full object-cover shadow" />
                     <div>
@@ -79,7 +79,7 @@ const UserProfile = () => {
                 </div>
 
                 <div className="mt-auto flex items-center justify-between">
-                    <ThemeToggleBtn />
+                    <ThemeToggleBtn theme={theme} setTheme={setTheme} />
                     <button onClick={() => setShowLogoutConfirm(true)} className="text-red-600 px-3 py-2 rounded hover:bg-red-50">Logout</button>
                 </div>
             </aside>
@@ -93,17 +93,17 @@ const UserProfile = () => {
                 </header>
 
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div className="p-4 bg-white rounded shadow-sm">
+                    <div className="p-4 bg-white  dark:bg-[#0A0A0B]/30 dark:text-white dark:border-2 rounded shadow-sm">
                         <h3 className="font-medium mb-2">Profile Summary</h3>
                         <p className="text-sm text-gray-600">Name: {user.name}</p>
                         <p className="text-sm text-gray-600">Email: {user.email}</p>
                         <p className="text-sm text-gray-600">Phone: {user.phone || '—'}</p>
                     </div>
 
-                    <div className="p-4 bg-white rounded shadow-sm">
+                    <div className="p-4 bg-white  dark:bg-[#0A0A0B]/30 dark:text-white dark:border-2 rounded shadow-sm">
                         <h3 className="font-medium mb-2">Quick Stats</h3>
                         <div className="flex gap-4">
-                            <div className="flex-1 text-center">
+                            <div className="flex-1 text-center ">
                                 <div className="text-lg font-semibold">{orders.length}</div>
                                 <div className="text-sm text-gray-500">Orders</div>
                             </div>
@@ -116,7 +116,7 @@ const UserProfile = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <div className="bg-white p-4 rounded shadow-sm">
+                    <div className="bg-white  dark:bg-[#0A0A0B]/30 dark:text-white dark:border-2 p-4 rounded shadow-sm">
                         <h3 className="font-medium mb-3">My Orders</h3>
                         {orders.length === 0 ? (
                             <p className="text-sm text-gray-500">No orders yet.</p>
@@ -133,7 +133,7 @@ const UserProfile = () => {
                         )}
                     </div>
 
-                    <div className="bg-white p-4 rounded shadow-sm">
+                    <div className="bg-white  dark:bg-[#0A0A0B]/30 dark:text-white dark:border-2 p-4 rounded shadow-sm">
                         <h3 className="font-medium mb-3">Wishlist</h3>
                         {wishlist.length === 0 ? (
                             <p className="text-sm text-gray-500">Your wishlist is empty.</p>

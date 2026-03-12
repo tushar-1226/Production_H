@@ -33,7 +33,21 @@ import VerifyOtp from "./component/VerifyOtp"
 // }
 
 const App = () => {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('theme')
+      if (saved) return saved
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
+    } catch (e) {
+      return 'light'
+    }
+  })
+
+  React.useEffect(() => {
+    try { localStorage.setItem('theme', theme) } catch (e) {}
+    if (theme === 'dark') document.documentElement.classList.add('dark')
+    else document.documentElement.classList.remove('dark')
+  }, [theme])
 
   return (
     <div className='dark:bg-[#0A0A0B]'>
@@ -60,7 +74,7 @@ const App = () => {
         <Route path="/auth" element={<Auth/>} /> 
         <Route path="/search/:id" element={<SearchResult />} />
 
-          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/profile" element={<UserProfile theme={theme} setTheme={setTheme} />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
       </Routes>
     </div>
