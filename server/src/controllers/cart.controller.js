@@ -1,38 +1,30 @@
 const User = require("../models/user.model");
 
 const addToCart = async (req, res) => {
-  try {
-    const userId = req.user.userId;   // comes from JWT middleware
-    const { productId } = req.body;
 
-    const user = await User.findById(userId);
+  const { productId } = req.body;
+  const userId = req.user.id;
 
-    // check if product already exists in cart
-    const itemIndex = user.cart.findIndex(
-      item => item.productId.toString() === productId
-    );
+  const existingItem = await Cart.findOne({
+    user: userId,
+    product: productId
+  });
 
-    if (itemIndex > -1) {
-      // increase quantity
-      user.cart[itemIndex].quantity += 1;
-    } else {
-      // add new product
-      user.cart.push({
-        productId,
-        quantity: 1
-      });
-    }
-
-    await user.save();
-
-    res.json({
-      message: "Product added to cart",
-      cart: user.cart
-    });
-
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  if (existingItem) {
+    existingItem.quantity += 1;
+    await existingItem.save();
+    return res.json(existingItem);
   }
+
+  const newItem = new Cart({
+    user: userId,
+    product: productId,
+    quantity: 1
+  });
+
+  await newItem.save();
+
+  res.json(newItem);
 };
 
 const getCart = async (req, res) => {
