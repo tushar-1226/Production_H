@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
@@ -7,152 +7,146 @@ const Cart = () => {
 
   const { cartItems, updateCart, totalAmount } = useContext(CartContext);
   const navigate = useNavigate();
+  const [promo, setPromo] = useState("");
+  const [discount, setDiscount] = useState(0);
+  const [promoMessage, setPromoMessage] = useState("");
+
+  const fees = 12;
+
+  const subtotal = useMemo(() => {
+    return cartItems.reduce((s, item) => s + Number(item.price) * Number(item.quantity), 0);
+  }, [cartItems]);
+
+  const total = Math.max(0, subtotal - discount) + fees;
+
+  const applyPromo = () => {
+    const code = promo.trim().toUpperCase();
+    if (!code) {
+      setPromoMessage("Enter a promo code");
+      return;
+    }
+
+    if (code === "SAVE50") {
+      setDiscount(50);
+      setPromoMessage("Applied SAVE50 — ₹50 off");
+    } else if (code === "OFF10") {
+      const d = Math.round(subtotal * 0.1);
+      setDiscount(d);
+      setPromoMessage(`Applied OFF10 — ₹${d} off`);
+    } else {
+      setDiscount(0);
+      setPromoMessage("Invalid code");
+    }
+  };
 
   return (
-    <div className="h-screen dark:bg-[#0A0A0B] dark:text-white">
+    <div className="h-screen dark:bg-[#0A0A0B] dark:text-white bg-transparent">
 
-      <div className='relative flex items-center justify-center w-full p-5'>
+      <div className="relative flex items-center justify-center w-full p-6 ">
         <ArrowLeft
           onClick={() => navigate(-1)}
-          className='absolute h-10 w-10 p-2 left-5 bg-gray-300 dark:text-black rounded-full m-7 cursor-pointer'
+          className='absolute left-6 h-10 w-10 p-2 rounded-full m-7 cursor-pointer bg-gray-100 text-gray-900 shadow-lg'
         />
-        <p className='text-4xl font-semibold'>Your Cart</p>
+        <div className="text-center">
+          <h1 className='text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-500'>Your Cart</h1>
+          <p className='text-sm text-gray-500'>Review items, apply promo codes, and place order</p>
+        </div>
       </div>
 
 
-      <div className="flex items-start justify-center gap-5">
+      <div className="flex items-start justify-center gap-6 px-6 pb-16">
 
-        <div className="flex flex-col items-center">
+        <div className="w-full max-w-3xl">
 
           {cartItems.length === 0 ? (
-            <p className="text-xl mt-10">Cart is Empty</p>
+            <div className="flex flex-col items-center justify-center p-12 bg-gradient-to-b from-white to-amber-50 rounded-xl shadow-lg">
+              <div className="text-6xl">🛒</div>
+              <h2 className="text-2xl font-semibold mt-4">Your cart is empty</h2>
+              <p className="text-gray-500 mt-2">Looks like you haven't added anything yet.</p>
+              <div className="mt-6">
+                <button onClick={() => navigate('/shop')} className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-lg font-semibold shadow-md hover:-translate-y-1 transition-transform">Explore Drinks</button>
+              </div>
+            </div>
           ) : (
 
             cartItems.map((item, index) => (
+              <div key={item._id || index} className="bg-white rounded-xl shadow p-4 mb-4 flex gap-4 items-center">
 
-              <div
-                key={index}
-                className="mx-12 my-3 flex w-full bg-white rounded-xl shadow-md md:p-6 gap-4"
-              >
-
-
-                <div className="h-40 flex-shrink-0">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center">
+                  <img src={item.image} alt={item.name} className="w-full h-full object-contain rounded-md" />
                 </div>
 
-
-                <div className='flex flex-col flex-1'>
-
-                  <p className='text-xl font-semibold'>
-                    {item.name}
-                  </p>
-
-                  <p className='font-medium text-gray-700'>
-                    {item.description}
-                  </p>
-
-                  <p className='mt-2 font-semibold'>
-                    ₹{item.price}
-                  </p>
-
-                  <div className="flex items-center gap-3 mt-2">
-                    
-                    <button onClick={() => updateCart(item._id, "increase")} className="px-3 py-1 bg-gray-200 rounded">+</button>
-                    <span className="font-medium">{item.quantity}</span>
-                    <button onClick={() => updateCart(item._id, "decrease")} className="px-3 py-1 bg-gray-200 rounded">-</button>
-                    
+                <div className='flex-1'>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className='text-lg font-semibold text-gray-900'>{item.name}</p>
+                      <p className='text-sm text-gray-500 mt-1'>{item.description}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className='text-lg font-semibold'>₹{item.price}</p>
+                      <p className='text-sm text-gray-400'>each</p>
+                    </div>
                   </div>
 
-                  <div className='flex gap-6 mt-4'>
-                    <button onClick={() => updateCart(item._id, "remove")} className='bg-gray-300 p-2 rounded-xl'>
-                      Remove
-                    </button>
+                  <div className="mt-3 flex justify-between items-center">
+                    <div className="inline-flex items-center gap-2 bg-gray-100 p-1.5 rounded-lg">
+                      <button aria-label="decrease" onClick={() => updateCart(item._id, "decrease")} className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-gray-200 font-bold">-</button>
+                      <div className="min-w-[30px] text-center font-medium">{item.quantity}</div>
+                      <button aria-label="increase" onClick={() => updateCart(item._id, "increase")} className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-gray-200 font-bold">+</button>
+                    </div>
 
-                    <button className='bg-gray-300 p-2 rounded-xl'>
-                      Buy this Now
-                    </button>
+                    <div className="flex gap-3">
+                      <button onClick={() => updateCart(item._id, "remove")} className='bg-transparent border border-gray-200 px-3 py-2 rounded-md text-gray-700'>Remove</button>
+                      <button className='bg-transparent border border-gray-200 px-3 py-2 rounded-md text-gray-700'>Save for later</button>
+                    </div>
                   </div>
 
+                  <div className="mt-3 text-sm text-gray-700">Item total: <span className="font-semibold">₹{Number(item.price) * Number(item.quantity)}</span></div>
                 </div>
+
               </div>
-
             ))
           )}
 
         </div>
-        {cartItems.length === 0 ? (" ") : (
-          <div className="w-full max-w-md sticky top-20 bg-white shadow-md rounded-lg p-5 mt-3">
 
-            {/* MRP */}
-            <div className="flex justify-between py-3 border-b">
-              <p className="text-gray-600">MRP</p>
-              <p className="font-medium">₹ {totalAmount}</p>
+        {cartItems.length === 0 ? null : (
+          <aside className="w-full max-w-md sticky top-28 bg-white shadow-lg rounded-lg p-6">
+
+            <div className="flex justify-between items-center mb-3">
+              <p className="text-gray-600">Subtotal</p>
+              <p className="font-semibold">₹{subtotal}</p>
             </div>
 
-            {/* Fees */}
-            <div className="flex justify-between py-3 border-b cursor-pointer">
-              <p className="text-gray-600 flex items-center gap-1">
-                Platform fees
-              </p>
-              <p className="font-medium">₹12</p>
+            <div className="flex justify-between items-center mb-3">
+              <p className="text-gray-600">Platform fees</p>
+              <p className="font-semibold">₹{fees}</p>
             </div>
 
-            {/* Discounts */}
-            <div className="flex justify-between py-3 border-b cursor-pointer">
-              <p className="text-gray-600 flex items-center gap-1">
-                Discounts
-
-              </p>
-              <p className="text-green-600 font-medium">0</p>
-            </div>
-
-            {/* Total */}
-            <div className="flex justify-between py-4">
-              <p className="font-semibold text-lg">Total Amount</p>
-              <p className="font-semibold text-lg">₹ {totalAmount + 12} </p>
-            </div>
-
-            {/* Savings Box */}
-            <div className="bg-green-100 text-green-700 rounded-md p-3 text-sm font-medium">
-              ✅ You'll save ₹0 on this order!
-            </div>
-
-            {/* Secure Message */}
-            <div className="flex items-center gap-3 mt-4 text-gray-600 text-sm">
-
-              <p>
-                Safe and secure payments. Easy returns.
-                100% Authentic products.
-              </p>
-            </div>
-
-            {/* Bottom Price + Button */}
-            <div className="flex justify-between items-center mt-5 pt-4 border-t">
-              <div>
-                <p className="text-gray-400 line-through text-sm">
-                  
-                </p>
-                <p className="text-xl font-semibold">
-                  ₹{totalAmount + 12}
-                </p>
+            <div className="mt-4">
+              <label className="text-sm text-gray-600">Promo code</label>
+              <div className="mt-2 flex gap-2">
+                <input value={promo} onChange={(e) => setPromo(e.target.value)} placeholder="Enter code (SAVE50 or OFF10)" className="flex-1 px-3 py-2 rounded-md border border-gray-200" />
+                <button onClick={applyPromo} className="px-3 py-2 bg-gray-900 text-white rounded-md">Apply</button>
               </div>
-
-              <button className="bg-yellow-400 hover:bg-yellow-500 
-                           px-6 py-3 rounded-md 
-                           font-semibold transition">
-                Place Order
-              </button>
+              {promoMessage && <p className="text-xs mt-2 text-gray-600">{promoMessage}</p>}
             </div>
 
-          </div>
-        )}
-      
-      </div>
+            <div className="flex justify-between items-center mt-4 pt-3 border-t">
+              <p className="font-semibold text-lg">Total</p>
+              <p className="font-semibold text-lg">₹{total}</p>
+            </div>
 
+            <div className="mt-5">
+              <button className="w-full inline-flex items-center justify-center px-4 py-3 bg-orange-500 text-white rounded-lg font-semibold shadow-md">Place Order</button>
+            </div>
+
+            <div className="mt-4 text-xs text-gray-500">Secure payments • Easy returns • 100% authentic</div>
+
+          </aside>
+        )}
+
+      </div>
 
     </div>
   );

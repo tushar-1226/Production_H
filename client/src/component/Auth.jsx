@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Smartphone } from "lucide-react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Auth = () => {
 
@@ -14,6 +15,38 @@ const Auth = () => {
   const [mode, setMode] = useState("login");
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const googleLogin = useGoogleLogin({
+  onSuccess: async (tokenResponse) => {
+
+    const res = await fetch(
+      "https://www.googleapis.com/oauth2/v3/userinfo",
+      {
+        headers: {
+          Authorization: `Bearer ${tokenResponse.access_token}`
+        }
+      }
+    );
+
+    const user = await res.json();
+
+    const response = await axios.post("/auth/google", {
+      name: user.name,
+      email: user.email,
+      picture: user.picture
+    });
+
+    // save token
+    localStorage.setItem("token", response.data.token);
+
+    // navigate to shop
+    navigate("/shop");
+
+  },
+  onError: () => {
+    console.log("Login Failed");
+  }
+});
 
   // =========================
   // LOGIN OR SEND OTP
@@ -201,7 +234,9 @@ const Auth = () => {
 
         <div className="grid grid-cols-2 gap-3">
 
-          <button className="border rounded-lg py-2 flex items-center justify-center gap-2">
+          <button
+           onClick={() => googleLogin()}
+          className="border rounded-lg py-2 flex items-center justify-center gap-2">
 
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
