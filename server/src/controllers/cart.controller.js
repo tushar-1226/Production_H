@@ -1,35 +1,43 @@
 const User = require("../models/user.model");
 
 const addToCart = async (req, res) => {
+  try {
 
-  const { productId } = req.body;
-  const userId = req.user.id;
+    const { productId } = req.body;
+    const userId = req.user.userId;
 
-  const existingItem = await Cart.findOne({
-    user: userId,
-    product: productId
-  });
+    const user = await User.findById(userId);
 
-  if (existingItem) {
-    existingItem.quantity += 1;
-    await existingItem.save();
-    return res.json(existingItem);
+    const itemIndex = user.cart.findIndex(
+      item => item.productId.toString() === productId
+    );
+
+    // If product already in cart
+    if (itemIndex > -1) {
+      user.cart[itemIndex].quantity += 1;
+    } 
+    // If product not in cart
+    else {
+      user.cart.push({
+        productId,
+        quantity: 1
+      });
+    }
+
+    await user.save();
+
+    res.json({
+      cart: user.cart
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
-
-  const newItem = new Cart({
-    user: userId,
-    product: productId,
-    quantity: 1
-  });
-
-  await newItem.save();
-
-  res.json(newItem);
 };
 
 const getCart = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user.id;
 
     const user = await User.findById(userId)
       .populate("cart.productId");
