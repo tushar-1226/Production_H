@@ -9,12 +9,12 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="h-screen dark:bg-[#0A0A0B] dark:text-white">
 
       <div className='relative flex items-center justify-center w-full p-5'>
         <ArrowLeft
           onClick={() => navigate(-1)}
-          className='absolute h-10 w-10 p-2 left-5 bg-gray-300 rounded-full m-7 cursor-pointer'
+          className='absolute h-10 w-10 p-2 left-5 bg-gray-300 dark:text-black rounded-full m-7 cursor-pointer'
         />
         <p className='text-4xl font-semibold'>Your Cart</p>
       </div>

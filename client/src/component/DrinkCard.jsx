@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
-const DrinkCard = ({ drink, addToCart, cartItems  }) => {
+const DrinkCard = ({ drink }) => {
 
+  const { addToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
   const drinkId = drink._id || drink.id;
 
-const cartItem = cartItems?.find(item => item._id === drink._id);
-const quantity = cartItem ? cartItem.quantity : 0;
+  const cartItem = cartItems?.find(item => item._id === drinkId);
+  const quantity = cartItem ? cartItem.quantity : 0;
 
   return (
     <div
@@ -47,21 +49,22 @@ const quantity = cartItem ? cartItem.quantity : 0;
         <div>
 
           <div className="flex items-center gap-2 mt-1 pt-4 whitespace-nowrap">
-            <span className="bg-gray-100 px-3 py-1 text-xs rounded-full flex items-center">
+            <span className="bg-gray-100 dark:bg-gray-100/80 px-3 py-1 text-xs rounded-full flex items-center">
               ⭐ {drink.rating}
             </span>
 
-            <span className="bg-gray-100 px-3 py-1 text-xs rounded-full flex items-center">
+            <span className="bg-gray-100 dark:bg-gray-100/80 px-3 py-1 text-xs rounded-full flex items-center">
               {drink.isAvailable ? "Available" : "Out of stock"}
             </span>
           </div>
 
           <button
             onClick={(e) => {
-              e.stopPropagation();
-              addToCart(drink);
-            }}
-            className="w-full mt-5 bg-[#385170]/70 dark:bg-[#3B82F6] text-white py-3 rounded-full font-medium hover:bg-[#385170] dark:hover:bg-[#2563EB] active:bg-[#1D4ED8] transition-all duration-300 hover:scale-105"
+  e.stopPropagation();
+  console.log("clicked", drink);
+  addToCart(drink);
+}}
+            className="w-full mt-5 bg-[#385170]/70 dark:bg-[#3B82F6] text-white py-3 cursor-pointer rounded-full font-medium hover:bg-[#385170] dark:hover:bg-[#2563EB] active:bg-[#1D4ED8] transition-all duration-300 hover:scale-105"
           >
             {quantity === 0 ? "Add to Cart" : `Added to Cart (${quantity})`}
           </button>
