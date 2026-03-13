@@ -84,7 +84,7 @@ const Juice = () => {
         <div className="flex flex-col flex-wrap gap-8 p-10 ">
 
             <div className="flex">
-                <p className="text-3xl px-2 font-semibold underline underline-offset-4">Fruit Juice</p>
+                <p className="text-3xl dark:text-white px-2 font-semibold underline underline-offset-4">Fruit Juice</p>
             </div>
             <div className="relative w-full border border-gray-400 rounded-2xl p-5 overflow-hidden">
                 {showLeftArrow && (

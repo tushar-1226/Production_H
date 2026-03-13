@@ -13,7 +13,7 @@ const quantity = cartItem ? cartItem.quantity : 0;
   return (
     <div
       onClick={() => navigate(`/drink/${drinkId}`)}
-      className="relative w-[280px] bg-white flex-shrink-0 rounded-3xl shadow-lg p-4 hover:shadow-2xl transition flex flex-col cursor-pointer"
+      className="relative w-[280px] bg-white dark:bg-[#1C1C1E] flex-shrink-0 rounded-3xl shadow-lg p-4 hover:shadow-2xl transition flex flex-col cursor-pointer"
     >
 
       <img
@@ -22,7 +22,7 @@ const quantity = cartItem ? cartItem.quantity : 0;
         className="w-full h-[220px] object-contain rounded-2xl"
       />
 
-      <span className="absolute top-1 left-1 bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+      <span className="absolute top-2 left-2 bg-black/60 dark:bg-gray-100/80 text-white dark:text-black text-xs px-3 py-1 rounded-full">
         20% off
       </span>
 
@@ -31,14 +31,14 @@ const quantity = cartItem ? cartItem.quantity : 0;
         <div className="flex flex-col">
 
           <div className="flex justify-between items-center w-full">
-            <h2 className="text-lg font-semibold">{drink.name}</h2>
+            <h2 className="text-lg dark:text-[#FFFFFF] font-semibold">{drink.name}</h2>
 
             <span className="bg-gray-800 text-white px-3 py-1 text-sm rounded-full">
               ₹{drink.price}
             </span>
           </div>
 
-          <p className="hidden md:block text-gray-500 text-sm mt-2 line-clamp-3">
+          <p className="hidden md:block text-gray-500 dark:text-[#A1A1AA] text-sm mt-2 line-clamp-3">
             {drink.description}
           </p>
 
@@ -61,7 +61,7 @@ const quantity = cartItem ? cartItem.quantity : 0;
               e.stopPropagation();
               addToCart(drink);
             }}
-            className="w-full mt-5 bg-[#385170]/70 text-white py-3 rounded-full font-medium hover:bg-[#385170] transition-all duration-300 hover:scale-105"
+            className="w-full mt-5 bg-[#385170]/70 dark:bg-[#3B82F6] text-white py-3 rounded-full font-medium hover:bg-[#385170] dark:hover:bg-[#2563EB] active:bg-[#1D4ED8] transition-all duration-300 hover:scale-105"
           >
             {quantity === 0 ? "Add to Cart" : `Added to Cart (${quantity})`}
           </button>
