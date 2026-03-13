@@ -103,5 +103,46 @@ router.post("/verify-otp", async (req, res) => {
   }
 
 });
+router.post("/google", async (req, res) => {
+  try {
 
+    const { name, email } = req.body;
+
+    let user = await User.findOne({ email });
+
+    if (!user) {
+
+      // create a random password for google users
+      const randomPassword = await bcrypt.hash("google-login", 10);
+
+      user = await User.create({
+        userName: name,
+        email,
+        password: randomPassword
+      });
+    }
+
+    const token = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: "4d" }
+    );
+
+    res.json({
+      success: true,
+      token,
+      user
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Google login failed"
+    });
+
+  }
+});
 module.exports = router;

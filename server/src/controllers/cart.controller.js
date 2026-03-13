@@ -37,14 +37,15 @@ const addToCart = async (req, res) => {
 
 const getCart = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user.userId;
 
-    const user = await User.findById(userId)
-      .populate("cart.productId");
+    const user = await User.findById(userId).populate("cart.productId");
 
-    res.json({
-      cart: user.cart
-    });
+    if (!user) {
+      return res.status(404).json({ cart: [] });
+    }
+
+    res.json({ cart: user.cart });
 
   } catch (error) {
     res.status(500).json({ message: error.message });
