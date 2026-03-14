@@ -59,7 +59,7 @@ const Cart = () => {
         <div className="w-full max-w-3xl">
 
           {cartItems.length === 0 ? (
-            <div className="flex flex-col items-center justify-center p-12 bg-gradient-to-b from-white to-amber-50 rounded-xl shadow-lg">
+            <div className="flex flex-col items-center justify-center p-12 rounded-xl shadow-lg">
               <div className="text-6xl">🛒</div>
               <h2 className="text-2xl font-semibold mt-4">Your cart is empty</h2>
               <p className="text-gray-500 mt-2">Looks like you haven't added anything yet.</p>
