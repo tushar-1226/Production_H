@@ -104,5 +104,20 @@ const search =  async (req, res) => {
     res.status(500).json({ message: "Server error" })
   }
 }
+ const findDrink = async (req, res) => {
+  try {
 
-module.exports = {createDrinks, fetchDrinks, updateDrinks, deleteDrinks, search }
+    const drink = await Drink.findById(req.params.id)
+
+    if (!drink) {
+      return res.status(404).json({ message: "Drink not found" })
+    }
+
+    res.json(drink)
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error" })
+  }
+}
+
+module.exports = {createDrinks, fetchDrinks, updateDrinks, deleteDrinks, search, findDrink }
