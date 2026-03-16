@@ -79,4 +79,30 @@ const updateDrinks = async (req, res) => {
         })
     }
 }
-module.exports = {createDrinks, fetchDrinks, updateDrinks, deleteDrinks  }
+
+const search =  async (req, res) => {
+  try {
+
+    const searchTerm = req.query.query
+
+    if (!searchTerm) {
+      return res.status(400).json({ message: "Search query is required" })
+    }
+
+    const regex = { $regex: searchTerm, $options: "i" }
+
+    const drinks = await Drink.find({
+      $or: [
+        { name: regex },
+        { category: regex }
+      ]
+    })
+
+    res.json(drinks)
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error" })
+  }
+}
+
+module.exports = {createDrinks, fetchDrinks, updateDrinks, deleteDrinks, search }
