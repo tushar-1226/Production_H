@@ -62,7 +62,7 @@ const Page2 = () => {
                 transition={{ duration: 0.5, delay: 0.06 + i * 0.06 }}>
 
                 <Link to='/shop' className='block group'>
-                  <div className='relative rounded-lg border border-2 border-gray-100 dark:border-[#2b2b2f] p-5 sm:p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300 dark:bg-transparent'>
+                  <div className='relative rounded-lg border border-2 border-gray-200 dark:border-[#2b2b2f] p-5 sm:p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300 dark:bg-transparent'>
 
                     <div className='flex items-start '>
                       {/* Number */}
