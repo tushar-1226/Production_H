@@ -73,7 +73,6 @@ const updateCart = async (req, res) => {
     if (action === "decrease") {
       user.cart[itemIndex].quantity -= 1;
 
-      // remove if quantity becomes 0
       if (user.cart[itemIndex].quantity <= 0) {
         user.cart.splice(itemIndex, 1);
       }
