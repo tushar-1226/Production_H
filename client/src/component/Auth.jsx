@@ -36,10 +36,8 @@ const Auth = () => {
       picture: user.picture
     });
 
-    // save token
     localStorage.setItem("token", response.data.token);
 
-    // navigate to shop
     navigate("/shop");
 
   },
@@ -48,9 +46,7 @@ const Auth = () => {
   }
 });
 
-  // =========================
-  // LOGIN OR SEND OTP
-  // =========================
+
   const handleAuth = async (e) => {
   e.preventDefault();
 
