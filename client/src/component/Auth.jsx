@@ -17,67 +17,66 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const googleLogin = useGoogleLogin({
-  onSuccess: async (tokenResponse) => {
+    onSuccess: async (tokenResponse) => {
 
-    const res = await fetch(
-      "https://www.googleapis.com/oauth2/v3/userinfo",
-      {
-        headers: {
-          Authorization: `Bearer ${tokenResponse.access_token}`
+      const res = await fetch(
+        "https://www.googleapis.com/oauth2/v3/userinfo",
+        {
+          headers: {
+            Authorization: `Bearer ${tokenResponse.access_token}`
+          }
         }
-      }
-    );
+      );
 
-    const user = await res.json();
+      const user = await res.json();
 
-    const response = await axios.post("/auth/google", {
-      name: user.name,
-      email: user.email,
-      picture: user.picture
-    });
-
-    localStorage.setItem("token", response.data.token);
-
-    navigate("/shop");
-
-  },
-  onError: () => {
-    console.log("Login Failed");
-  }
-});
-
-
-  const handleAuth = async (e) => {
-  e.preventDefault();
-
-  try {
-
-    if (mode === "signup") {
-
-      await axios.post("/auth/send-otp", { email });
-
-      navigate("/verify-otp", {
-  state: { email, userName, password }
-});
-
-    } else {
-
-      const res = await axios.post("/auth/login", {
-        email,
-        password
+      const response = await axios.post("/auth/google", {
+        name: user.name,
+        email: user.email,
+        picture: user.picture
       });
 
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", response.data.token);
 
       navigate("/shop");
+
+    },
+    onError: () => {
+      console.log("Login Failed");
     }
+  });
 
-  } catch (error) {
+  const handleAuth = async (e) => {
+    e.preventDefault();
 
-    console.log(error.response?.data);
+    try {
 
-  }
-};
+      if (mode === "signup") {
+
+        await axios.post("/auth/send-otp", { email });
+
+        navigate("/verify-otp", {
+          state: { email, userName, password }
+        });
+
+      } else {
+
+        const res = await axios.post("/auth/login", {
+          email,
+          password
+        });
+
+        localStorage.setItem("token", res.data.token);
+
+        navigate("/shop");
+      }
+
+    } catch (error) {
+
+      console.log(error.response?.data);
+
+    }
+  };
 
   return (
 
@@ -231,8 +230,8 @@ const Auth = () => {
         <div className="grid grid-cols-2 gap-3">
 
           <button
-           onClick={() => googleLogin()}
-          className="border rounded-lg py-2 flex items-center justify-center gap-2">
+            onClick={() => googleLogin()}
+            className="border rounded-lg py-2 flex items-center justify-center gap-2">
 
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"

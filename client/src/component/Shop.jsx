@@ -1,6 +1,5 @@
 import ShopNavbar from './ShopNavbar';
 import Trending from './Trending'
-import Category from './Category';
 import Banner from './Banner';
 import Milkbased from './Milkbased'
 import Juice from './Juice';

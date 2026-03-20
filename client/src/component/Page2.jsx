@@ -37,56 +37,63 @@ const Page2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className='flex flex-col justify-center items-center mb-10 px-4 w-full dark:text-[#E8E8E8] '>
+          className='flex flex-col justify-center items-center mb-14 w-full px-5'>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
+          <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-center leading-tight text-gray-900 dark:text-[#E8E8E8]'>
             What can you sip today?
           </h2>
 
-          <p className=" text-sm sm:text-base md:text-lg lg:text-[20px] mt-3 md:mt-4 sm:justify-center text-center max-w-3xl">
+          <p className='text-sm sm:text-base md:text-lg mt-4 text-center max-w-2xl text-gray-500 dark:text-gray-400 leading-relaxed'>
             From everyday refreshment to premium pours — every sip crafted for your mood and moment.
           </p>
         </motion.div>
 
-        {/* Editorial List -> Responsive 2x2 grid */}
+        {/* Editorial List */}
         <div className='px-4 sm:px-8'>
 
-          {/* Grid container */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
-            {categories.map((cat, i) => (
-              <motion.div
-                key={cat.num}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.06 + i * 0.06 }}>
+          {/* Top border */}
+          <div className='w-full h-px bg-gray-200 dark:bg-[#2a2a2e]' />
 
-                <Link to='/shop' className='block group'>
-                  <div className='relative rounded-lg border border-2 border-gray-200 dark:border-[#2b2b2f] p-5 sm:p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300 dark:bg-transparent'>
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.num}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}>
 
-                    <div className='flex items-start '>
-                      {/* Number */}
-                      <span className='text-xs font-mono text-gray-400 dark:text-[#4a4a4f] w-12 shrink-0'>
-                        {cat.num}
-                      </span>
+              <Link to='/shop' className='block group'>
+                <div className='relative flex items-center justify-between py-7 sm:py-9 cursor-pointer'>
 
-                      {/* Title + Description */}
-                      <div className='flex-1 pl-4'>
-                        <p className='text-xl sm:text-2xl font-bold text-gray-900 dark:text-[#E8E8E8]  transition-colors duration-200'>
-                          {cat.title}
-                        </p>
-                        <p className='mt-1 text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed'>
-                          {cat.desc}
-                        </p>
-                      </div>
-                    </div>
+                  {/* Hover accent bar — left edge, plain dark */}
+                  <span className='absolute left-0 top-0 h-full w-[2px]
+                    bg-gray-800 dark:bg-[#E8E8E8]
+                    scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300' />
 
+                  {/* Number */}
+                  <span className='text-xs font-mono text-gray-300 dark:text-[#3a3a40] w-10 shrink-0 pl-3
+                    group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300'>
+                    {cat.num}
+                  </span>
+
+                  {/* Title + Description */}
+                  <div className='flex-1 px-5 sm:px-10'>
+                    <p className='text-2xl sm:text-3xl md:text-[2.4rem] font-bold text-gray-900 dark:text-[#E8E8E8]
+                      group-hover:text-gray-600 dark:group-hover:text-white transition-colors duration-300 leading-tight'>
+                      {cat.title}
+                    </p>
+                    <p className='mt-1.5 text-sm sm:text-base text-gray-400 dark:text-gray-500 max-w-md leading-relaxed'>
+                      {cat.desc}
+                    </p>
                   </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
 
+                </div>
+              </Link>
+
+              {/* Divider */}
+              <div className='w-full h-px bg-gray-200 dark:bg-[#2a2a2e]' />
+            </motion.div>
+          ))}
         </div>
 
       </div>
