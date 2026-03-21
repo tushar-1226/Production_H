@@ -65,7 +65,6 @@ const Page2 = () => {
               <Link to='/shop' className='block group'>
                 <div className='relative flex items-center justify-between py-7 sm:py-9 cursor-pointer'>
 
-            
 
                   <span className='text-xs font-mono text-gray-900 dark:text-[#3a3a40] w-10 shrink-0 pl-3
                      transition-colors duration-300'>
