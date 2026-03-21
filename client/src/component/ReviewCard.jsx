@@ -67,26 +67,26 @@ const ReviewCard = () => {
             {duplicatedReviews.map((review, index) => (
               <div
                 key={`${review.id}-${index}`}
-                className="flex flex-col min-w-[340px] sm:min-w-[380px] md:min-w-[420px] justify-center p-3 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-gray-300 dark:hover:border-[#00FFD1] mr-6"
+                className="flex flex-col min-w-[260px] sm:min-w-[320px] md:min-w-[400px] justify-center p-3 sm:p-4 md:p-5 dark:bg-[#111113] border border-[#333333] dark:text-[#E8E8E8] transition-all duration-300 ease-out cursor-pointer hover:-translate-y-[6px] hover:border-gray-300 dark:hover:border-[#00FFD1] mr-3 sm:mr-5"
               >
-                <div className='flex items-center pb-3'>
+                <div className='flex items-center pb-2 sm:pb-3'>
                   <div>
                     <img
                       src={review.image}
                       alt={review.name}
-                      className='w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-full mr-4'
+                      className='w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-cover rounded-full mr-3'
                       onError={(e) => {
                         e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(review.name) + '&background=random';
                       }}
                     />
                   </div>
                   <div>
-                    <p className='text-lg mb-1'>{'⭐'.repeat(review.rating)}</p>
-                    <p className='font-semibold text-base sm:text-lg'>{review.name}</p>
-                    <p className='text-xs sm:text-sm text-gray-400'>{review.location}</p>
+                    <p className='text-sm sm:text-base mb-0.5'>{'⭐'.repeat(review.rating)}</p>
+                    <p className='font-semibold text-sm sm:text-base md:text-lg leading-tight'>{review.name}</p>
+                    <p className='text-[11px] sm:text-xs md:text-sm text-gray-400 leading-tight'>{review.location}</p>
                   </div>
                 </div>
-                <p className='text-sm sm:text-base leading-relaxed'>{review.review}</p>
+                <p className='text-xs sm:text-sm md:text-base leading-relaxed'>{review.review}</p>
               </div>
             ))}
           </div>
