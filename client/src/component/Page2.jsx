@@ -65,24 +65,19 @@ const Page2 = () => {
               <Link to='/shop' className='block group'>
                 <div className='relative flex items-center justify-between py-7 sm:py-9 cursor-pointer'>
 
-                  {/* Hover accent bar — left edge, plain dark */}
-                  <span className='absolute left-0 top-0 h-full w-[2px]
-                    bg-gray-800 dark:bg-[#E8E8E8]
-                    scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300' />
+            
 
-                  {/* Number */}
-                  <span className='text-xs font-mono text-gray-300 dark:text-[#3a3a40] w-10 shrink-0 pl-3
-                    group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300'>
+                  <span className='text-xs font-mono text-gray-900 dark:text-[#3a3a40] w-10 shrink-0 pl-3
+                     transition-colors duration-300'>
                     {cat.num}
                   </span>
 
-                  {/* Title + Description */}
                   <div className='flex-1 px-5 sm:px-10'>
                     <p className='text-2xl sm:text-3xl md:text-[2.4rem] font-bold text-gray-900 dark:text-[#E8E8E8]
-                      group-hover:text-gray-600 dark:group-hover:text-white transition-colors duration-300 leading-tight'>
+                       transition-colors duration-300 leading-tight'>
                       {cat.title}
                     </p>
-                    <p className='mt-1.5 text-sm sm:text-base text-gray-400 dark:text-gray-500 max-w-md leading-relaxed'>
+                    <p className='mt-1.5 text-sm sm:text-base text-gray-400 dark:text-gray-900 max-w-md leading-relaxed'>
                       {cat.desc}
                     </p>
                   </div>
@@ -90,7 +85,6 @@ const Page2 = () => {
                 </div>
               </Link>
 
-              {/* Divider */}
               <div className='w-full h-px bg-gray-200 dark:bg-[#2a2a2e]' />
             </motion.div>
           ))}
