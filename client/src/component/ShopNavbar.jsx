@@ -7,20 +7,18 @@ import { useNavigate } from "react-router-dom";
 import assets from '../assets/assets';
 
 
-
-
 const ShopNavbar = () => {
 
-  function CartCountBadge() {
-    const { cartItems } = useContext(CartContext);
-    const totalCount = cartItems?.reduce((sum, it) => sum + (it.quantity || 0), 0) || 0;
-    if (!totalCount) return null;
-    return (
-      <span className="absolute -top-1 left-4 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">
-        {totalCount}
-      </span>
-    );
-  }
+  // function CartCountBadge() {
+  //   const { cartItems } = useContext(CartContext);
+  //   const totalCount = cartItems?.reduce((sum, it) => sum + (it.quantity || 0), 0) || 0;
+  //   if (!totalCount) return null;
+  //   return (
+  //     <span className="absolute -top-1 left-4 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">
+  //       {totalCount}
+  //     </span>
+  //   );
+  // }
 
   const navigate = useNavigate();
 
@@ -138,8 +136,7 @@ const ShopNavbar = () => {
             <ShoppingBag className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer hover:opacity-70 transition" />
             <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap ">Cart </span>
 
-            {/* cart count badge */}
-            <CartCountBadge />
+            {/* <CartCountBadge /> */}
 
           </Link>
 
@@ -160,15 +157,6 @@ const ShopNavbar = () => {
             alt="User profile"
           />
 
-          {/* <span className="absolute top-10 left-14 -translate-x-1/2 bg-gray-300 text-black   rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>My Profile</p>
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>My Orders</p>
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Wishlist</p>
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Cart</p>
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Settings</p>
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Support</p>
-            <p className='py-2 px-10 hover:bg-gray-200 cursor-pointer'>Logout</p>
-          </span> */}
 
         </div>
 
