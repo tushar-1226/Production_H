@@ -11,7 +11,6 @@ import Cart from './component/Cart'
 import Auth from './component/Auth'
 import SearchResult from "./component/SearchResult";
 import UserProfile from "./component/UserProfile"
-import DrinkDetail from './component/DrinkDetail'
 import VerifyOtp from "./component/VerifyOtp"
 // import Login from "./component/Login"
 // import SignUp from './component/SignUp'
@@ -68,7 +67,6 @@ const App = () => {
           }
         />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/drink/:id" element={<DrinkDetail />} />
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/auth" element={<Auth/>} /> 

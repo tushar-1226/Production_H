@@ -40,7 +40,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="h-screen dark:bg-[#0A0A0B] dark:text-white bg-transparent">
+    <div className="h-full dark:bg-[#0A0A0B] dark:text-white bg-transparent">
 
       <div className="relative flex items-center justify-center w-full p-6 ">
         <ArrowLeft
@@ -48,8 +48,8 @@ const Cart = () => {
           className='absolute left-6 h-10 w-10 p-2 rounded-full m-7 cursor-pointer bg-gray-100 text-gray-900 shadow-lg'
         />
         <div className="text-center">
-          <h1 className='text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-500'>Your Cart</h1>
-          <p className='text-sm text-gray-500'>Review items, apply promo codes, and place order</p>
+          <h1 className='text-4xl font-extrabold bg-clip-text text-transparent text-black dark:text-white'>Your Cart</h1>
+          <p className='text-sm text-black dark:text-white'>Review items, apply promo codes, and place order</p>
         </div>
       </div>
 

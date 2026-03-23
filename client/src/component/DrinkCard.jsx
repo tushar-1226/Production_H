@@ -5,7 +5,7 @@ import { ShoppingCart, Check } from "lucide-react";
 
 const DrinkCard = ({ drink }) => {
   const { addToCart, cartItems } = useContext(CartContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const drinkId = drink._id || drink.id;
   const cartItem = cartItems?.find(item => item._id === drinkId);
@@ -13,10 +13,8 @@ const DrinkCard = ({ drink }) => {
   const inCart = quantity > 0;
 
   return (
-    <div
-      onClick={() => navigate(`/drink/${drinkId}`)}
-      className="
-        group relative flex-shrink-0 cursor-pointer flex flex-col
+    <div 
+        className="group relative flex-shrink-0 cursor-pointer flex flex-col
         w-[190px] sm:w-[230px] md:w-[260px] lg:w-[275px]
         rounded-2xl overflow-hidden
         bg-white dark:bg-gradient-to-b dark:from-[#1E1E2E] dark:to-[#16161F]
