@@ -94,9 +94,8 @@ const sendOtp = async (req, res) => {
 }
 
 const verifyOtp =  async (req, res) => {
-
   try {
-
+    
     let { email, otp, userName, password } = req.body;
 
     email = email.trim().toLowerCase();
