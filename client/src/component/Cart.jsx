@@ -150,7 +150,7 @@ const Cart = () => {
 
                         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
                           {/* Quantity Selector */}
-                          <div className="flex items-center gap-1 bg-slate-100 dark:bg-[#111113] p-1 rounded-2xl border border-slate-200 dark:border-white/10">
+                          <div className="flex items-center gap-1 bg-slate-100 dark:bg-[#111113] p-1 border border-slate-200 dark:border-white/10">
                             <motion.button 
                               whileTap={{ scale: 0.9 }}
                               onClick={() => updateCart(item._id, "decrease")}
@@ -203,7 +203,7 @@ const Cart = () => {
               animate={{ opacity: 1, y: 0 }}
               className="lg:col-span-4 sticky top-28"
             >
-              <div className="bg-white dark:bg-white/5 backdrop-blur-2xl border border-slate-200 dark:border-white/10 rounded-[2.5rem] p-8 shadow-2xl shadow-black/5 space-y-8">
+              <div className="bg-white dark:bg-white/5 backdrop-blur-2xl border border-slate-200 dark:border-white/10  p-8 shadow-2xl shadow-black/5 space-y-8">
                 <div>
                   <h3 className="text-2xl font-bold mb-6">Order Summary</h3>
                   <div className="space-y-4">
@@ -227,7 +227,7 @@ const Cart = () => {
                 {/* Promo Code */}
                 <div className="pt-6 border-t border-slate-100 dark:border-white/5">
                   <p className="text-sm font-bold mb-3 uppercase tracking-wider text-slate-400">Promo Code</p>
-                  <div className="flex gap-2 p-1.5 bg-slate-50 dark:bg-[#111113] rounded-2xl border border-slate-200 dark:border-white/10">
+                  <div className="flex gap-2 p-1.5 bg-slate-50 dark:bg-[#111113] rounded-xl border border-slate-200 dark:border-white/10">
                     <input 
                       value={promo} 
                       onChange={(e) => setPromo(e.target.value)} 
@@ -265,7 +265,7 @@ const Cart = () => {
                   <motion.button
                     whileHover={{ scale: 1.01, translateY: -2 }}
                     whileTap={{ scale: 0.99 }}
-                    className="group w-full relative h-14 bg-black dark:bg-[#00FFD1] text-white dark:text-black rounded-2xl font-bold flex items-center justify-center gap-3 overflow-hidden shadow-xl shadow-black/10 dark:shadow-cyan-500/20"
+                    className="group w-full relative h-14 bg-black dark:bg-[#00FFD1] text-white dark:text-black rounded-xl font-bold flex items-center justify-center gap-3 overflow-hidden shadow-xl shadow-black/10 dark:shadow-cyan-500/20"
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       Place Order

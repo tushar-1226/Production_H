@@ -3,6 +3,7 @@ import axios from "../api/axios"
 import { useNavigate } from "react-router-dom"
 import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
+import Loader from './Loader'
 
 const UserProfile = ({ theme, setTheme }) => {
     const [user, setUser] = useState(null)
@@ -18,7 +19,7 @@ const UserProfile = ({ theme, setTheme }) => {
             try {
                 const token = localStorage.getItem('token')
                 if (!token) {
-                    navigate('/auth')
+                    navigate('/auth', { replace: true })
                     return
                 }
                 const res = await axios.get('/auth/profile', {
@@ -30,7 +31,7 @@ const UserProfile = ({ theme, setTheme }) => {
                 setWishlist(res.data.wishlist || [])
             } catch (err) {
                 console.error('Error fetching user:', err)
-                navigate('/auth')
+                navigate('/auth', { replace: true })
             } finally {
                 setLoading(false)
             }
@@ -40,7 +41,7 @@ const UserProfile = ({ theme, setTheme }) => {
 
     const handleLogout = () => {
         localStorage.removeItem('token')
-        navigate('/auth')
+        navigate('/auth', { replace: true })
     }
 
     const handleOpenEdit = () => setShowEditModal(true)
@@ -59,7 +60,7 @@ const UserProfile = ({ theme, setTheme }) => {
         }
     }
 
-    if (loading) return <div className="flex items-center justify-center h-screen">Loading...</div>
+    if (loading) return <Loader />
 
     return (
         <div className="h-screen w-screen  dark:bg-[#0A0A0B]/30 dark:text-white flex">
