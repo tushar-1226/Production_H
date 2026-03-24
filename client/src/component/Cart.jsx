@@ -57,7 +57,7 @@ const Cart = () => {
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0A0A0B] text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans">
       
       {/* Header section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="flex flex-col gap-4">
             <motion.button 
@@ -112,15 +112,16 @@ const Cart = () => {
                   animate="visible"
                   className="space-y-4"
                 >
+                  
                   {cartItems.map((item) => (
                     <motion.div
                       key={item._id}
                       variants={itemVariants}
                       layout
-                      className="group relative bg-white dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-3xl p-4 sm:p-5 flex flex-col sm:flex-row gap-6 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-cyan-500/5 transition-all duration-500"
+                      className="group relative bg-white dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 p-4 sm:p-5 flex flex-col sm:flex-row gap-6 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-cyan-500/5 transition-all duration-500"
                     >
                       {/* Product Image */}
-                      <div className="w-full sm:w-32 h-32 bg-slate-50 dark:bg-[#111113] rounded-2xl flex items-center justify-center overflow-hidden flex-shrink-0 border border-slate-100 dark:border-white/5">
+                      <div className="w-full sm:w-32 h-32 bg-slate-50 dark:bg-[#111113] flex items-center justify-center overflow-hidden flex-shrink-0 border border-slate-100 dark:border-white/5">
                         <motion.img 
                           whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.4 }}
@@ -134,7 +135,7 @@ const Cart = () => {
                       <div className="flex-1 flex flex-col justify-between py-1">
                         <div className="flex justify-between items-start gap-4">
                           <div>
-                            <h3 className="text-xl font-bold dark:text-white group-hover:text-orange-500 dark:group-hover:text-[#00FFD1] transition-colors">
+                            <h3 className="text-xl font-bold dark:text-white ">
                               {item.name}
                             </h3>
                             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
