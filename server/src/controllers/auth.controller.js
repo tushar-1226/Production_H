@@ -3,99 +3,114 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const registerUser = async (req, res) => {
-    
-    const {userName, email, password} = req.body
 
-    const existingUser = await User.findOne({email})
+  const { userName, email, password } = req.body
 
-    if (existingUser){
-        return res.status(400).send("User already exists")
-    }
-    const hashedPassword = await bcrypt.hash(password, 10);
-    
-    const newUser = new User({
-        userName,
-        email,
-        password: hashedPassword
-    });
+  const existingUser = await User.findOne({ email })
 
-    await newUser.save();
+  if (existingUser) {
+    return res.status(400).send("User already exists")
+  }
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-    res.send("User registered sucessfully")
+  const newUser = new User({
+    userName,
+    email,
+    password: hashedPassword
+  });
+
+  await newUser.save();
+
+  res.send("User registered sucessfully")
 }
 
 const loginUser = async (req, res) => {
 
-    const {email, password} = req.body
+  const { email, password } = req.body
 
-    const user = await User.findOne({email})
+  const user = await User.findOne({ email })
 
-    if (!user){
-        return res.status(400).send("User not found")
-    }
-    const isMatch = await bcrypt.compare(password, user.password);
+  if (!user) {
+    return res.status(400).send("User not found")
+  }
+  const isMatch = await bcrypt.compare(password, user.password);
 
-    if (!isMatch) {
-        return res.status(400).send("Invalid password");
-    }
+  if (!isMatch) {
+    return res.status(400).send("Invalid password");
+  }
 
-    const token = jwt.sign(
-        { userId: user._id },
-        "mysecretkey",
-        { expiresIn: "4d"}
-    );
-    console.log(res.data)
-    console.log(token)
-    res.json({
-        message: "Login successful",
-        token
-    });
-}   
+  const token = jwt.sign(
+    { userId: user._id },
+    process.env.JWT_SECRET || "mysecretkey",
+    { expiresIn: "4d" }
+  );
+  console.log(res.data)
+  console.log(token)
+  res.json({
+    message: "Login successful",
+    token
+  });
+}
 
 const getProfile = async (req, res) => {
-    try {
-        const user = await User.findById(req.user.userId).select("-password");
+  try {
+    const user = await User.findById(req.user.userId).select("-password");
 
-        res.json({
-            message: "User profile fetched",
-            user
-        });
-    } catch (error) {
-        res.status(500).send("Server error");
-    }
+    res.json({
+      message: "User profile fetched",
+      user
+    });
+  } catch (error) {
+    res.status(500).send("Server error");
+  }
+};
+
+// SEND OTP CODE START FROM HERE
+const sendEmail = require("../utils/sendEmail");
+const otpStorage = {};
+
+const generateOtp = () => {
+  const otp = Math.floor(100000 + Math.random() * 900000);
+  return otp;
 };
 
 const sendOtp = async (req, res) => {
-    try {
-        const email = req.body.email.trim().toLowerCase();
+  try {
+    const email = req.body.email?.trim().toLowerCase();
 
-        const otp = generateOtp();
-
-        otpStorage[email] = otp;
-
-        await sendEmail(
-            email,
-            "Your OTP for Liquid Website",
-            `Your OTP is ${otp}. It will expire in 5 minutes.`
-        );
-
-        res.json({
-            success: true,
-            message: "OTP sent successfully"
-        });
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({
-            success: false,
-            message: "Error sending OTP"
-        });
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
     }
+
+    const otp = generateOtp();
+
+    otpStorage[email] = otp;
+
+    await sendEmail(
+      email,
+      "Your OTP for Liquid Website",
+      `Your OTP is ${otp}. It will expire in 5 minutes.`
+    );
+
+    res.json({
+      success: true,
+      message: "OTP sent successfully"
+    });
+
+  } catch (error) {
+  console.log("ERROR 👉", error.message);
+  console.log(error);
+
+  res.status(500).json({
+    success: false,
+    message: error.message
+  });
+}
 }
 
-const verifyOtp =  async (req, res) => {
+const verifyOtp = async (req, res) => {
   try {
-    
+
     let { email, otp, userName, password } = req.body;
 
     email = email.trim().toLowerCase();
@@ -194,4 +209,4 @@ const google = async (req, res) => {
   }
 }
 
-module.exports = {registerUser, loginUser, getProfile, sendOtp, verifyOtp, google}
+module.exports = { registerUser, loginUser, getProfile, sendOtp, verifyOtp, google }

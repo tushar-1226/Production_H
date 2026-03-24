@@ -5,10 +5,7 @@ const { registerUser, loginUser, getProfile, sendOtp, verifyOtp, google } = requ
 const protect = require("../middleware/authMiddleware")
 const User = require("../models/user.model")
 
-const sendEmail = require("../utils/sendEmail");
-const generateOtp = require("../utils/generateOtp");
 
-const otpStorage = {};
 
 const router = express.Router();
 

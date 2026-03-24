@@ -8,4 +8,11 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-module.exports =  transporter;
+// verify connection configuration and log helpful hint on auth failure
+transporter.verify().then(() => {
+  console.log('Email transporter ready');
+}).catch(err => {
+  console.error('Email transporter failed to verify — check EMAIL_USER/EMAIL_PASS and Gmail app password / 2FA settings:', err.message || err);
+});
+
+module.exports = transporter;
