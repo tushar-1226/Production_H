@@ -78,16 +78,16 @@ const Cart = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Cart Items List */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className={cartItems.length === 0 ? "lg:col-span-12 space-y-6 flex justify-center items-center min-h-[40vh]" : "lg:col-span-8 space-y-6"}>
             <AnimatePresence mode="popLayout">
               {cartItems.length === 0 ? (
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-12 flex flex-col items-center text-center shadow-sm"
+                  className="bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-xl p-12 flex flex-col items-center text-center shadow-sm"
                 >
                   <div className="w-20 h-20 bg-slate-100 dark:bg-white/5 rounded-full flex items-center justify-center mb-6">
                     <ShoppingBag size={40} className="text-slate-400 dark:text-slate-500" />
