@@ -9,16 +9,7 @@ import assets from '../assets/assets';
 
 const ShopNavbar = () => {
 
-  // function CartCountBadge() {
-  //   const { cartItems } = useContext(CartContext);
-  //   const totalCount = cartItems?.reduce((sum, it) => sum + (it.quantity || 0), 0) || 0;
-  //   if (!totalCount) return null;
-  //   return (
-  //     <span className="absolute -top-1 left-4 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">
-  //       {totalCount}
-  //     </span>
-  //   );
-  // }
+
 
   const navigate = useNavigate();
 
@@ -43,7 +34,7 @@ const ShopNavbar = () => {
       } catch (error) {
         console.error("Search error:", error)
       }
-    }, 300) // 500ms delay
+    }, 300) 
 
     return () => clearTimeout(delay)
 
@@ -106,11 +97,11 @@ const ShopNavbar = () => {
           className="w-[150px] min-[410px]:w-[200px] sm:w-[300px] lg:w-[500px] border-2 rounded-4xl  pl-2 sm:pl-4 py-1 sm:py-2 focus:outline-2 focus:border-amber-800 "
         />
         {showDropdown && searchTerm && results.length > 0 && (
-          <div className="w-[500px] max-h-[200px] overflow-y-auto z-[1000] border-2 border-black bg-[#eaf6f6] absolute rounded-xl top-12">
+          <div className="w-[500px] max-h-[200px] overflow-y-auto z-[1000] border-2 border-black bg-[#eaf6f6] absolute rounded-lg top-12">
             {results.map((drink) => (
               <div key={drink._id}
                 onClick={() => navigate(`/search/${drink._id}`)}
-                className="p-2 cursor-pointer hover:bg-gray-100">
+                className="p-2 cursor-pointer hover:bg-gray-300">
                 {drink.name}
               </div>
             ))}
