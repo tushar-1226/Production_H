@@ -5,7 +5,7 @@ import { ShoppingCart, Check } from "lucide-react";
 
 const DrinkCard = ({ drink }) => {
   const { addToCart, cartItems } = useContext(CartContext);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const drinkId = drink._id || drink.id;
   const cartItem = cartItems?.find(item => item._id === drinkId);
@@ -72,6 +72,11 @@ const DrinkCard = ({ drink }) => {
         <button
           onClick={(e) => {
             e.stopPropagation();
+            const token = localStorage.getItem("token");
+            if (!token) {
+              navigate("/auth");
+              return;
+            }
             addToCart(drink);
           }}
           className={`
